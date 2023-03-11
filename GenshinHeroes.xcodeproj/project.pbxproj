@@ -1,0 +1,619 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7A7598DF29BC403100DDC42A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7598DE29BC403100DDC42A /* AppDelegate.m */; };
+		7A7598E229BC403100DDC42A /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7598E129BC403100DDC42A /* SceneDelegate.m */; };
+		7A7598E529BC403100DDC42A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7598E429BC403100DDC42A /* ViewController.m */; };
+		7A7598E829BC403100DDC42A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A7598E629BC403100DDC42A /* Main.storyboard */; };
+		7A7598EB29BC403100DDC42A /* GenshinHeroes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7A7598E929BC403100DDC42A /* GenshinHeroes.xcdatamodeld */; };
+		7A7598ED29BC403400DDC42A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A7598EC29BC403400DDC42A /* Assets.xcassets */; };
+		7A7598F029BC403400DDC42A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A7598EE29BC403400DDC42A /* LaunchScreen.storyboard */; };
+		7A7598F329BC403400DDC42A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7598F229BC403400DDC42A /* main.m */; };
+		7A7598FD29BC403500DDC42A /* GenshinHeroesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7598FC29BC403500DDC42A /* GenshinHeroesTests.m */; };
+		7A75990729BC403500DDC42A /* GenshinHeroesUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A75990629BC403500DDC42A /* GenshinHeroesUITests.m */; };
+		7A75990929BC403500DDC42A /* GenshinHeroesUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A75990829BC403500DDC42A /* GenshinHeroesUITestsLaunchTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7A7598F929BC403500DDC42A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7A7598D229BC403100DDC42A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7A7598D929BC403100DDC42A;
+			remoteInfo = GenshinHeroes;
+		};
+		7A75990329BC403500DDC42A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7A7598D229BC403100DDC42A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7A7598D929BC403100DDC42A;
+			remoteInfo = GenshinHeroes;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7A7598DA29BC403100DDC42A /* GenshinHeroes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GenshinHeroes.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A7598DD29BC403100DDC42A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		7A7598DE29BC403100DDC42A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		7A7598E029BC403100DDC42A /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		7A7598E129BC403100DDC42A /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		7A7598E329BC403100DDC42A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		7A7598E429BC403100DDC42A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		7A7598E729BC403100DDC42A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7A7598EA29BC403100DDC42A /* GenshinHeroes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GenshinHeroes.xcdatamodel; sourceTree = "<group>"; };
+		7A7598EC29BC403400DDC42A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7A7598EF29BC403400DDC42A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7A7598F129BC403400DDC42A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A7598F229BC403400DDC42A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7A7598F829BC403500DDC42A /* GenshinHeroesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GenshinHeroesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A7598FC29BC403500DDC42A /* GenshinHeroesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GenshinHeroesTests.m; sourceTree = "<group>"; };
+		7A75990229BC403500DDC42A /* GenshinHeroesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GenshinHeroesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A75990629BC403500DDC42A /* GenshinHeroesUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GenshinHeroesUITests.m; sourceTree = "<group>"; };
+		7A75990829BC403500DDC42A /* GenshinHeroesUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GenshinHeroesUITestsLaunchTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7A7598D729BC403100DDC42A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A7598F529BC403500DDC42A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A7598FF29BC403500DDC42A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7A7598D129BC403100DDC42A = {
+			isa = PBXGroup;
+			children = (
+				7A7598DC29BC403100DDC42A /* GenshinHeroes */,
+				7A7598FB29BC403500DDC42A /* GenshinHeroesTests */,
+				7A75990529BC403500DDC42A /* GenshinHeroesUITests */,
+				7A7598DB29BC403100DDC42A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7A7598DB29BC403100DDC42A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7A7598DA29BC403100DDC42A /* GenshinHeroes.app */,
+				7A7598F829BC403500DDC42A /* GenshinHeroesTests.xctest */,
+				7A75990229BC403500DDC42A /* GenshinHeroesUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7A7598DC29BC403100DDC42A /* GenshinHeroes */ = {
+			isa = PBXGroup;
+			children = (
+				7A7598DD29BC403100DDC42A /* AppDelegate.h */,
+				7A7598DE29BC403100DDC42A /* AppDelegate.m */,
+				7A7598E029BC403100DDC42A /* SceneDelegate.h */,
+				7A7598E129BC403100DDC42A /* SceneDelegate.m */,
+				7A7598E329BC403100DDC42A /* ViewController.h */,
+				7A7598E429BC403100DDC42A /* ViewController.m */,
+				7A7598E629BC403100DDC42A /* Main.storyboard */,
+				7A7598EC29BC403400DDC42A /* Assets.xcassets */,
+				7A7598EE29BC403400DDC42A /* LaunchScreen.storyboard */,
+				7A7598F129BC403400DDC42A /* Info.plist */,
+				7A7598F229BC403400DDC42A /* main.m */,
+				7A7598E929BC403100DDC42A /* GenshinHeroes.xcdatamodeld */,
+			);
+			path = GenshinHeroes;
+			sourceTree = "<group>";
+		};
+		7A7598FB29BC403500DDC42A /* GenshinHeroesTests */ = {
+			isa = PBXGroup;
+			children = (
+				7A7598FC29BC403500DDC42A /* GenshinHeroesTests.m */,
+			);
+			path = GenshinHeroesTests;
+			sourceTree = "<group>";
+		};
+		7A75990529BC403500DDC42A /* GenshinHeroesUITests */ = {
+			isa = PBXGroup;
+			children = (
+				7A75990629BC403500DDC42A /* GenshinHeroesUITests.m */,
+				7A75990829BC403500DDC42A /* GenshinHeroesUITestsLaunchTests.m */,
+			);
+			path = GenshinHeroesUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7A7598D929BC403100DDC42A /* GenshinHeroes */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7A75990C29BC403500DDC42A /* Build configuration list for PBXNativeTarget "GenshinHeroes" */;
+			buildPhases = (
+				7A7598D629BC403100DDC42A /* Sources */,
+				7A7598D729BC403100DDC42A /* Frameworks */,
+				7A7598D829BC403100DDC42A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GenshinHeroes;
+			productName = GenshinHeroes;
+			productReference = 7A7598DA29BC403100DDC42A /* GenshinHeroes.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7A7598F729BC403500DDC42A /* GenshinHeroesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7A75990F29BC403500DDC42A /* Build configuration list for PBXNativeTarget "GenshinHeroesTests" */;
+			buildPhases = (
+				7A7598F429BC403500DDC42A /* Sources */,
+				7A7598F529BC403500DDC42A /* Frameworks */,
+				7A7598F629BC403500DDC42A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7A7598FA29BC403500DDC42A /* PBXTargetDependency */,
+			);
+			name = GenshinHeroesTests;
+			productName = GenshinHeroesTests;
+			productReference = 7A7598F829BC403500DDC42A /* GenshinHeroesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		7A75990129BC403500DDC42A /* GenshinHeroesUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7A75991229BC403500DDC42A /* Build configuration list for PBXNativeTarget "GenshinHeroesUITests" */;
+			buildPhases = (
+				7A7598FE29BC403500DDC42A /* Sources */,
+				7A7598FF29BC403500DDC42A /* Frameworks */,
+				7A75990029BC403500DDC42A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7A75990429BC403500DDC42A /* PBXTargetDependency */,
+			);
+			name = GenshinHeroesUITests;
+			productName = GenshinHeroesUITests;
+			productReference = 7A75990229BC403500DDC42A /* GenshinHeroesUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7A7598D229BC403100DDC42A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					7A7598D929BC403100DDC42A = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					7A7598F729BC403500DDC42A = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 7A7598D929BC403100DDC42A;
+					};
+					7A75990129BC403500DDC42A = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 7A7598D929BC403100DDC42A;
+					};
+				};
+			};
+			buildConfigurationList = 7A7598D529BC403100DDC42A /* Build configuration list for PBXProject "GenshinHeroes" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7A7598D129BC403100DDC42A;
+			productRefGroup = 7A7598DB29BC403100DDC42A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7A7598D929BC403100DDC42A /* GenshinHeroes */,
+				7A7598F729BC403500DDC42A /* GenshinHeroesTests */,
+				7A75990129BC403500DDC42A /* GenshinHeroesUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7A7598D829BC403100DDC42A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A7598F029BC403400DDC42A /* LaunchScreen.storyboard in Resources */,
+				7A7598ED29BC403400DDC42A /* Assets.xcassets in Resources */,
+				7A7598E829BC403100DDC42A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A7598F629BC403500DDC42A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A75990029BC403500DDC42A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7A7598D629BC403100DDC42A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A7598F329BC403400DDC42A /* main.m in Sources */,
+				7A7598EB29BC403100DDC42A /* GenshinHeroes.xcdatamodeld in Sources */,
+				7A7598E529BC403100DDC42A /* ViewController.m in Sources */,
+				7A7598DF29BC403100DDC42A /* AppDelegate.m in Sources */,
+				7A7598E229BC403100DDC42A /* SceneDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A7598F429BC403500DDC42A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A7598FD29BC403500DDC42A /* GenshinHeroesTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A7598FE29BC403500DDC42A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A75990729BC403500DDC42A /* GenshinHeroesUITests.m in Sources */,
+				7A75990929BC403500DDC42A /* GenshinHeroesUITestsLaunchTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7A7598FA29BC403500DDC42A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7A7598D929BC403100DDC42A /* GenshinHeroes */;
+			targetProxy = 7A7598F929BC403500DDC42A /* PBXContainerItemProxy */;
+		};
+		7A75990429BC403500DDC42A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7A7598D929BC403100DDC42A /* GenshinHeroes */;
+			targetProxy = 7A75990329BC403500DDC42A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7A7598E629BC403100DDC42A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7A7598E729BC403100DDC42A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7A7598EE29BC403400DDC42A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7A7598EF29BC403400DDC42A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7A75990A29BC403500DDC42A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		7A75990B29BC403500DDC42A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7A75990D29BC403500DDC42A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PBTBVGQPFL;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GenshinHeroes/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.dimko.genshin.GenshinHeroes;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7A75990E29BC403500DDC42A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PBTBVGQPFL;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GenshinHeroes/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.dimko.genshin.GenshinHeroes;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		7A75991029BC403500DDC42A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PBTBVGQPFL;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.dimko.genshin.GenshinHeroesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GenshinHeroes.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GenshinHeroes";
+			};
+			name = Debug;
+		};
+		7A75991129BC403500DDC42A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PBTBVGQPFL;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.dimko.genshin.GenshinHeroesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GenshinHeroes.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GenshinHeroes";
+			};
+			name = Release;
+		};
+		7A75991329BC403500DDC42A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PBTBVGQPFL;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.dimko.genshin.GenshinHeroesUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = GenshinHeroes;
+			};
+			name = Debug;
+		};
+		7A75991429BC403500DDC42A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PBTBVGQPFL;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.dimko.genshin.GenshinHeroesUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = GenshinHeroes;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7A7598D529BC403100DDC42A /* Build configuration list for PBXProject "GenshinHeroes" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A75990A29BC403500DDC42A /* Debug */,
+				7A75990B29BC403500DDC42A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7A75990C29BC403500DDC42A /* Build configuration list for PBXNativeTarget "GenshinHeroes" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A75990D29BC403500DDC42A /* Debug */,
+				7A75990E29BC403500DDC42A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7A75990F29BC403500DDC42A /* Build configuration list for PBXNativeTarget "GenshinHeroesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A75991029BC403500DDC42A /* Debug */,
+				7A75991129BC403500DDC42A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7A75991229BC403500DDC42A /* Build configuration list for PBXNativeTarget "GenshinHeroesUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A75991329BC403500DDC42A /* Debug */,
+				7A75991429BC403500DDC42A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		7A7598E929BC403100DDC42A /* GenshinHeroes.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7A7598EA29BC403100DDC42A /* GenshinHeroes.xcdatamodel */,
+			);
+			currentVersion = 7A7598EA29BC403100DDC42A /* GenshinHeroes.xcdatamodel */;
+			path = GenshinHeroes.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 7A7598D229BC403100DDC42A /* Project object */;
+}
