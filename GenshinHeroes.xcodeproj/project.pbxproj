@@ -10,7 +10,6 @@
 		7A7598DF29BC403100DDC42A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7598DE29BC403100DDC42A /* AppDelegate.m */; };
 		7A7598E229BC403100DDC42A /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7598E129BC403100DDC42A /* SceneDelegate.m */; };
 		7A7598E529BC403100DDC42A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7598E429BC403100DDC42A /* ViewController.m */; };
-		7A7598E829BC403100DDC42A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A7598E629BC403100DDC42A /* Main.storyboard */; };
 		7A7598EB29BC403100DDC42A /* GenshinHeroes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7A7598E929BC403100DDC42A /* GenshinHeroes.xcdatamodeld */; };
 		7A7598ED29BC403400DDC42A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A7598EC29BC403400DDC42A /* Assets.xcassets */; };
 		7A7598F029BC403400DDC42A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A7598EE29BC403400DDC42A /* LaunchScreen.storyboard */; };
@@ -45,7 +44,6 @@
 		7A7598E129BC403100DDC42A /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
 		7A7598E329BC403100DDC42A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		7A7598E429BC403100DDC42A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		7A7598E729BC403100DDC42A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7A7598EA29BC403100DDC42A /* GenshinHeroes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GenshinHeroes.xcdatamodel; sourceTree = "<group>"; };
 		7A7598EC29BC403400DDC42A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7A7598EF29BC403400DDC42A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -112,7 +110,6 @@
 				7A7598E129BC403100DDC42A /* SceneDelegate.m */,
 				7A7598E329BC403100DDC42A /* ViewController.h */,
 				7A7598E429BC403100DDC42A /* ViewController.m */,
-				7A7598E629BC403100DDC42A /* Main.storyboard */,
 				7A7598EC29BC403400DDC42A /* Assets.xcassets */,
 				7A7598EE29BC403400DDC42A /* LaunchScreen.storyboard */,
 				7A7598F129BC403400DDC42A /* Info.plist */,
@@ -244,7 +241,6 @@
 			files = (
 				7A7598F029BC403400DDC42A /* LaunchScreen.storyboard in Resources */,
 				7A7598ED29BC403400DDC42A /* Assets.xcassets in Resources */,
-				7A7598E829BC403100DDC42A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,14 +306,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		7A7598E629BC403100DDC42A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7A7598E729BC403100DDC42A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		7A7598EE29BC403400DDC42A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -451,9 +439,7 @@
 				INFOPLIST_FILE = GenshinHeroes/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -478,9 +464,7 @@
 				INFOPLIST_FILE = GenshinHeroes/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
