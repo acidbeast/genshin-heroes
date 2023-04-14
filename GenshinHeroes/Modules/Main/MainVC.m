@@ -1,17 +1,17 @@
 //
-//  ViewController.m
+//  MainVC.m
 //  GenshinHeroes
 //
 //  Created by Dmitry Shlepkin on 3/11/23.
 //
 
-#import "ViewController.h"
+#import "MainVC.h"
 
-@interface ViewController ()
+@interface MainVC ()
 
 @end
 
-@implementation ViewController
+@implementation MainVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];

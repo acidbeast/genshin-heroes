@@ -7,7 +7,7 @@
 
 #import "SceneDelegate.h"
 #import "AppDelegate.h"
-#import "ViewController.h"
+#import "MainVC.h"
 
 @interface SceneDelegate ()
 
@@ -18,8 +18,8 @@
 
 - (void)scene:(UIScene *)scene willConnectToSession:(UISceneSession *)session options:(UISceneConnectionOptions *)connectionOptions {
     self.window = [[UIWindow alloc] initWithWindowScene:(UIWindowScene *)scene];
-    ViewController * viewController = [[ViewController alloc]init];
-    self.window.rootViewController = viewController;
+    MainVC* vc = [[MainVC alloc] init];
+    self.window.rootViewController = vc;
     [self.window makeKeyAndVisible];
 }
 
