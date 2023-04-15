@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A28557F29E9D07200EA680F /* MainRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A28557E29E9D07200EA680F /* MainRouter.m */; };
+		7A28558229E9EB2600EA680F /* ModuleBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A28558129E9EB2600EA680F /* ModuleBuilder.m */; };
 		7A7598DF29BC403100DDC42A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7598DE29BC403100DDC42A /* AppDelegate.m */; };
 		7A7598E229BC403100DDC42A /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7598E129BC403100DDC42A /* SceneDelegate.m */; };
 		7A7598E529BC403100DDC42A /* MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7598E429BC403100DDC42A /* MainVC.m */; };
@@ -37,6 +39,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7A28557D29E9D07200EA680F /* MainRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainRouter.h; sourceTree = "<group>"; };
+		7A28557E29E9D07200EA680F /* MainRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainRouter.m; sourceTree = "<group>"; };
+		7A28558029E9EB2600EA680F /* ModuleBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModuleBuilder.h; sourceTree = "<group>"; };
+		7A28558129E9EB2600EA680F /* ModuleBuilder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ModuleBuilder.m; sourceTree = "<group>"; };
 		7A7598DA29BC403100DDC42A /* GenshinHeroes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GenshinHeroes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A7598DD29BC403100DDC42A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7A7598DE29BC403100DDC42A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -151,6 +157,15 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		7A28558329E9EEFC00EA680F /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				7A28557D29E9D07200EA680F /* MainRouter.h */,
+				7A28557E29E9D07200EA680F /* MainRouter.m */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
 		7A7598D129BC403100DDC42A = {
 			isa = PBXGroup;
 			children = (
@@ -178,8 +193,11 @@
 				7A28557429E9CD4E00EA680F /* Modules */,
 				7A28557A29E9CE9700EA680F /* Services */,
 				7A28557929E9CE8800EA680F /* Stores */,
+				7A28558329E9EEFC00EA680F /* Router */,
 				7A7598DD29BC403100DDC42A /* AppDelegate.h */,
 				7A7598DE29BC403100DDC42A /* AppDelegate.m */,
+				7A28558029E9EB2600EA680F /* ModuleBuilder.h */,
+				7A28558129E9EB2600EA680F /* ModuleBuilder.m */,
 				7A7598E029BC403100DDC42A /* SceneDelegate.h */,
 				7A7598E129BC403100DDC42A /* SceneDelegate.m */,
 				7A7598EC29BC403400DDC42A /* Assets.xcassets */,
@@ -340,7 +358,9 @@
 				7A7598F329BC403400DDC42A /* main.m in Sources */,
 				7A7598EB29BC403100DDC42A /* GenshinHeroes.xcdatamodeld in Sources */,
 				7A7598E529BC403100DDC42A /* MainVC.m in Sources */,
+				7A28558229E9EB2600EA680F /* ModuleBuilder.m in Sources */,
 				7A7598DF29BC403100DDC42A /* AppDelegate.m in Sources */,
+				7A28557F29E9D07200EA680F /* MainRouter.m in Sources */,
 				7A7598E229BC403100DDC42A /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
