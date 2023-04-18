@@ -8,26 +8,37 @@
 #import <UIKit/UIKit.h>
 #import "MainRouter.h"
 #import "ModuleBuilder.h"
+#import "MainVC.h"
 
+@interface MainRouter ()
+
+@property (strong, nonatomic) UINavigationController* mainNC;
+@property (strong, nonatomic) UINavigationController* favoritesNC;
+
+@end
 
 @implementation MainRouter
 
 - (instancetype)initWithModuleBuilder: (ModuleBuilder*) moduleBuilder
-                 navigationController: (UINavigationController*) navigationController
+                 tabBarController: (UITabBarController*) tabBarController
 {
     self = [super init];
     if (self) {
         self.moduleBuilder = moduleBuilder;
-        self.navigationController = navigationController;
+        self.tabBarController = tabBarController;
+        self.mainNC = [self.moduleBuilder createMainNavController];
+        self.favoritesNC = [self.moduleBuilder createFavoritesNavController];
     }
     return self;
 }
 
 - (void)start {
-    UIViewController* vc = [self.moduleBuilder createMainModuleWithRouter: self];
-    if (self.navigationController != nil) {
-        [self.navigationController pushViewController: vc animated: NO];
-    }
+    UIViewController* mainVC = [self.moduleBuilder createMainModuleWithRouter: self];
+    UIViewController* favoritesVC = [self.moduleBuilder createFavoritesModuleWithRouter: self];
+    self.mainNC.viewControllers = @[mainVC];
+    self.favoritesNC.viewControllers = @[favoritesVC];
+    self.tabBarController.viewControllers = @[self.mainNC, self.favoritesNC];
+    self.tabBarController.selectedIndex = 0;
 }
 
 @end

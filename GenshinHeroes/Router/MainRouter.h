@@ -21,10 +21,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (strong, nonatomic) ModuleBuilder* moduleBuilder;
 @property (strong, nonatomic) UITabBarController* tabBarController;
-@property (strong, nonatomic) UINavigationController*  navigationController;
 
 - (instancetype)initWithModuleBuilder: (ModuleBuilder*) moduleBuilder
-                 navigationController: (UINavigationController*) navigationController;
+                     tabBarController: (UITabBarController*) tabBarController;
 
 @end
 

@@ -14,7 +14,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol ModuleBuilderProtocol <NSObject>
 
+- (UINavigationController*) createMainNavController;
+- (UINavigationController*) createFavoritesNavController;
 - (UIViewController*) createMainModuleWithRouter: (MainRouter*) router;
+- (UIViewController*) createFavoritesModuleWithRouter: (MainRouter*) router;
 
 @end
 

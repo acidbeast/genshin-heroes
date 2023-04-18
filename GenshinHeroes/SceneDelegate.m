@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "ModuleBuilder.h"
 #import "Router/MainRouter.h"
+#import "MainTabBarController.h"
 
 @interface SceneDelegate ()
 
@@ -20,12 +21,12 @@
 
 - (void)scene:(UIScene *)scene willConnectToSession:(UISceneSession *)session options:(UISceneConnectionOptions *)connectionOptions {
     self.window = [[UIWindow alloc] initWithWindowScene:(UIWindowScene *)scene];
-    UINavigationController* navigationController = [[UINavigationController alloc] init];
     ModuleBuilder* moduleBuilder = [[ModuleBuilder alloc] init];
+    MainTabBarController* tabBarController = [[MainTabBarController alloc] init];
     MainRouter* mainRouter = [[MainRouter alloc] initWithModuleBuilder: moduleBuilder
-                                                  navigationController: navigationController];
+                                                      tabBarController: tabBarController];
     [mainRouter start];
-    self.window.rootViewController = navigationController;
+    self.window.rootViewController = tabBarController;
     [self.window makeKeyAndVisible];
 }
 

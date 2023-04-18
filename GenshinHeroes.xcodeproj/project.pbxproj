@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7A28557F29E9D07200EA680F /* MainRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A28557E29E9D07200EA680F /* MainRouter.m */; };
 		7A28558229E9EB2600EA680F /* ModuleBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A28558129E9EB2600EA680F /* ModuleBuilder.m */; };
+		7A6EBC3629EDB88900B0E0A2 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A6EBC3529EDB88800B0E0A2 /* MainTabBarController.m */; };
 		7A7598DF29BC403100DDC42A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7598DE29BC403100DDC42A /* AppDelegate.m */; };
 		7A7598E229BC403100DDC42A /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7598E129BC403100DDC42A /* SceneDelegate.m */; };
 		7A7598E529BC403100DDC42A /* MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7598E429BC403100DDC42A /* MainVC.m */; };
@@ -19,6 +20,7 @@
 		7A7598FD29BC403500DDC42A /* GenshinHeroesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7598FC29BC403500DDC42A /* GenshinHeroesTests.m */; };
 		7A75990729BC403500DDC42A /* GenshinHeroesUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A75990629BC403500DDC42A /* GenshinHeroesUITests.m */; };
 		7A75990929BC403500DDC42A /* GenshinHeroesUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A75990829BC403500DDC42A /* GenshinHeroesUITestsLaunchTests.m */; };
+		7A82B64129EE33F500A5EF93 /* FavoritesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A82B64029EE33F500A5EF93 /* FavoritesVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +45,8 @@
 		7A28557E29E9D07200EA680F /* MainRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainRouter.m; sourceTree = "<group>"; };
 		7A28558029E9EB2600EA680F /* ModuleBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModuleBuilder.h; sourceTree = "<group>"; };
 		7A28558129E9EB2600EA680F /* ModuleBuilder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ModuleBuilder.m; sourceTree = "<group>"; };
+		7A6EBC3429EDB88800B0E0A2 /* MainTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainTabBarController.h; sourceTree = "<group>"; };
+		7A6EBC3529EDB88800B0E0A2 /* MainTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainTabBarController.m; sourceTree = "<group>"; };
 		7A7598DA29BC403100DDC42A /* GenshinHeroes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GenshinHeroes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A7598DD29BC403100DDC42A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7A7598DE29BC403100DDC42A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -60,6 +64,8 @@
 		7A75990229BC403500DDC42A /* GenshinHeroesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GenshinHeroesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A75990629BC403500DDC42A /* GenshinHeroesUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GenshinHeroesUITests.m; sourceTree = "<group>"; };
 		7A75990829BC403500DDC42A /* GenshinHeroesUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GenshinHeroesUITestsLaunchTests.m; sourceTree = "<group>"; };
+		7A82B63F29EE33F500A5EF93 /* FavoritesVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FavoritesVC.h; sourceTree = "<group>"; };
+		7A82B64029EE33F500A5EF93 /* FavoritesVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FavoritesVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +115,8 @@
 		7A28557629E9CD7C00EA680F /* Favorites */ = {
 			isa = PBXGroup;
 			children = (
+				7A82B63F29EE33F500A5EF93 /* FavoritesVC.h */,
+				7A82B64029EE33F500A5EF93 /* FavoritesVC.m */,
 			);
 			path = Favorites;
 			sourceTree = "<group>";
@@ -196,6 +204,8 @@
 				7A28558329E9EEFC00EA680F /* Router */,
 				7A7598DD29BC403100DDC42A /* AppDelegate.h */,
 				7A7598DE29BC403100DDC42A /* AppDelegate.m */,
+				7A6EBC3429EDB88800B0E0A2 /* MainTabBarController.h */,
+				7A6EBC3529EDB88800B0E0A2 /* MainTabBarController.m */,
 				7A28558029E9EB2600EA680F /* ModuleBuilder.h */,
 				7A28558129E9EB2600EA680F /* ModuleBuilder.m */,
 				7A7598E029BC403100DDC42A /* SceneDelegate.h */,
@@ -361,7 +371,9 @@
 				7A28558229E9EB2600EA680F /* ModuleBuilder.m in Sources */,
 				7A7598DF29BC403100DDC42A /* AppDelegate.m in Sources */,
 				7A28557F29E9D07200EA680F /* MainRouter.m in Sources */,
+				7A6EBC3629EDB88900B0E0A2 /* MainTabBarController.m in Sources */,
 				7A7598E229BC403100DDC42A /* SceneDelegate.m in Sources */,
+				7A82B64129EE33F500A5EF93 /* FavoritesVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
