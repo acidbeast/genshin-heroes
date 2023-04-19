@@ -10,10 +10,12 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @class SettingsService;
+@class CharactersService;
 
 @interface MainVM : NSObject
 
-- (instancetype) initWithSettingsService: (SettingsService*) settingsService;
+- (instancetype) initWithSettingsService: (SettingsService*) settingsService
+                        characterService: (CharactersService*) charactersService;
 - (void) fetchCharacters;
 
 @end

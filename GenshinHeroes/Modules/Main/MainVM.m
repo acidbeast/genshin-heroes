@@ -7,20 +7,24 @@
 
 #import "MainVM.h"
 #import "SettingsService.h"
+#import "CharactersService.h"
 
 
 @interface MainVM ()
 
 @property (weak, nonatomic) SettingsService* settingsService;
+@property (weak, nonatomic) CharactersService* charactersService;
 
 @end
 
 @implementation MainVM
 
-- (instancetype) initWithSettingsService: (SettingsService*) settingsService {
+- (instancetype) initWithSettingsService: (SettingsService*) settingsService
+                        characterService: (CharactersService*) charactersService {
     self = [super init];
     if (self) {
         self.settingsService = settingsService;
+        self.charactersService = charactersService;
     }
     return self;
 }
@@ -32,9 +36,16 @@
     BOOL cacheIsExpired = [self cacheIsExpired];
     NSLog(@"cacheIsExpired %@", cacheIsExpired ? @"YES" : @"NO");
     if (cacheIsExpired == YES) {
-        NSLog(@"fetch from API, put to CoreData, and then read");
+        [self.charactersService getCharactersWithSuccess: ^(NSArray* characters) {
+            NSLog(@"success %@", characters);
+            // Run CoreDataManager save data
+            // Run CoreDataManger load data on save data success.
+        } onError:^(NSError* error) {
+            // Run delegate onError method (delegate is mainVC which shows error in UI.
+            NSLog(@"Error %@", error);
+        }];
     } else {
-        NSLog(@"Read characters from CoreData");
+        // run CoreDataManger load data
     }
 }
 

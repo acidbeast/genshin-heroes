@@ -11,6 +11,7 @@
 #import "Modules/Main/MainVM.h"
 #import "Modules/Favorites/FavoritesVC.h"
 #import "Services/Local/SettingsService.h"
+#import "Services/Network/CharactersService.h"
 
 @implementation ModuleBuilder
 
@@ -35,8 +36,8 @@
     return [self createNavControllerWithTabTitle: @"Favorites" imageName: @"star" selectedImageName: @"star.fill"];
 }
 
-- (UIViewController*) createMainModuleWithRouter: (MainRouter*) router {
-    MainVM* viewModel = [[MainVM alloc] initWithSettingsService: [SettingsService shared]];
+- (UIViewController*) createMainModuleWithRouter: (MainRouter*) router {    
+    MainVM* viewModel = [[MainVM alloc] initWithSettingsService: [SettingsService shared] characterService: [CharactersService shared]];
     MainVC* vc = [[MainVC alloc] initWithViewModel: viewModel];
     vc.router = router;
     return vc;
