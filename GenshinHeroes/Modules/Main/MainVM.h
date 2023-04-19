@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MainVM : NSObject
 
 - (instancetype) initWithSettingsService: (SettingsService*) settingsService;
-- (void) fetchCacheDate;
+- (void) fetchCharacters;
 
 @end
 

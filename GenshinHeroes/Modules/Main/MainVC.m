@@ -25,9 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor redColor];
-    NSLog(@"viewDidLoad");
-    [self.viewModel fetchCacheDate];
+    [self.viewModel fetchCharacters];
 }
-
 
 @end

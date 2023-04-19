@@ -25,10 +25,35 @@
     return self;
 }
 
-- (void) fetchCacheDate {
-    NSDate* cacheDate = [self.settingsService loadCacheExpirationDateDate];
-    NSLog(@"cacheDate %@", cacheDate);
+- (void) fetchCharacters {
+//    Temporary here to emulate different dates
+//    NSDate* newDate = [[NSDate alloc] initWithTimeIntervalSinceNow: -1900000];
+//    [self.settingsService saveCacheExpirationDate: newDate];
+    BOOL cacheIsExpired = [self cacheIsExpired];
+    NSLog(@"cacheIsExpired %@", cacheIsExpired ? @"YES" : @"NO");
+    if (cacheIsExpired == YES) {
+        NSLog(@"fetch from API, put to CoreData, and then read");
+    } else {
+        NSLog(@"Read characters from CoreData");
+    }
 }
 
+- (NSDate*) fetchCacheDate {
+    NSDate* cacheDate = [self.settingsService loadCacheExpirationDateDate];
+    if (cacheDate == nil) {
+        NSDate* newDate = [[NSDate alloc] initWithTimeIntervalSinceNow: 0];
+        [self.settingsService saveCacheExpirationDate: newDate];
+        return newDate;
+    }
+    return cacheDate;
+}
+
+- (BOOL) cacheIsExpired {
+    NSDate* cacheDate = [self fetchCacheDate];
+    NSDate* dateNow = [[NSDate alloc] initWithTimeIntervalSinceNow: 0];
+    NSTimeInterval secondsBetweenDates = [dateNow timeIntervalSinceDate: cacheDate];
+    NSInteger daysBetweenDates = (int)secondsBetweenDates / (60 * 60 * 24);
+    return daysBetweenDates > 14 ? YES : NO;
+}
 
 @end
