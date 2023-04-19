@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol ModuleBuilderProtocol <NSObject>
 
+- (UINavigationController*) createNavControllerWithTabTitle: (NSString*) title imageName: (NSString*) imageName selectedImageName: (NSString*) selectedImageName;
 - (UINavigationController*) createMainNavController;
 - (UINavigationController*) createFavoritesNavController;
 - (UIViewController*) createMainModuleWithRouter: (MainRouter*) router;

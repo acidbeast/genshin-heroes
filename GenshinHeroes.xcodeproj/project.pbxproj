@@ -21,6 +21,8 @@
 		7A75990729BC403500DDC42A /* GenshinHeroesUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A75990629BC403500DDC42A /* GenshinHeroesUITests.m */; };
 		7A75990929BC403500DDC42A /* GenshinHeroesUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A75990829BC403500DDC42A /* GenshinHeroesUITestsLaunchTests.m */; };
 		7A82B64129EE33F500A5EF93 /* FavoritesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A82B64029EE33F500A5EF93 /* FavoritesVC.m */; };
+		7A82B64429EE3E4600A5EF93 /* SettingsService.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A82B64329EE3E4600A5EF93 /* SettingsService.m */; };
+		7A82B64729EF223300A5EF93 /* MainVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A82B64629EF223300A5EF93 /* MainVM.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,10 @@
 		7A75990829BC403500DDC42A /* GenshinHeroesUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GenshinHeroesUITestsLaunchTests.m; sourceTree = "<group>"; };
 		7A82B63F29EE33F500A5EF93 /* FavoritesVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FavoritesVC.h; sourceTree = "<group>"; };
 		7A82B64029EE33F500A5EF93 /* FavoritesVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FavoritesVC.m; sourceTree = "<group>"; };
+		7A82B64229EE3E4600A5EF93 /* SettingsService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsService.h; sourceTree = "<group>"; };
+		7A82B64329EE3E4600A5EF93 /* SettingsService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingsService.m; sourceTree = "<group>"; };
+		7A82B64529EF223300A5EF93 /* MainVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainVM.h; sourceTree = "<group>"; };
+		7A82B64629EF223300A5EF93 /* MainVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainVM.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +114,8 @@
 			children = (
 				7A7598E329BC403100DDC42A /* MainVC.h */,
 				7A7598E429BC403100DDC42A /* MainVC.m */,
+				7A82B64529EF223300A5EF93 /* MainVM.h */,
+				7A82B64629EF223300A5EF93 /* MainVM.m */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -154,6 +162,8 @@
 		7A28557B29E9CEA600EA680F /* Local */ = {
 			isa = PBXGroup;
 			children = (
+				7A82B64229EE3E4600A5EF93 /* SettingsService.h */,
+				7A82B64329EE3E4600A5EF93 /* SettingsService.m */,
 			);
 			path = Local;
 			sourceTree = "<group>";
@@ -367,7 +377,9 @@
 			files = (
 				7A7598F329BC403400DDC42A /* main.m in Sources */,
 				7A7598EB29BC403100DDC42A /* GenshinHeroes.xcdatamodeld in Sources */,
+				7A82B64429EE3E4600A5EF93 /* SettingsService.m in Sources */,
 				7A7598E529BC403100DDC42A /* MainVC.m in Sources */,
+				7A82B64729EF223300A5EF93 /* MainVM.m in Sources */,
 				7A28558229E9EB2600EA680F /* ModuleBuilder.m in Sources */,
 				7A7598DF29BC403100DDC42A /* AppDelegate.m in Sources */,
 				7A28557F29E9D07200EA680F /* MainRouter.m in Sources */,

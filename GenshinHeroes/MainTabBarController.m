@@ -13,9 +13,12 @@
 
 @implementation MainTabBarController
 
+const int kTabBarHeight = 100;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tabBar.translucent = NO;
+    self.tabBar.tintColor = [UIColor blackColor];
     self.tabBar.backgroundColor = [UIColor whiteColor];
 }
 

@@ -6,9 +6,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MainVM.h"
+
+@class MainRouter;
 
 @interface MainVC : UIViewController
 
+@property (weak, nonatomic) MainRouter* router;
+@property (strong, nonatomic) MainVM* viewModel;
+
+- (instancetype)initWithViewModel: (MainVM*) viewModel;
 
 @end
 

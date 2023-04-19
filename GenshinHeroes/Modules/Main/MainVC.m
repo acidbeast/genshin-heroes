@@ -7,15 +7,26 @@
 
 #import "MainVC.h"
 
+
 @interface MainVC ()
 
 @end
 
 @implementation MainVC
 
+- (instancetype)initWithViewModel: (MainVM*) viewModel {
+    self = [super init];
+    if (self) {
+        self.viewModel = viewModel;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor redColor];
+    NSLog(@"viewDidLoad");
+    [self.viewModel fetchCacheDate];
 }
 
 

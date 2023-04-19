@@ -7,8 +7,6 @@
 
 #import <UIKit/UIKit.h>
 #import "MainRouter.h"
-#import "ModuleBuilder.h"
-#import "MainVC.h"
 
 @interface MainRouter ()
 
@@ -20,8 +18,7 @@
 @implementation MainRouter
 
 - (instancetype)initWithModuleBuilder: (ModuleBuilder*) moduleBuilder
-                 tabBarController: (UITabBarController*) tabBarController
-{
+                 tabBarController: (UITabBarController*) tabBarController {
     self = [super init];
     if (self) {
         self.moduleBuilder = moduleBuilder;

@@ -8,39 +8,37 @@
 #import <UIKit/UIKit.h>
 #import "ModuleBuilder.h"
 #import "Modules/Main/MainVC.h"
+#import "Modules/Main/MainVM.h"
 #import "Modules/Favorites/FavoritesVC.h"
-
+#import "Services/Local/SettingsService.h"
 
 @implementation ModuleBuilder
 
-- (UINavigationController*) createMainNavController {
-    MainVC* vc = [[MainVC alloc] init];
+- (UINavigationController*) createNavControllerWithTabTitle: (NSString*) title
+                                               imageName: (NSString*) imageName
+                                       selectedImageName: (NSString*) selectedImageName {
     UINavigationController* navigationContoller = [[UINavigationController alloc] init];
-    UITabBarItem* tabBarItem = [[UITabBarItem alloc] initWithTitle: @"Home"
-                                                             image: [UIImage systemImageNamed: @"house"]
-                                                     selectedImage: [UIImage systemImageNamed: @"house.fill"]];
+    UITabBarItem* tabBarItem = [[UITabBarItem alloc] initWithTitle: title
+                                                             image: [UIImage systemImageNamed: imageName]
+                                                     selectedImage: [UIImage systemImageNamed: selectedImageName]];
     tabBarItem.badgeColor = [UIColor redColor];
-    navigationContoller.viewControllers = @[vc];
     navigationContoller.tabBarItem = tabBarItem;
     return navigationContoller;
 }
 
+- (UINavigationController*) createMainNavController
+{
+    return [self createNavControllerWithTabTitle: @"Home" imageName: @"house" selectedImageName: @"house.fill"];
+}
 
 - (UINavigationController*) createFavoritesNavController {
-    UINavigationController* navigationContoller = [[UINavigationController alloc] init];
-    UITabBarItem* tabBarItem = [
-        [UITabBarItem alloc]
-        initWithTitle: @"Favorites"
-        image: [UIImage systemImageNamed: @"star"]
-        selectedImage: [UIImage systemImageNamed: @"star.fill"]
-    ];
-    tabBarItem.badgeColor = [UIColor redColor];
-    navigationContoller.tabBarItem = tabBarItem;
-    return navigationContoller;
+    return [self createNavControllerWithTabTitle: @"Favorites" imageName: @"star" selectedImageName: @"star.fill"];
 }
 
 - (UIViewController*) createMainModuleWithRouter: (MainRouter*) router {
-    MainVC* vc = [[MainVC alloc] init];
+    MainVM* viewModel = [[MainVM alloc] initWithSettingsService: [SettingsService shared]];
+    MainVC* vc = [[MainVC alloc] initWithViewModel: viewModel];
+    vc.router = router;
     return vc;
 }
 
@@ -48,6 +46,5 @@
     FavoritesVC* vc = [[FavoritesVC alloc] init];
     return vc;
 }
-
 
 @end
