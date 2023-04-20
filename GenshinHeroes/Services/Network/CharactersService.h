@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface CharactersService : NSObject <CharactersServiceProtocol>
 
 + (instancetype) shared;
-- (void) getCharactersWithSuccess: (void(^)(NSArray* characters)) successCallback
+- (void) getCharactersWithSuccess: (void(^)(NSDictionary* characters)) successCallback
                           onError: (void(^)(NSError* error)) errorCallback;
 
 @end

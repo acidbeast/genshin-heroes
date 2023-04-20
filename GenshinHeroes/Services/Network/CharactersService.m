@@ -6,6 +6,7 @@
 //
 
 #import "CharactersService.h"
+#import "Character+CoreDataClass.h"
 
 @interface CharactersService ()
 
@@ -24,9 +25,8 @@ static NSString* charactersURL = @"https://api.genshin.dev/characters/all";
     return service;
 }
 
-- (void) getCharactersWithSuccess: (void(^)(NSArray* characters)) successCallback
+- (void) getCharactersWithSuccess: (void(^)(NSDictionary* characters)) successCallback
                           onError: (void(^)(NSError* error)) errorCallback {
-    NSLog(@"CharactersService fetchCharacters");
     NSURL* url = [NSURL URLWithString: charactersURL];
     NSURLSessionConfiguration* configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession* session = [NSURLSession sessionWithConfiguration: configuration];
@@ -36,9 +36,13 @@ static NSString* charactersURL = @"https://api.genshin.dev/characters/all";
                 return;
             }
             if (successCallback) {
-                NSLog(@"data: %@", data);
-                // Convert Data To CoreData Model (Character) Array here.
-                successCallback(nil);
+                NSError* jsonSerializationError = nil;
+                NSDictionary* jsonObject = (NSDictionary*) [NSJSONSerialization JSONObjectWithData: data options: NSJSONReadingAllowFragments error: &jsonSerializationError];
+                if (jsonSerializationError != nil) {
+                    errorCallback(jsonSerializationError);
+                    return;
+                }
+                successCallback(jsonObject);
             }
     }];
     [task resume];

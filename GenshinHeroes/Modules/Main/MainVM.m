@@ -9,7 +9,6 @@
 #import "SettingsService.h"
 #import "CharactersService.h"
 
-
 @interface MainVM ()
 
 @property (weak, nonatomic) SettingsService* settingsService;
@@ -36,7 +35,7 @@
     BOOL cacheIsExpired = [self cacheIsExpired];
     NSLog(@"cacheIsExpired %@", cacheIsExpired ? @"YES" : @"NO");
     if (cacheIsExpired == YES) {
-        [self.charactersService getCharactersWithSuccess: ^(NSArray* characters) {
+        [self.charactersService getCharactersWithSuccess: ^(NSDictionary* characters) {
             NSLog(@"success %@", characters);
             // Run CoreDataManager save data
             // Run CoreDataManger load data on save data success.
