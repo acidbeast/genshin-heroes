@@ -1,4 +1,46 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21513" systemVersion="21G531" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="Character" representedClassName="Character" syncable="YES" codeGenerationType="class">
+        <attribute name="about" optional="YES" attributeType="String"/>
+        <attribute name="affiliation" optional="YES" attributeType="String"/>
+        <attribute name="birthday" optional="YES" attributeType="String"/>
+        <attribute name="constellation" optional="YES" attributeType="String"/>
+        <attribute name="gender" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="rarity" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="specialDish" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="favorite" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Favorite" inverseName="character" inverseEntity="Favorite"/>
+        <relationship name="nation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Nation" inverseName="character" inverseEntity="Nation"/>
+        <relationship name="skillTalents" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SkillTalent" inverseName="character" inverseEntity="SkillTalent"/>
+        <relationship name="vision" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Vision" inverseName="character" inverseEntity="Vision"/>
+        <relationship name="weaponType" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WeaponType" inverseName="character" inverseEntity="WeaponType"/>
+    </entity>
+    <entity name="Favorite" representedClassName="Favorite" syncable="YES" codeGenerationType="class">
+        <attribute name="isFavorite" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="character" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Character" inverseName="favorite" inverseEntity="Character"/>
+    </entity>
+    <entity name="Nation" representedClassName="Nation" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="character" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Character" inverseName="nation" inverseEntity="Character"/>
+    </entity>
+    <entity name="SkillTalent" representedClassName="SkillTalent" syncable="YES" codeGenerationType="class">
+        <attribute name="about" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="unlock" optional="YES" attributeType="String"/>
+        <relationship name="character" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Character" inverseName="skillTalents" inverseEntity="Character"/>
+        <relationship name="type" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SkillTalentType" inverseName="skillTalent" inverseEntity="SkillTalentType"/>
+    </entity>
+    <entity name="SkillTalentType" representedClassName="SkillTalentType" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="skillTalent" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SkillTalent" inverseName="type" inverseEntity="SkillTalent"/>
+    </entity>
+    <entity name="Vision" representedClassName="Vision" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="character" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Character" inverseName="vision" inverseEntity="Character"/>
+    </entity>
+    <entity name="WeaponType" representedClassName="WeaponType" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="character" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Character" inverseName="weaponType" inverseEntity="Character"/>
+    </entity>
 </model>
