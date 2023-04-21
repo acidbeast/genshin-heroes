@@ -8,6 +8,11 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 #import "Character+CoreDataClass.h"
+#import "Nation+CoreDataClass.h"
+#import "SkillTalent+CoreDataClass.h"
+#import "SkillTalentType+CoreDataClass.h"
+#import "Vision+CoreDataClass.h"
+#import "Weapon+CoreDataClass.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

@@ -25,11 +25,13 @@ typedef void (^FetchCharactersErrorBlock)(NSError* error);
                          coreDataService: (CoreDataService*) coreDataService {
     self = [super init];
     if (self) {
+        __weak MainVM* weakSelf = self;
         self.settingsService = settingsService;
         self.charactersService = charactersService;
         self.coreDataService = coreDataService;
         self.fetchCharactersErrorBlock = ^(NSError* error) {
             NSLog(@"Error %@", error);
+            // [weakSelf runDelegateErrorCallback: error];
         };
     }
     return self;

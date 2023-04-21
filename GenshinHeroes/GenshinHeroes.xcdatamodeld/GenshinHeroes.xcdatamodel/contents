@@ -14,7 +14,7 @@
         <relationship name="nation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Nation" inverseName="character" inverseEntity="Nation"/>
         <relationship name="skillTalents" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SkillTalent" inverseName="character" inverseEntity="SkillTalent"/>
         <relationship name="vision" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Vision" inverseName="character" inverseEntity="Vision"/>
-        <relationship name="weaponType" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WeaponType" inverseName="character" inverseEntity="WeaponType"/>
+        <relationship name="weapon" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Weapon" inverseName="character" inverseEntity="Weapon"/>
     </entity>
     <entity name="Favorite" representedClassName="Favorite" syncable="YES" codeGenerationType="class">
         <attribute name="isFavorite" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
@@ -23,6 +23,11 @@
     <entity name="Nation" representedClassName="Nation" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="character" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Character" inverseName="nation" inverseEntity="Character"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="name"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
     </entity>
     <entity name="SkillTalent" representedClassName="SkillTalent" syncable="YES" codeGenerationType="class">
         <attribute name="about" optional="YES" attributeType="String"/>
@@ -36,11 +41,23 @@
         <relationship name="skillTalent" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SkillTalent" inverseName="type" inverseEntity="SkillTalent"/>
     </entity>
     <entity name="Vision" representedClassName="Vision" syncable="YES" codeGenerationType="class">
+        <attribute name="key" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="character" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Character" inverseName="vision" inverseEntity="Character"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="key"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
     </entity>
-    <entity name="WeaponType" representedClassName="WeaponType" syncable="YES" codeGenerationType="class">
+    <entity name="Weapon" representedClassName="Weapon" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String"/>
-        <relationship name="character" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Character" inverseName="weaponType" inverseEntity="Character"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
+        <relationship name="character" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Character" inverseName="weapon" inverseEntity="Character"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="type"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
     </entity>
 </model>
