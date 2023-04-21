@@ -7,11 +7,6 @@
 
 #import <UIKit/UIKit.h>
 #import "ModuleBuilder.h"
-#import "Modules/Main/MainVC.h"
-#import "Modules/Main/MainVM.h"
-#import "Modules/Favorites/FavoritesVC.h"
-#import "Services/Local/SettingsService.h"
-#import "Services/Network/CharactersService.h"
 
 @implementation ModuleBuilder
 
@@ -37,7 +32,9 @@
 }
 
 - (UIViewController*) createMainModuleWithRouter: (MainRouter*) router {    
-    MainVM* viewModel = [[MainVM alloc] initWithSettingsService: [SettingsService shared] characterService: [CharactersService shared]];
+    MainVM* viewModel = [[MainVM alloc] initWithSettingsService: [SettingsService shared]
+                                               characterService: [CharactersService shared]
+                                                coreDataService: [CoreDataService shared]];
     MainVC* vc = [[MainVC alloc] initWithViewModel: viewModel];
     vc.router = router;
     return vc;

@@ -6,24 +6,31 @@
 //
 
 #import "MainVM.h"
-#import "SettingsService.h"
-#import "CharactersService.h"
+
+typedef void (^FetchCharactersErrorBlock)(NSError* error);
 
 @interface MainVM ()
 
 @property (weak, nonatomic) SettingsService* settingsService;
 @property (weak, nonatomic) CharactersService* charactersService;
+@property (weak, nonatomic) CoreDataService* coreDataService;
+@property (copy, nonatomic) FetchCharactersErrorBlock fetchCharactersErrorBlock;
 
 @end
 
 @implementation MainVM
 
 - (instancetype) initWithSettingsService: (SettingsService*) settingsService
-                        characterService: (CharactersService*) charactersService {
+                        characterService: (CharactersService*) charactersService
+                         coreDataService: (CoreDataService*) coreDataService {
     self = [super init];
     if (self) {
         self.settingsService = settingsService;
         self.charactersService = charactersService;
+        self.coreDataService = coreDataService;
+        self.fetchCharactersErrorBlock = ^(NSError* error) {
+            NSLog(@"Error %@", error);
+        };
     }
     return self;
 }
@@ -36,13 +43,12 @@
     NSLog(@"cacheIsExpired %@", cacheIsExpired ? @"YES" : @"NO");
     if (cacheIsExpired == YES) {
         [self.charactersService getCharactersWithSuccess: ^(NSDictionary* characters) {
-            NSLog(@"success %@", characters);
-            // Run CoreDataManager save data
-            // Run CoreDataManger load data on save data success.
-        } onError:^(NSError* error) {
-            // Run delegate onError method (delegate is mainVC which shows error in UI.
-            NSLog(@"Error %@", error);
-        }];
+            [self.coreDataService saveCharactersWith: characters
+                                           onSuccess: ^(NSArray* characters) {
+                // Run CoreDataManger load data on save data success.
+            }
+                                             onError: self.fetchCharactersErrorBlock];
+        } onError: self.fetchCharactersErrorBlock];
     } else {
         // run CoreDataManger load data
     }

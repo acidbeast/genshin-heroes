@@ -11,6 +11,7 @@
 #import "ModuleBuilder.h"
 #import "Router/MainRouter.h"
 #import "MainTabBarController.h"
+#import "CoreDataService.h"
 
 @interface SceneDelegate ()
 
@@ -38,7 +39,7 @@
 
 
 - (void)sceneDidEnterBackground:(UIScene *)scene {
-    [(AppDelegate *)UIApplication.sharedApplication.delegate saveContext];
+    [[CoreDataService shared] saveContext];
 }
 
 

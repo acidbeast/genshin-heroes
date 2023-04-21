@@ -7,6 +7,12 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "MainVC.h"
+#import "MainVM.h"
+#import "FavoritesVC.h"
+#import "SettingsService.h"
+#import "CharactersService.h"
+#import "CoreDataService.h"
 
 @class MainRouter;
 

@@ -6,6 +6,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SettingsService.h"
+#import "CharactersService.h"
+#import "CoreDataService.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -15,7 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MainVM : NSObject
 
 - (instancetype) initWithSettingsService: (SettingsService*) settingsService
-                        characterService: (CharactersService*) charactersService;
+                        characterService: (CharactersService*) charactersService
+                         coreDataService: (CoreDataService*) coreDataService;
 - (void) fetchCharacters;
 
 @end
