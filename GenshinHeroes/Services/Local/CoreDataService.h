@@ -22,9 +22,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype) shared;
 - (void) saveCharactersWith: (NSDictionary*) characters
-                  onSuccess: (void(^)(NSArray<Character*>* characters)) onSuccess
+                  onSuccess: (void(^)(void)) onSuccess
                     onError: (void(^)(NSError* error)) onError;
+- (NSArray*) getCharacters;
 - (void) saveContext;
+- (void) deleteAllObjects;
 
 @end
 

@@ -38,21 +38,18 @@ typedef void (^FetchCharactersErrorBlock)(NSError* error);
 }
 
 - (void) fetchCharacters {
-//    Temporary here to emulate different dates
-//    NSDate* newDate = [[NSDate alloc] initWithTimeIntervalSinceNow: -1900000];
-//    [self.settingsService saveCacheExpirationDate: newDate];
     BOOL cacheIsExpired = [self cacheIsExpired];
-    NSLog(@"cacheIsExpired %@", cacheIsExpired ? @"YES" : @"NO");
     if (cacheIsExpired == YES) {
         [self.charactersService getCharactersWithSuccess: ^(NSDictionary* characters) {
             [self.coreDataService saveCharactersWith: characters
-                                           onSuccess: ^(NSArray* characters) {
-                // Run CoreDataManger load data on save data success.
+                                           onSuccess: ^(void) {
+                NSArray* resultCharacters = [self.coreDataService getCharacters];
+                [self setCacheExpirationDateNow];
             }
                                              onError: self.fetchCharactersErrorBlock];
         } onError: self.fetchCharactersErrorBlock];
     } else {
-        // run CoreDataManger load data
+        NSArray* resultCharacters = [self.coreDataService getCharacters];
     }
 }
 
@@ -72,6 +69,11 @@ typedef void (^FetchCharactersErrorBlock)(NSError* error);
     NSTimeInterval secondsBetweenDates = [dateNow timeIntervalSinceDate: cacheDate];
     NSInteger daysBetweenDates = (int)secondsBetweenDates / (60 * 60 * 24);
     return daysBetweenDates > 14 ? YES : NO;
+}
+
+- (void) setCacheExpirationDateNow {
+    NSDate* newDate = [[NSDate alloc] initWithTimeIntervalSinceNow: 0];
+    [self.settingsService saveCacheExpirationDate: newDate];
 }
 
 @end

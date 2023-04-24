@@ -21,16 +21,27 @@
 
 
 - (void) saveCharactersWith: (NSDictionary*) characters
-                  onSuccess: (void(^)(NSArray<Character*>* characters)) onSuccess
+                  onSuccess: (void(^)(void)) onSuccess
                     onError: (void(^)(NSError* error)) onError {
+    // REmove!
+//    [self deleteAllObjects];
+    NSError* saveError = nil;
     for (id object in characters) {
         [self createCharacterFrom: object];
+        
+    }
+    [self.persistentContainer.viewContext save: &saveError];
+    if (saveError != nil) {
+        onError(saveError);
+    } else {
+        onSuccess();
     }
 }
 
+
 - (Character*) createCharacterFrom: (NSDictionary*) characterData {
     Character* character = [NSEntityDescription insertNewObjectForEntityForName: @"Character" inManagedObjectContext: self.persistentContainer.viewContext];
-    NSLog(@"Character data: %@", characterData);
+//    NSLog(@"Character data: %@", characterData);
     character.name = [characterData valueForKey: @"name"];
     character.title = [characterData valueForKey: @"title"];
     character.affiliation = [characterData valueForKey: @"affiliation"];
@@ -46,11 +57,13 @@
     return character;
 }
 
+
 - (Nation*) createNationFromCharacterData: (NSDictionary*) characterData {
     Nation* nation = [NSEntityDescription insertNewObjectForEntityForName: @"Nation" inManagedObjectContext: self.persistentContainer.viewContext];
     nation.name = [characterData valueForKey: @"nation"];
     return nation;
 }
+
 
 - (Vision*) createVisionFromCharacterData: (NSDictionary*) characterData {
     Vision* vision = [NSEntityDescription insertNewObjectForEntityForName: @"Vision" inManagedObjectContext: self.persistentContainer.viewContext];
@@ -59,6 +72,7 @@
     return vision;
 }
 
+
 - (Weapon*) createWeaponFromCharacterData: (NSDictionary*) characterData {
     Weapon* weapon = [NSEntityDescription insertNewObjectForEntityForName: @"Weapon" inManagedObjectContext: self.persistentContainer.viewContext];
     weapon.name = [characterData valueForKey: @"weapon"];
@@ -66,6 +80,42 @@
     return weapon;
 }
 
+
+- (NSArray*) getCharacters {
+    NSFetchRequest* request = [[NSFetchRequest alloc] init];
+    NSEntityDescription* description = [NSEntityDescription entityForName: @"Character" inManagedObjectContext: self.persistentContainer.viewContext];
+    [request setEntity: description];
+    NSError* requestError = nil;
+    NSPersistentStoreResult* result = [self.persistentContainer.viewContext executeRequest: request error: &requestError];
+    if (requestError) {
+        NSLog(@"%@", requestError.localizedDescription);
+    }
+    NSArray* characters = [result valueForKey: @"finalResult"];
+    return characters;
+}
+
+
+- (NSArray*) getAllObjects {
+    NSFetchRequest* request = [[NSFetchRequest alloc] init];
+    NSEntityDescription* description = [NSEntityDescription entityForName: @"Object" inManagedObjectContext: self.persistentContainer.viewContext];
+    [request setEntity: description];
+    NSError* requestError = nil;
+    NSPersistentStoreResult* result = [self.persistentContainer.viewContext executeRequest: request error: &requestError];
+    if (requestError) {
+        NSLog(@"%@", requestError.localizedDescription);
+    }
+    NSArray* objects = [result valueForKey: @"finalResult"];
+    return objects;
+}
+
+
+- (void) deleteAllObjects {
+    NSArray* objects = [self getAllObjects];
+    for (id object in objects) {
+        [self.persistentContainer.viewContext deleteObject: object];
+    }
+    [self.persistentContainer.viewContext save: nil];
+}
 
 #pragma mark - Core Data stack
 
