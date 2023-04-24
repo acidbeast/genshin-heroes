@@ -30,26 +30,30 @@ typedef void (^FetchCharactersErrorBlock)(NSError* error);
         self.charactersService = charactersService;
         self.coreDataService = coreDataService;
         self.fetchCharactersErrorBlock = ^(NSError* error) {
-            NSLog(@"Error %@", error);
-            // [weakSelf runDelegateErrorCallback: error];
+            [weakSelf.delegate onFetchCharactersError: error];
         };
     }
     return self;
 }
 
 - (void) fetchCharacters {
+    [self.delegate onFetchCharactersLoading];
+    __weak MainVM* weakSelf = self;
     BOOL cacheIsExpired = [self cacheIsExpired];
     if (cacheIsExpired == YES) {
         [self.charactersService getCharactersWithSuccess: ^(NSDictionary* characters) {
             [self.coreDataService saveCharactersWith: characters
                                            onSuccess: ^(void) {
-                NSArray* resultCharacters = [self.coreDataService getCharacters];
+                self.characters = [self.coreDataService getCharacters];
+                [self.coreDataService getCharacters];
                 [self setCacheExpirationDateNow];
+                [weakSelf.delegate onFetchCharactersSuccess];
             }
                                              onError: self.fetchCharactersErrorBlock];
         } onError: self.fetchCharactersErrorBlock];
     } else {
-        NSArray* resultCharacters = [self.coreDataService getCharacters];
+        self.characters = [self.coreDataService getCharacters];
+        [weakSelf.delegate onFetchCharactersSuccess];
     }
 }
 

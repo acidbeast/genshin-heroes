@@ -10,12 +10,16 @@
 
 @class MainRouter;
 
-@interface MainVC : UIViewController
+@interface MainVC : UIViewController <MainVMDelegateProtocol>
 
 @property (weak, nonatomic) MainRouter* router;
 @property (strong, nonatomic) MainVM* viewModel;
 
-- (instancetype)initWithViewModel: (MainVM*) viewModel;
+- (instancetype) initWithViewModel: (MainVM*) viewModel;
+
+- (void) onFetchCharactersLoading;
+- (void) onFetchCharactersSuccess;
+- (void) onFetchCharactersError: (NSError*) error;
 
 @end
 
