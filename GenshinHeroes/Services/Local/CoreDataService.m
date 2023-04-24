@@ -97,7 +97,7 @@
 
 - (NSArray*) getAllObjects {
     NSFetchRequest* request = [[NSFetchRequest alloc] init];
-    NSEntityDescription* description = [NSEntityDescription entityForName: @"Object" inManagedObjectContext: self.persistentContainer.viewContext];
+    NSEntityDescription* description = [NSEntityDescription entityForName: @"GenshinObject" inManagedObjectContext: self.persistentContainer.viewContext];
     [request setEntity: description];
     NSError* requestError = nil;
     NSPersistentStoreResult* result = [self.persistentContainer.viewContext executeRequest: request error: &requestError];
