@@ -9,7 +9,7 @@
 
 
 @interface MainVC ()
-
+@property (strong, nonatomic) LoadingView* loadingView;
 @end
 
 @implementation MainVC
@@ -19,14 +19,32 @@
     if (self) {
         self.viewModel = viewModel;
         self.viewModel.delegate = self;
+        self.loadingView = [[LoadingView alloc] initWithFrame: CGRectZero];
     }
     return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor redColor];
+    [self setup];
     [self.viewModel fetchCharacters];
+}
+
+#pragma mark - Setup
+
+- (void) setup {
+    [self setupLoadingView];
+}
+
+- (void) setupLoadingView {
+    [self.view addSubview: self.loadingView];
+    self.loadingView.translatesAutoresizingMaskIntoConstraints = NO;
+    [NSLayoutConstraint activateConstraints: @[
+        [self.loadingView.topAnchor constraintEqualToAnchor: self.view.topAnchor],
+        [self.loadingView.bottomAnchor constraintEqualToAnchor: self.view.bottomAnchor],
+        [self.loadingView.leadingAnchor constraintEqualToAnchor: self.view.leadingAnchor],
+        [self.loadingView.trailingAnchor constraintEqualToAnchor: self.view.trailingAnchor]
+    ]];
 }
 
 #pragma mark - MainVMDelegateProtocol
@@ -42,6 +60,5 @@
 - (void) onFetchCharactersError: (NSError*) error {
     NSLog(@"onFetchCharactersError: %@", error.localizedDescription);
 }
-
 
 @end

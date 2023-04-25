@@ -7,6 +7,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MainVM.h"
+#import "LoadingView.h"
 
 @class MainRouter;
 
