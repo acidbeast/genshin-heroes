@@ -45,9 +45,13 @@
     return vc;
 }
 
-- (UIViewController*) createErrorBlockWithRouter: (MainRouter*) router text: (NSString*) text actionBlock: (ErrorActionBlock) actionBlock {
-    BOOL showButton = actionBlock != nil;
-    ErrorVM* viewModel = [[ErrorVM alloc] initWithText: text actionBlock: actionBlock];
+- (UIViewController*) createErrorBlockWithRouter: (MainRouter*) router
+                                       errorText: (NSString*) errorText
+                                      buttonText: (NSString*) buttonText
+                                     actionBlock: (ErrorActionBlock) actionBlock {
+    ErrorVM* viewModel = [[ErrorVM alloc] initWithText: errorText
+                                            buttonText: buttonText
+                                           actionBlock: actionBlock];
     ErrorVC* vc = [[ErrorVC alloc] initWithViewModel: viewModel];
     vc.router = router;
     return vc;

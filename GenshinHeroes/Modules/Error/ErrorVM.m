@@ -9,11 +9,14 @@
 
 @implementation ErrorVM
 
-- (instancetype) initWithText: (NSString*) text actionBlock: (ErrorActionBlock) actionBlock {
+- (instancetype) initWithText: (NSString*) text
+                   buttonText: (NSString*) buttonText
+                  actionBlock: (ErrorActionBlock) actionBlock {
     self = [super init];
     if (self) {
         self.text = text;
-        self.showButton = YES;
+        self.showButton = actionBlock != nil;
+        self.buttonText = buttonText;
         self.actionBlock = actionBlock;
     }
     return self;

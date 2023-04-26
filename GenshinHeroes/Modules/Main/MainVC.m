@@ -9,7 +9,9 @@
 
 
 @interface MainVC ()
+
 @property (strong, nonatomic) LoadingView* loadingView;
+
 @end
 
 @implementation MainVC
@@ -17,6 +19,7 @@
 - (instancetype) initWithViewModel: (MainVM*) viewModel {
     self = [super init];
     if (self) {
+        self.router = nil;
         self.viewModel = viewModel;
         self.viewModel.delegate = self;
         self.loadingView = [[LoadingView alloc] initWithFrame: CGRectZero];
@@ -59,6 +62,9 @@
 
 - (void) onFetchCharactersError: (NSError*) error {
     NSLog(@"onFetchCharactersError: %@", error.localizedDescription);
+    [self.router showErrorWithText: @"Network Error"
+                        buttonText: @"Try Again"
+                       actionBlock: nil];
 }
 
 @end

@@ -6,6 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MainRouter.h"
 #import "MainVM.h"
 #import "LoadingView.h"
 
@@ -13,7 +14,7 @@
 
 @interface MainVC : UIViewController <MainVMDelegateProtocol>
 
-@property (weak, nonatomic) MainRouter* router;
+@property (strong, nonatomic) MainRouter* router;
 @property (strong, nonatomic) MainVM* viewModel;
 
 - (instancetype) initWithViewModel: (MainVM*) viewModel;

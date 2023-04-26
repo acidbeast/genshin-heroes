@@ -38,9 +38,12 @@
     self.tabBarController.selectedIndex = 0;
 }
 
-- (void) showErrorWithText: (NSString*) text block: (ErrorActionBlock) actionBlock {
-    UIViewController* errorVC = [self.moduleBuilder createErrorBlockWithRouter: self text: text actionBlock: actionBlock];
-    [self.tabBarController.selectedViewController.navigationController pushViewController: errorVC animated: YES];
+- (void) showErrorWithText: (NSString*) errorText
+                buttonText: (NSString*) buttonText
+               actionBlock: (ErrorActionBlock) actionBlock {
+    UIViewController* errorVC = [self.moduleBuilder createErrorBlockWithRouter: self errorText: errorText buttonText: buttonText actionBlock: actionBlock];
+    UINavigationController* navigationController = [self.tabBarController selectedViewController];
+    [navigationController pushViewController: errorVC animated: YES];
 }
 
 @end

@@ -15,9 +15,12 @@ typedef void (^ErrorActionBlock)(void);
 
 @property (strong, nonatomic) NSString* text;
 @property (assign, nonatomic) BOOL showButton;
+@property (strong, nonatomic) NSString* buttonText;
 @property (copy, nonatomic) ErrorActionBlock actionBlock;
 
-- (instancetype) initWithText: (NSString*) text actionBlock: (ErrorActionBlock) actionBlock;
+- (instancetype) initWithText: (NSString*) text
+                   buttonText: (NSString*) buttonText
+                  actionBlock: (ErrorActionBlock) actionBlock;
 
 @end
 

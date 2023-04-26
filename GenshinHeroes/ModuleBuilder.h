@@ -27,7 +27,10 @@ NS_ASSUME_NONNULL_BEGIN
 - (UINavigationController*) createFavoritesNavController;
 - (UIViewController*) createMainModuleWithRouter: (MainRouter*) router;
 - (UIViewController*) createFavoritesModuleWithRouter: (MainRouter*) router;
-- (UIViewController*) createErrorBlockWithRouter: (MainRouter*) router text: (NSString*) text actionBlock: (ErrorActionBlock) actionBlock;
+- (UIViewController*) createErrorBlockWithRouter: (MainRouter*) router
+                                       errorText: (NSString*) errorText
+                                      buttonText: (NSString*) buttonText
+                                     actionBlock: (ErrorActionBlock) actionBlock;
 
 @end
 

@@ -7,6 +7,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ErrorVM.h"
+#import "Color+Hex.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -14,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ErrorVC : UIViewController
 
-@property (weak, nonatomic) MainRouter* router;
+@property (strong, nonatomic) MainRouter* router;
 @property (strong, nonatomic) ErrorVM* viewModel;
 
 - (instancetype) initWithViewModel: (ErrorVM*) viewModel;
