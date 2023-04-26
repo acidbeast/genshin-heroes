@@ -11,6 +11,7 @@
 
 @property (strong, nonatomic) UIImageView* imageView;
 @property (strong, nonatomic) UILabel* textLabel;
+@property (strong, nonatomic) IndicatorView* indicatorView;
 
 @end
 
@@ -21,6 +22,7 @@
     if (self) {
         self.imageView = [[UIImageView alloc] init];
         self.textLabel = [[UILabel alloc] init];
+        self.indicatorView = [[IndicatorView alloc] init];
         [self setup];
     }
     return self;
@@ -30,6 +32,7 @@
     self.backgroundColor = [UIColor colorWithHex: @"#ebeaef"];
     [self setupImageView];
     [self setupTextLabel];
+    [self setupIndicatorView];
 }
 
 - (void) setupImageView {
@@ -40,7 +43,7 @@
         [self.imageView.widthAnchor constraintEqualToConstant: 200],
         [self.imageView.heightAnchor constraintEqualToConstant: 200],
         [self.imageView.centerXAnchor constraintEqualToAnchor: self.centerXAnchor],
-        [self.imageView.centerYAnchor constraintEqualToAnchor: self.centerYAnchor]
+        [self.imageView.centerYAnchor constraintEqualToAnchor: self.centerYAnchor constant: 40]
     ]];
 }
 
@@ -53,6 +56,14 @@
     [NSLayoutConstraint activateConstraints: @[
         [self.textLabel.centerXAnchor constraintEqualToAnchor: self.centerXAnchor],
         [self.textLabel.topAnchor constraintEqualToAnchor: self.imageView.bottomAnchor constant: 30]
+    ]];
+}
+
+- (void) setupIndicatorView {
+    [self addSubview: self.indicatorView];
+    [NSLayoutConstraint activateConstraints: @[
+        [self.indicatorView.centerXAnchor constraintEqualToAnchor: self.centerXAnchor],
+        [self.indicatorView.topAnchor constraintEqualToAnchor: self.textLabel.bottomAnchor constant: 30]
     ]];
 }
 

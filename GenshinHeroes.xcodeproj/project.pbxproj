@@ -27,6 +27,7 @@
 		7A82B65729F2280200A5EF93 /* CoreDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A82B65629F2280200A5EF93 /* CoreDataService.m */; };
 		7AB0FF6A29F7079400F522BD /* LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB0FF6929F7079400F522BD /* LoadingView.m */; };
 		7AB0FF6E29F76E9E00F522BD /* Color+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB0FF6D29F76E9E00F522BD /* Color+Hex.m */; };
+		7AB0FF7429F84C3700F522BD /* IndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB0FF7329F84C3700F522BD /* IndicatorView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,8 @@
 		7AB0FF6929F7079400F522BD /* LoadingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoadingView.m; sourceTree = "<group>"; };
 		7AB0FF6C29F76E9E00F522BD /* Color+Hex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Color+Hex.h"; sourceTree = "<group>"; };
 		7AB0FF6D29F76E9E00F522BD /* Color+Hex.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Color+Hex.m"; sourceTree = "<group>"; };
+		7AB0FF7229F84C3700F522BD /* IndicatorView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IndicatorView.h; sourceTree = "<group>"; };
+		7AB0FF7329F84C3700F522BD /* IndicatorView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IndicatorView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +156,8 @@
 			children = (
 				7AB0FF6829F7079400F522BD /* LoadingView.h */,
 				7AB0FF6929F7079400F522BD /* LoadingView.m */,
+				7AB0FF7229F84C3700F522BD /* IndicatorView.h */,
+				7AB0FF7329F84C3700F522BD /* IndicatorView.m */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -397,6 +402,7 @@
 			files = (
 				7A7598F329BC403400DDC42A /* main.m in Sources */,
 				7A7598EB29BC403100DDC42A /* GenshinHeroes.xcdatamodeld in Sources */,
+				7AB0FF7429F84C3700F522BD /* IndicatorView.m in Sources */,
 				7A82B64429EE3E4600A5EF93 /* SettingsService.m in Sources */,
 				7A7598E529BC403100DDC42A /* MainVC.m in Sources */,
 				7A82B64729EF223300A5EF93 /* MainVM.m in Sources */,

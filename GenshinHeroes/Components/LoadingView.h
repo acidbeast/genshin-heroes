@@ -7,6 +7,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Color+Hex.h"
+#import "IndicatorView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
