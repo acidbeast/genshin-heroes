@@ -52,7 +52,7 @@
     self.textLabel.translatesAutoresizingMaskIntoConstraints = NO;
     self.textLabel.text = @"Loading";
     self.textLabel.font = [UIFont fontWithName: @"Avenir Next Regular" size: 24.0];
-    self.textLabel.textColor = [UIColor blackColor];
+    self.textLabel.textColor = [UIColor darkGrayColor];
     [NSLayoutConstraint activateConstraints: @[
         [self.textLabel.centerXAnchor constraintEqualToAnchor: self.centerXAnchor],
         [self.textLabel.topAnchor constraintEqualToAnchor: self.imageView.bottomAnchor constant: 30]

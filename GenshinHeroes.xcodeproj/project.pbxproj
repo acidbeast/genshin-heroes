@@ -28,6 +28,8 @@
 		7AB0FF6A29F7079400F522BD /* LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB0FF6929F7079400F522BD /* LoadingView.m */; };
 		7AB0FF6E29F76E9E00F522BD /* Color+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB0FF6D29F76E9E00F522BD /* Color+Hex.m */; };
 		7AB0FF7429F84C3700F522BD /* IndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB0FF7329F84C3700F522BD /* IndicatorView.m */; };
+		7AB0FF7829F8BFC400F522BD /* ErrorVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB0FF7729F8BFC400F522BD /* ErrorVC.m */; };
+		7AB0FF7B29F8BFED00F522BD /* ErrorVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB0FF7A29F8BFED00F522BD /* ErrorVM.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +89,10 @@
 		7AB0FF6D29F76E9E00F522BD /* Color+Hex.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Color+Hex.m"; sourceTree = "<group>"; };
 		7AB0FF7229F84C3700F522BD /* IndicatorView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IndicatorView.h; sourceTree = "<group>"; };
 		7AB0FF7329F84C3700F522BD /* IndicatorView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IndicatorView.m; sourceTree = "<group>"; };
+		7AB0FF7629F8BFC400F522BD /* ErrorVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ErrorVC.h; sourceTree = "<group>"; };
+		7AB0FF7729F8BFC400F522BD /* ErrorVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ErrorVC.m; sourceTree = "<group>"; };
+		7AB0FF7929F8BFED00F522BD /* ErrorVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ErrorVM.h; sourceTree = "<group>"; };
+		7AB0FF7A29F8BFED00F522BD /* ErrorVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ErrorVM.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,8 +123,9 @@
 		7A28557429E9CD4E00EA680F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				7A28557729E9CD8400EA680F /* HeroDetails */,
+				7AB0FF7529F8BF9400F522BD /* Error */,
 				7A28557629E9CD7C00EA680F /* Favorites */,
+				7A28557729E9CD8400EA680F /* HeroDetails */,
 				7A28557529E9CD7400EA680F /* Main */,
 			);
 			path = Modules;
@@ -271,6 +278,17 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		7AB0FF7529F8BF9400F522BD /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				7AB0FF7629F8BFC400F522BD /* ErrorVC.h */,
+				7AB0FF7729F8BFC400F522BD /* ErrorVC.m */,
+				7AB0FF7929F8BFED00F522BD /* ErrorVM.h */,
+				7AB0FF7A29F8BFED00F522BD /* ErrorVM.m */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -403,8 +421,10 @@
 				7A7598F329BC403400DDC42A /* main.m in Sources */,
 				7A7598EB29BC403100DDC42A /* GenshinHeroes.xcdatamodeld in Sources */,
 				7AB0FF7429F84C3700F522BD /* IndicatorView.m in Sources */,
+				7AB0FF7B29F8BFED00F522BD /* ErrorVM.m in Sources */,
 				7A82B64429EE3E4600A5EF93 /* SettingsService.m in Sources */,
 				7A7598E529BC403100DDC42A /* MainVC.m in Sources */,
+				7AB0FF7829F8BFC400F522BD /* ErrorVC.m in Sources */,
 				7A82B64729EF223300A5EF93 /* MainVM.m in Sources */,
 				7AB0FF6E29F76E9E00F522BD /* Color+Hex.m in Sources */,
 				7A28558229E9EB2600EA680F /* ModuleBuilder.m in Sources */,

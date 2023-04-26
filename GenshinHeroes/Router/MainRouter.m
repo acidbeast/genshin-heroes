@@ -17,7 +17,7 @@
 
 @implementation MainRouter
 
-- (instancetype)initWithModuleBuilder: (ModuleBuilder*) moduleBuilder
+- (instancetype) initWithModuleBuilder: (ModuleBuilder*) moduleBuilder
                  tabBarController: (UITabBarController*) tabBarController {
     self = [super init];
     if (self) {
@@ -29,13 +29,18 @@
     return self;
 }
 
-- (void)start {
+- (void) start {
     UIViewController* mainVC = [self.moduleBuilder createMainModuleWithRouter: self];
     UIViewController* favoritesVC = [self.moduleBuilder createFavoritesModuleWithRouter: self];
     self.mainNC.viewControllers = @[mainVC];
     self.favoritesNC.viewControllers = @[favoritesVC];
     self.tabBarController.viewControllers = @[self.mainNC, self.favoritesNC];
     self.tabBarController.selectedIndex = 0;
+}
+
+- (void) showErrorWithText: (NSString*) text block: (ErrorActionBlock) actionBlock {
+    UIViewController* errorVC = [self.moduleBuilder createErrorBlockWithRouter: self text: text actionBlock: actionBlock];
+    [self.tabBarController.selectedViewController.navigationController pushViewController: errorVC animated: YES];
 }
 
 @end

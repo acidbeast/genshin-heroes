@@ -41,7 +41,7 @@
     [self addSubview: self.iconView];
     self.iconView.image = [UIImage imageNamed: [self nextIconName]];
     self.iconView.translatesAutoresizingMaskIntoConstraints = NO;
-    self.iconView.tintColor = [UIColor blackColor];
+    self.iconView.tintColor = [UIColor lightGrayColor];
     [NSLayoutConstraint activateConstraints: @[
         [self.iconView.widthAnchor constraintEqualToConstant: 32],
         [self.iconView.heightAnchor constraintEqualToConstant: 32],

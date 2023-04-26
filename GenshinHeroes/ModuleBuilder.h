@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "MainVC.h"
 #import "MainVM.h"
+#import "ErrorVC.h"
+#import "ErrorVM.h"
 #import "FavoritesVC.h"
 #import "SettingsService.h"
 #import "CharactersService.h"
@@ -25,6 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (UINavigationController*) createFavoritesNavController;
 - (UIViewController*) createMainModuleWithRouter: (MainRouter*) router;
 - (UIViewController*) createFavoritesModuleWithRouter: (MainRouter*) router;
+- (UIViewController*) createErrorBlockWithRouter: (MainRouter*) router text: (NSString*) text actionBlock: (ErrorActionBlock) actionBlock;
 
 @end
 

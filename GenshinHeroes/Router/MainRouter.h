@@ -24,6 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithModuleBuilder: (ModuleBuilder*) moduleBuilder
                      tabBarController: (UITabBarController*) tabBarController;
+- (void) start;
+- (void) showErrorWithText: (NSString*) text block: (ErrorActionBlock) actionBlock;
 
 @end
 
