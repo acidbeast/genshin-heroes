@@ -7,7 +7,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ErrorVM.h"
-#import "Color+Hex.h"
+#import "UIColor+Hex.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

@@ -6,6 +6,7 @@
 //
 
 #import "MainTabBarController.h"
+#import "UIWindow+keyWindow.h"
 
 
 @interface MainTabBarController ()
@@ -14,44 +15,62 @@
 
 @implementation MainTabBarController
 
-const int kTabBarHeight = 100;
-
-- (void)viewDidLoad {
+- (void) viewDidLoad {
     [super viewDidLoad];
+    [self setup];
+}
+
+- (void) viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    [self moveFrameDown];
+}
+
+#pragma mark - Setup
+
+- (void) setup {
     self.view.backgroundColor = [UIColor colorWithHex: @"#ebeaef"];
     self.tabBar.translucent = NO;
     self.tabBar.tintColor = [UIColor blackColor];
     self.tabBar.backgroundColor = [UIColor whiteColor];
+    self.tabBar.layer.cornerRadius = 16;
 }
 
-- (void) showTabBarWithAnimation {
-    [self.tabBar setHidden: NO];
-    [UIView animateWithDuration: 0.7
-                          delay: 1
+#pragma mark - Methods
+
+- (void) moveFrameToY: (CGFloat) newY {
+    [self.tabBar setFrame: CGRectMake(0, newY, CGRectGetWidth(self.tabBar.frame), CGRectGetHeight(self.tabBar.frame))];
+}
+
+- (void) moveFrameDown {
+    [self moveFrameToY: CGRectGetMaxY([[UIWindow keyWindow] frame]) + CGRectGetHeight(self.tabBar.frame)];
+}
+
+- (void) moveFrameUp {
+    [self moveFrameToY: CGRectGetMaxY([[UIWindow keyWindow] frame]) - CGRectGetHeight(self.tabBar.frame)];
+}
+
+- (void) animateTabBar: (void(^)(void)) animationBlock {
+    [UIView animateWithDuration: 1
+                          delay: 0.2
          usingSpringWithDamping: 0.8
           initialSpringVelocity: 0.7
                         options: UIViewAnimationOptionCurveEaseInOut
                      animations: ^{
-        CGRect frame = self.navigationController.view.frame;
-        [self.tabBar setFrame: CGRectMake(0, CGRectGetMaxY(frame) + CGRectGetHeight(frame), CGRectGetWidth(frame), CGRectGetHeight(frame))];
+        animationBlock();
         [self.navigationController.view layoutIfNeeded];
     }
                      completion: nil];
 }
 
+- (void) showTabBarWithAnimation {
+    [self animateTabBar: ^{
+        [self moveFrameUp];
+    }];
+}
+
 - (void) hideTabBarWithAnimation {
-    [UIView animateWithDuration: 0.7
-                          delay: 1
-         usingSpringWithDamping: 0.8
-          initialSpringVelocity: 0.7
-                        options: UIViewAnimationOptionCurveEaseInOut
-                     animations: ^{
-        CGRect frame = self.navigationController.view.frame;
-        [self.tabBar setFrame: CGRectMake(0, CGRectGetMaxY(frame) - CGRectGetHeight(frame), CGRectGetWidth(frame), CGRectGetHeight(frame))];
-        [self.navigationController.view layoutIfNeeded];
-    }
-                     completion: ^(BOOL animated){
-        [self.tabBar setHidden: YES];
+    [self animateTabBar: ^{
+        [self moveFrameDown];
     }];
 }
 

@@ -5,7 +5,7 @@
 //  Created by Dmitry Shlepkin on 4/25/23.
 //
 
-#import "Color+Hex.h"
+#import "UIColor+Hex.h"
 
 @implementation UIColor(Hex)
 

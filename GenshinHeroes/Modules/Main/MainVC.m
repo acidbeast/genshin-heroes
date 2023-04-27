@@ -42,6 +42,7 @@
 
 - (void) setupNavigation {
     [self.navigationController setNavigationBarHidden: YES];
+    self.tabBarItem.imageInsets = UIEdgeInsetsMake(16, 0, -16, 0);
 }
 
 - (void) setupLoadingView {
@@ -63,7 +64,7 @@
 
 - (void) onFetchCharactersSuccess {
     NSLog(@"onFetchCharactersSuccess");
-//    [self.router showTabBar];
+    [self.router showTabBar];
 }
 
 - (void) onFetchCharactersError: (NSError*) error {

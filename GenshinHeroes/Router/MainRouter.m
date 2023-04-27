@@ -38,8 +38,6 @@
     self.favoritesNC.viewControllers = @[favoritesVC];
     self.tabBarController.viewControllers = @[self.mainNC, self.favoritesNC];
     self.tabBarController.selectedIndex = 0;
-    [self.tabBarController.tabBar setHidden: YES];
-    [self.tabBarController showTabBarWithAnimation];
 }
 
 - (void) showTabBar {
