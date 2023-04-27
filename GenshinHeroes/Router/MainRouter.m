@@ -8,6 +8,8 @@
 #import <UIKit/UIKit.h>
 #import "MainRouter.h"
 
+@class MainTabBarController;
+
 @interface MainRouter ()
 
 @property (strong, nonatomic) UINavigationController* mainNC;
@@ -18,7 +20,7 @@
 @implementation MainRouter
 
 - (instancetype) initWithModuleBuilder: (ModuleBuilder*) moduleBuilder
-                 tabBarController: (UITabBarController*) tabBarController {
+                 tabBarController: (MainTabBarController*) tabBarController {
     self = [super init];
     if (self) {
         self.moduleBuilder = moduleBuilder;
@@ -36,6 +38,16 @@
     self.favoritesNC.viewControllers = @[favoritesVC];
     self.tabBarController.viewControllers = @[self.mainNC, self.favoritesNC];
     self.tabBarController.selectedIndex = 0;
+    [self.tabBarController.tabBar setHidden: YES];
+    [self.tabBarController showTabBarWithAnimation];
+}
+
+- (void) showTabBar {
+    [self.tabBarController showTabBarWithAnimation];
+}
+
+- (void) hideTabBar {
+    [self.tabBarController hideTabBarWithAnimation];
 }
 
 - (void) showErrorWithText: (NSString*) errorText

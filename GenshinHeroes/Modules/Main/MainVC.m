@@ -36,7 +36,12 @@
 #pragma mark - Setup
 
 - (void) setup {
+    [self setupNavigation];
     [self setupLoadingView];
+}
+
+- (void) setupNavigation {
+    [self.navigationController setNavigationBarHidden: YES];
 }
 
 - (void) setupLoadingView {
@@ -58,6 +63,7 @@
 
 - (void) onFetchCharactersSuccess {
     NSLog(@"onFetchCharactersSuccess");
+//    [self.router showTabBar];
 }
 
 - (void) onFetchCharactersError: (NSError*) error {

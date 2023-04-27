@@ -8,6 +8,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "ModuleBuilder.h"
+#import "MainTabBarController.h"
 #import "ErrorVM.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -23,11 +24,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MainRouter : NSObject <MainRouterProtocol>
 
 @property (strong, nonatomic) ModuleBuilder* moduleBuilder;
-@property (strong, nonatomic) UITabBarController* tabBarController;
+@property (strong, nonatomic) MainTabBarController* tabBarController;
 
 - (instancetype)initWithModuleBuilder: (ModuleBuilder*) moduleBuilder
                      tabBarController: (UITabBarController*) tabBarController;
 - (void) start;
+- (void) showTabBar;
+- (void) hideTabBar;
 - (void) showErrorWithText: (NSString*) errorText
                 buttonText: (NSString*) buttonText
                actionBlock: (ErrorActionBlock __nullable) actionBlock;
