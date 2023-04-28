@@ -23,6 +23,8 @@
         self.viewModel = viewModel;
         self.viewModel.delegate = self;
         self.loadingView = [[LoadingView alloc] initWithFrame: CGRectZero];
+        self.collectionView.dataSource = self;
+        self.collectionView.delegate = self;
     }
     return self;
 }
@@ -38,11 +40,11 @@
 - (void) setup {
     [self setupNavigation];
     [self setupLoadingView];
+    [self registerCells];
 }
 
 - (void) setupNavigation {
     [self.navigationController setNavigationBarHidden: YES];
-    self.tabBarItem.imageInsets = UIEdgeInsetsMake(16, 0, -16, 0);
 }
 
 - (void) setupLoadingView {
@@ -64,7 +66,12 @@
 
 - (void) onFetchCharactersSuccess {
     NSLog(@"onFetchCharactersSuccess");
-    [self.router showTabBar];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.loadingView removeFromSuperview];
+        // TODO: check amount of characters, if 0 show empty screen.
+        [self setupCollectionView];
+        [self.router showTabBar];
+    });
 }
 
 - (void) onFetchCharactersError: (NSError*) error {
@@ -72,6 +79,25 @@
     [self.router showErrorWithText: @"Network Error"
                         buttonText: @"Try Again"
                        actionBlock: nil];
+}
+
+#pragma mark - UICollectionViewDataSource
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return [self.viewModel.characters count];
+//    return 3;
+}
+
+#pragma mark - UICollectionViewDelegate
+
+- (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    TwoColumnCollectionViewCell* cell = [self.collectionView dequeueReusableCellWithReuseIdentifier: self.cellId forIndexPath: indexPath];
+    if (!cell) {
+        cell = [[TwoColumnCollectionViewCell alloc] init];
+    }
+    Character* character = [self.viewModel.characters objectAtIndex: indexPath.row];
+    [cell updateWithCharacter: character];
+    return cell;
 }
 
 @end

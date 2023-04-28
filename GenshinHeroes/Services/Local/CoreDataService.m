@@ -23,7 +23,7 @@
 - (void) saveCharactersWith: (NSDictionary*) characters
                   onSuccess: (void(^)(void)) onSuccess
                     onError: (void(^)(NSError* error)) onError {
-    // REmove!
+    // TODO: Remove!
 //    [self deleteAllObjects];
     NSError* saveError = nil;
     for (id object in characters) {
@@ -41,7 +41,6 @@
 
 - (Character*) createCharacterFrom: (NSDictionary*) characterData {
     Character* character = [NSEntityDescription insertNewObjectForEntityForName: @"Character" inManagedObjectContext: self.persistentContainer.viewContext];
-//    NSLog(@"Character data: %@", characterData);
     character.name = [characterData valueForKey: @"name"];
     character.title = [characterData valueForKey: @"title"];
     character.affiliation = [characterData valueForKey: @"affiliation"];

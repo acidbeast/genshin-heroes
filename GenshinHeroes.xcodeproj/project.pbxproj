@@ -10,6 +10,8 @@
 		7A28557F29E9D07200EA680F /* MainRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A28557E29E9D07200EA680F /* MainRouter.m */; };
 		7A28558229E9EB2600EA680F /* ModuleBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A28558129E9EB2600EA680F /* ModuleBuilder.m */; };
 		7A4D8D7C29FAFC9800C05090 /* UIWindow+keyWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4D8D7B29FAFC9800C05090 /* UIWindow+keyWindow.m */; };
+		7A4D8D8529FB6B4A00C05090 /* TwoColumnCollectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4D8D8429FB6B4A00C05090 /* TwoColumnCollectionVC.m */; };
+		7A4D8D8929FB71DB00C05090 /* TwoColumnCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4D8D8829FB71DB00C05090 /* TwoColumnCollectionViewCell.m */; };
 		7A6EBC3629EDB88900B0E0A2 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A6EBC3529EDB88800B0E0A2 /* MainTabBarController.m */; };
 		7A7598DF29BC403100DDC42A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7598DE29BC403100DDC42A /* AppDelegate.m */; };
 		7A7598E229BC403100DDC42A /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7598E129BC403100DDC42A /* SceneDelegate.m */; };
@@ -57,6 +59,10 @@
 		7A28558129E9EB2600EA680F /* ModuleBuilder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ModuleBuilder.m; sourceTree = "<group>"; };
 		7A4D8D7A29FAFC9800C05090 /* UIWindow+keyWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIWindow+keyWindow.h"; sourceTree = "<group>"; };
 		7A4D8D7B29FAFC9800C05090 /* UIWindow+keyWindow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+keyWindow.m"; sourceTree = "<group>"; };
+		7A4D8D8329FB6B4A00C05090 /* TwoColumnCollectionVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TwoColumnCollectionVC.h; sourceTree = "<group>"; };
+		7A4D8D8429FB6B4A00C05090 /* TwoColumnCollectionVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TwoColumnCollectionVC.m; sourceTree = "<group>"; };
+		7A4D8D8729FB71DB00C05090 /* TwoColumnCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TwoColumnCollectionViewCell.h; sourceTree = "<group>"; };
+		7A4D8D8829FB71DB00C05090 /* TwoColumnCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TwoColumnCollectionViewCell.m; sourceTree = "<group>"; };
 		7A6EBC3429EDB88800B0E0A2 /* MainTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainTabBarController.h; sourceTree = "<group>"; };
 		7A6EBC3529EDB88800B0E0A2 /* MainTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainTabBarController.m; sourceTree = "<group>"; };
 		7A7598DA29BC403100DDC42A /* GenshinHeroes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GenshinHeroes.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -137,6 +143,7 @@
 		7A28557529E9CD7400EA680F /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				7A4D8D7D29FB633300C05090 /* Views */,
 				7A7598E329BC403100DDC42A /* MainVC.h */,
 				7A7598E429BC403100DDC42A /* MainVC.m */,
 				7A82B64529EF223300A5EF93 /* MainVM.h */,
@@ -164,10 +171,9 @@
 		7A28557829E9CE6400EA680F /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				7AB0FF6829F7079400F522BD /* LoadingView.h */,
-				7AB0FF6929F7079400F522BD /* LoadingView.m */,
-				7AB0FF7229F84C3700F522BD /* IndicatorView.h */,
-				7AB0FF7329F84C3700F522BD /* IndicatorView.m */,
+				7A4D8D8629FB716F00C05090 /* Indicator */,
+				7A4D8D7E29FB69D800C05090 /* Loading */,
+				7A4D8D7F29FB69E500C05090 /* TwoColumnCollection */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -208,6 +214,42 @@
 				7A28557E29E9D07200EA680F /* MainRouter.m */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		7A4D8D7D29FB633300C05090 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7A4D8D7E29FB69D800C05090 /* Loading */ = {
+			isa = PBXGroup;
+			children = (
+				7AB0FF6829F7079400F522BD /* LoadingView.h */,
+				7AB0FF6929F7079400F522BD /* LoadingView.m */,
+			);
+			path = Loading;
+			sourceTree = "<group>";
+		};
+		7A4D8D7F29FB69E500C05090 /* TwoColumnCollection */ = {
+			isa = PBXGroup;
+			children = (
+				7A4D8D8729FB71DB00C05090 /* TwoColumnCollectionViewCell.h */,
+				7A4D8D8829FB71DB00C05090 /* TwoColumnCollectionViewCell.m */,
+				7A4D8D8329FB6B4A00C05090 /* TwoColumnCollectionVC.h */,
+				7A4D8D8429FB6B4A00C05090 /* TwoColumnCollectionVC.m */,
+			);
+			path = TwoColumnCollection;
+			sourceTree = "<group>";
+		};
+		7A4D8D8629FB716F00C05090 /* Indicator */ = {
+			isa = PBXGroup;
+			children = (
+				7AB0FF7229F84C3700F522BD /* IndicatorView.h */,
+				7AB0FF7329F84C3700F522BD /* IndicatorView.m */,
+			);
+			path = Indicator;
 			sourceTree = "<group>";
 		};
 		7A7598D129BC403100DDC42A = {
@@ -438,10 +480,12 @@
 				7A82B65429F062A100A5EF93 /* CharactersService.m in Sources */,
 				7A28557F29E9D07200EA680F /* MainRouter.m in Sources */,
 				7AB0FF6A29F7079400F522BD /* LoadingView.m in Sources */,
+				7A4D8D8929FB71DB00C05090 /* TwoColumnCollectionViewCell.m in Sources */,
 				7A82B65729F2280200A5EF93 /* CoreDataService.m in Sources */,
 				7A6EBC3629EDB88900B0E0A2 /* MainTabBarController.m in Sources */,
 				7A7598E229BC403100DDC42A /* SceneDelegate.m in Sources */,
 				7A82B64129EE33F500A5EF93 /* FavoritesVC.m in Sources */,
+				7A4D8D8529FB6B4A00C05090 /* TwoColumnCollectionVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

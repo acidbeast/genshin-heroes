@@ -39,13 +39,16 @@ typedef void (^FetchCharactersErrorBlock)(NSError* error);
 - (void) fetchCharacters {
     [self.delegate onFetchCharactersLoading];
     __weak MainVM* weakSelf = self;
+    
+    // TODO: Remove when app will be done.
+//    [self.settingsService saveCacheExpirationDate: [[NSDate alloc] initWithTimeIntervalSinceReferenceDate: 90000]];
+    
     BOOL cacheIsExpired = [self cacheIsExpired];
     if (cacheIsExpired == YES) {
         [self.charactersService getCharactersWithSuccess: ^(NSDictionary* characters) {
             [self.coreDataService saveCharactersWith: characters
                                            onSuccess: ^(void) {
                 self.characters = [self.coreDataService getCharacters];
-                [self.coreDataService getCharacters];
                 [self setCacheExpirationDateNow];
                 [weakSelf.delegate onFetchCharactersSuccess];
             }
@@ -53,6 +56,7 @@ typedef void (^FetchCharactersErrorBlock)(NSError* error);
         } onError: self.fetchCharactersErrorBlock];
     } else {
         self.characters = [self.coreDataService getCharacters];
+        // TODO: check amount of characters, if 0, try to request again.
         [weakSelf.delegate onFetchCharactersSuccess];
     }
 }
@@ -60,7 +64,7 @@ typedef void (^FetchCharactersErrorBlock)(NSError* error);
 - (NSDate*) fetchCacheDate {
     NSDate* cacheDate = [self.settingsService loadCacheExpirationDateDate];
     if (cacheDate == nil) {
-        NSDate* newDate = [[NSDate alloc] initWithTimeIntervalSinceNow: 0];
+        NSDate* newDate = [[NSDate alloc] initWithTimeIntervalSinceReferenceDate: 0];
         [self.settingsService saveCacheExpirationDate: newDate];
         return newDate;
     }
@@ -72,6 +76,7 @@ typedef void (^FetchCharactersErrorBlock)(NSError* error);
     NSDate* dateNow = [[NSDate alloc] initWithTimeIntervalSinceNow: 0];
     NSTimeInterval secondsBetweenDates = [dateNow timeIntervalSinceDate: cacheDate];
     NSInteger daysBetweenDates = (int)secondsBetweenDates / (60 * 60 * 24);
+    if (daysBetweenDates == NAN) { return YES; }
     return daysBetweenDates > 14 ? YES : NO;
 }
 

@@ -16,6 +16,20 @@
             return window;
         }
     }
+//    UIWindow *foundWindow = nil;
+//    NSSet *scenes=[[UIApplication sharedApplication] connectedScenes];
+//    NSArray *windows;
+//    for(id aScene in scenes){
+//        windows=[aScene windows];
+//        if([aScene activationState]==UISceneActivationStateForegroundActive)
+//             break;
+//    }
+//    for (UIWindow  *window in windows) {
+//        if (window.isKeyWindow) {
+//            return window;
+//            break;
+//        }
+//    }
     return nil;
 }
 

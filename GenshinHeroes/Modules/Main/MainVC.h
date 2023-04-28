@@ -7,12 +7,13 @@
 
 #import <UIKit/UIKit.h>
 #import "MainRouter.h"
+#import "TwoColumnCollectionVC.h"
 #import "MainVM.h"
 #import "LoadingView.h"
 
 @class MainRouter;
 
-@interface MainVC : UIViewController <MainVMDelegateProtocol>
+@interface MainVC : TwoColumnCollectionVC <MainVMDelegateProtocol, UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (strong, nonatomic) MainRouter* router;
 @property (strong, nonatomic) MainVM* viewModel;
