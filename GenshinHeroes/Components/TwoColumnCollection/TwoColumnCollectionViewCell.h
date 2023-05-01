@@ -7,6 +7,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Character+CoreDataClass.h"
+#import "UIColor+Hex.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
