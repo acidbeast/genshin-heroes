@@ -33,6 +33,7 @@
 		7AB0FF7429F84C3700F522BD /* IndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB0FF7329F84C3700F522BD /* IndicatorView.m */; };
 		7AB0FF7829F8BFC400F522BD /* ErrorVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB0FF7729F8BFC400F522BD /* ErrorVC.m */; };
 		7AB0FF7B29F8BFED00F522BD /* ErrorVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB0FF7A29F8BFED00F522BD /* ErrorVM.m */; };
+		7AD3C3212A01822800D937CB /* Colors.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD3C3202A01822800D937CB /* Colors.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +103,8 @@
 		7AB0FF7729F8BFC400F522BD /* ErrorVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ErrorVC.m; sourceTree = "<group>"; };
 		7AB0FF7929F8BFED00F522BD /* ErrorVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ErrorVM.h; sourceTree = "<group>"; };
 		7AB0FF7A29F8BFED00F522BD /* ErrorVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ErrorVM.m; sourceTree = "<group>"; };
+		7AD3C31F2A01822800D937CB /* Colors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Colors.h; sourceTree = "<group>"; };
+		7AD3C3202A01822800D937CB /* Colors.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Colors.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -275,6 +278,7 @@
 		7A7598DC29BC403100DDC42A /* GenshinHeroes */ = {
 			isa = PBXGroup;
 			children = (
+				7AD3C31E2A0181FC00D937CB /* Styles */,
 				7AB0FF6B29F76E7000F522BD /* Extensions */,
 				7A28557829E9CE6400EA680F /* Components */,
 				7A28557429E9CD4E00EA680F /* Modules */,
@@ -334,6 +338,15 @@
 				7AB0FF7A29F8BFED00F522BD /* ErrorVM.m */,
 			);
 			path = Error;
+			sourceTree = "<group>";
+		};
+		7AD3C31E2A0181FC00D937CB /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				7AD3C31F2A01822800D937CB /* Colors.h */,
+				7AD3C3202A01822800D937CB /* Colors.m */,
+			);
+			path = Styles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -472,6 +485,7 @@
 				7A82B64429EE3E4600A5EF93 /* SettingsService.m in Sources */,
 				7A7598E529BC403100DDC42A /* MainVC.m in Sources */,
 				7AB0FF7829F8BFC400F522BD /* ErrorVC.m in Sources */,
+				7AD3C3212A01822800D937CB /* Colors.m in Sources */,
 				7A4D8D7C29FAFC9800C05090 /* UIWindow+keyWindow.m in Sources */,
 				7A82B64729EF223300A5EF93 /* MainVM.m in Sources */,
 				7AB0FF6E29F76E9E00F522BD /* UIColor+Hex.m in Sources */,
