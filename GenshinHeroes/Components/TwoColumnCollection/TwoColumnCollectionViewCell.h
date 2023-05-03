@@ -8,6 +8,7 @@
 #import <UIKit/UIKit.h>
 #import "Character+CoreDataClass.h"
 #import "Vision+CoreDataClass.h"
+#import "Weapon+CoreDataClass.h"
 #import "Colors.h"
 #import "UIColor+Hex.h"
 
