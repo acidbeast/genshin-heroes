@@ -16,6 +16,7 @@
         [self initTextColors];
         [self initVisionColors];
         [self initRarityColors];
+        [self initFavoriteColors];
     }
     return self;
 }
@@ -58,6 +59,13 @@
     self.rarity = @{
         @"rarity4": [UIColor colorWithHex: @"#FAA922"],
         @"rarity5": [UIColor colorWithHex: @"#AC6BAD"]
+    };
+}
+
+- (void) initFavoriteColors {
+    self.favorite = @{
+        @"primary": [UIColor lightGrayColor],
+        @"selected": [UIColor redColor]
     };
 }
 

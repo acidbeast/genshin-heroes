@@ -9,8 +9,10 @@
 #import "Character+CoreDataClass.h"
 #import "Vision+CoreDataClass.h"
 #import "Weapon+CoreDataClass.h"
+#import "Favorite+CoreDataClass.h"
 #import "Colors.h"
 #import "UIColor+Hex.h"
+#import "FavoriteButton.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

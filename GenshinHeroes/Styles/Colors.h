@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) NSDictionary<NSString*, UIColor*>* text;
 @property (strong, nonatomic) NSDictionary<NSString*, UIColor*>* vision;
 @property (strong, nonatomic) NSDictionary<NSString*, UIColor*>* rarity;
+@property (strong, nonatomic) NSDictionary<NSString*, UIColor*>* favorite;
 
 @end
 

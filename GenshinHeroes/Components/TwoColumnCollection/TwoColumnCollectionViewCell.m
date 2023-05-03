@@ -16,6 +16,7 @@
 @property (strong, nonatomic) UIImageView* rarityIconImageView;
 @property (strong, nonatomic) UIImageView* visionIconImageView;
 @property (strong, nonatomic) UIImageView* weaponIconImageView;
+@property (strong, nonatomic) FavoriteButton* favoriteButton;
 
 @end
 
@@ -31,6 +32,7 @@
         self.rarityIconImageView = [[UIImageView alloc] init];
         self.visionIconImageView = [[UIImageView alloc] init];
         self.weaponIconImageView = [[UIImageView alloc] init];
+        self.favoriteButton = [[FavoriteButton alloc] init];
         [self setup];
     }
     return self;
@@ -45,6 +47,8 @@
     self.rarityIconImageView.tintColor = Colors.shared.background[@"primary"];
     self.visionIconImageView.image = nil;
     self.weaponIconImageView.image = nil;
+    [self.favoriteButton setImage: [UIImage systemImageNamed: @"heart"] forState: UIControlStateNormal];
+    self.favoriteButton.tintColor = Colors.shared.favorite[@"primary"];
 }
 
 #pragma mark - Setup
@@ -58,6 +62,7 @@
     [self setupRatingIcon];
     [self setupElementialIcon];
     [self setupWeaponIcon];
+    [self setupFavoriteButton];
 }
 
 - (void) setupStyle {
@@ -155,6 +160,22 @@
     ]];
 }
 
+- (void) setupFavoriteButton {
+    [self addSubview: self.favoriteButton];
+    self.favoriteButton.translatesAutoresizingMaskIntoConstraints = NO;
+    self.favoriteButton.layer.zPosition = 1;
+    [NSLayoutConstraint activateConstraints: @[
+        [self.favoriteButton.widthAnchor constraintEqualToConstant: 24],
+        [self.favoriteButton.heightAnchor constraintEqualToConstant: 24],
+        [self.favoriteButton.topAnchor constraintEqualToAnchor: self.topAnchor constant: 8],
+        [self.favoriteButton.trailingAnchor constraintEqualToAnchor: self.trailingAnchor constant: -8]
+    ]];
+    UIAction* buttonAction = [UIAction actionWithHandler:^(__kindof UIAction * _Nonnull action) {
+        [self setFavoriteValue];
+    }];
+    [self.favoriteButton addAction:buttonAction forControlEvents: UIControlEventTouchUpInside];
+}
+
 #pragma mark - Methods
 
 - (void) updateWithCharacter: (Character*) character {
@@ -163,6 +184,7 @@
     [self setRarityIconColorWithValue: character.rarity];
     [self setVisionIconColorWithValue: character.vision];
     [self setWeaponIconColorWithValue: character.weapon];
+    [self setFavoriteImageWithValue: character.favorite];
 }
 
 - (void) setupAvatarImageWithName: (NSString*) name {
@@ -190,6 +212,16 @@
 - (void) setWeaponIconColorWithValue: (Weapon*) weapon {
     NSString* weaponName = [weapon.name lowercaseString];
     self.weaponIconImageView.image = [UIImage imageNamed: weaponName];
+}
+
+- (void) setFavoriteImageWithValue: (Favorite*) favorite {
+    NSLog(@"Favorite: %@", favorite.isFavorite ? @"YES" : @"NO");
+//    [self.favoriteButton setImage: [UIImage systemImageNamed: @"heart"] forState: UIControlStateNormal];
+//    self.favoriteButton.tintColor = Colors.shared.favorite[@"primary"];
+}
+
+- (void) setFavoriteValue {
+    NSLog(@"Set Favorite");
 }
 
 @end

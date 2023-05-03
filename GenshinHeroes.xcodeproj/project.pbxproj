@@ -34,6 +34,7 @@
 		7AB0FF7829F8BFC400F522BD /* ErrorVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB0FF7729F8BFC400F522BD /* ErrorVC.m */; };
 		7AB0FF7B29F8BFED00F522BD /* ErrorVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB0FF7A29F8BFED00F522BD /* ErrorVM.m */; };
 		7AD3C3212A01822800D937CB /* Colors.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD3C3202A01822800D937CB /* Colors.m */; };
+		7AD3C3252A02E12700D937CB /* FavoriteButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD3C3242A02E12700D937CB /* FavoriteButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +106,8 @@
 		7AB0FF7A29F8BFED00F522BD /* ErrorVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ErrorVM.m; sourceTree = "<group>"; };
 		7AD3C31F2A01822800D937CB /* Colors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Colors.h; sourceTree = "<group>"; };
 		7AD3C3202A01822800D937CB /* Colors.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Colors.m; sourceTree = "<group>"; };
+		7AD3C3232A02E12700D937CB /* FavoriteButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FavoriteButton.h; sourceTree = "<group>"; };
+		7AD3C3242A02E12700D937CB /* FavoriteButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FavoriteButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,8 +177,9 @@
 		7A28557829E9CE6400EA680F /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				7A4D8D8629FB716F00C05090 /* Indicator */,
-				7A4D8D7E29FB69D800C05090 /* Loading */,
+				7AD3C3222A02DFE900D937CB /* FavoriteButton */,
+				7A4D8D8629FB716F00C05090 /* IndicatorView */,
+				7A4D8D7E29FB69D800C05090 /* LoadingView */,
 				7A4D8D7F29FB69E500C05090 /* TwoColumnCollection */,
 			);
 			path = Components;
@@ -226,13 +230,13 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		7A4D8D7E29FB69D800C05090 /* Loading */ = {
+		7A4D8D7E29FB69D800C05090 /* LoadingView */ = {
 			isa = PBXGroup;
 			children = (
 				7AB0FF6829F7079400F522BD /* LoadingView.h */,
 				7AB0FF6929F7079400F522BD /* LoadingView.m */,
 			);
-			path = Loading;
+			path = LoadingView;
 			sourceTree = "<group>";
 		};
 		7A4D8D7F29FB69E500C05090 /* TwoColumnCollection */ = {
@@ -246,13 +250,13 @@
 			path = TwoColumnCollection;
 			sourceTree = "<group>";
 		};
-		7A4D8D8629FB716F00C05090 /* Indicator */ = {
+		7A4D8D8629FB716F00C05090 /* IndicatorView */ = {
 			isa = PBXGroup;
 			children = (
 				7AB0FF7229F84C3700F522BD /* IndicatorView.h */,
 				7AB0FF7329F84C3700F522BD /* IndicatorView.m */,
 			);
-			path = Indicator;
+			path = IndicatorView;
 			sourceTree = "<group>";
 		};
 		7A7598D129BC403100DDC42A = {
@@ -347,6 +351,15 @@
 				7AD3C3202A01822800D937CB /* Colors.m */,
 			);
 			path = Styles;
+			sourceTree = "<group>";
+		};
+		7AD3C3222A02DFE900D937CB /* FavoriteButton */ = {
+			isa = PBXGroup;
+			children = (
+				7AD3C3232A02E12700D937CB /* FavoriteButton.h */,
+				7AD3C3242A02E12700D937CB /* FavoriteButton.m */,
+			);
+			path = FavoriteButton;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -480,6 +493,7 @@
 			files = (
 				7A7598F329BC403400DDC42A /* main.m in Sources */,
 				7A7598EB29BC403100DDC42A /* GenshinHeroes.xcdatamodeld in Sources */,
+				7AD3C3252A02E12700D937CB /* FavoriteButton.m in Sources */,
 				7AB0FF7429F84C3700F522BD /* IndicatorView.m in Sources */,
 				7AB0FF7B29F8BFED00F522BD /* ErrorVM.m in Sources */,
 				7A82B64429EE3E4600A5EF93 /* SettingsService.m in Sources */,
