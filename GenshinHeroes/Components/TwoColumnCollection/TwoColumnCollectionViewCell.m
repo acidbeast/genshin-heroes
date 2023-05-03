@@ -9,7 +9,8 @@
 
 @interface TwoColumnCollectionViewCell ()
 
-@property (strong, nonatomic) UIView* imagePlacehodlerView;
+@property (strong, nonatomic) UIView* avatarPlaceholderView;
+@property (strong, nonatomic) UIImageView* avatarImageView;
 @property (strong, nonatomic) UILabel* titleLabel;
 @property (strong, nonatomic) UIView* iconsPlaceholderView;
 @property (strong, nonatomic) UIImageView* rarityIconImageView;
@@ -23,7 +24,8 @@
 - (instancetype) initWithFrame:(CGRect)frame {
     self = [super initWithFrame: frame];
     if (self) {
-        self.imagePlacehodlerView = [[UIView alloc] init];
+        self.avatarPlaceholderView = [[UIView alloc] init];
+        self.avatarImageView = [[UIImageView alloc] init];
         self.titleLabel = [[UILabel alloc] init];
         self.iconsPlaceholderView = [[UIView alloc] init];
         self.rarityIconImageView = [[UIImageView alloc] init];
@@ -34,11 +36,23 @@
     return self;
 }
 
+#pragma mark - Prepare For Reuse
+
+- (void) prepareForReuse {
+    [super prepareForReuse];
+    self.avatarImageView.image = [UIImage imageNamed: @"placeholder"];
+    self.titleLabel.text = @"";
+    self.rarityIconImageView.tintColor = Colors.shared.background[@"primary"];
+    self.visionIconImageView.image = nil;
+    self.weaponIconImageView.image = nil;
+}
+
 #pragma mark - Setup
 
 - (void) setup {
     [self setupStyle];
-    [self setupImagePlacehodler];
+    [self setupAvatarPlaceholder];
+    [self setupAvatarImage];
     [self setupTitleLabel];
     [self setupIconsPlaceholder];
     [self setupRatingIcon];
@@ -57,16 +71,30 @@
     self.layer.masksToBounds = NO;
 }
 
-- (void) setupImagePlacehodler {
-    [self addSubview: self.imagePlacehodlerView];
-    self.imagePlacehodlerView.translatesAutoresizingMaskIntoConstraints = NO;
-    self.imagePlacehodlerView.backgroundColor = [UIColor colorWithHex: @"#efefef"];
-    self.imagePlacehodlerView.layer.cornerRadius = 16;
+- (void) setupAvatarPlaceholder {
+    [self addSubview: self.avatarPlaceholderView];
+    self.avatarPlaceholderView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.avatarPlaceholderView.backgroundColor = [UIColor colorWithHex: @"#efefef"];
+    self.avatarPlaceholderView.layer.cornerRadius = 16;
     [NSLayoutConstraint activateConstraints: @[
-        [self.imagePlacehodlerView.topAnchor constraintEqualToAnchor: self.topAnchor constant: 16],
-        [self.imagePlacehodlerView.leadingAnchor constraintEqualToAnchor: self.leadingAnchor constant: 16],
-        [self.imagePlacehodlerView.trailingAnchor constraintEqualToAnchor: self.trailingAnchor constant: -16],
-        [self.imagePlacehodlerView.heightAnchor constraintEqualToAnchor: self.imagePlacehodlerView.widthAnchor]
+        [self.avatarPlaceholderView.topAnchor constraintEqualToAnchor: self.topAnchor constant: 16],
+        [self.avatarPlaceholderView.leadingAnchor constraintEqualToAnchor: self.leadingAnchor constant: 16],
+        [self.avatarPlaceholderView.trailingAnchor constraintEqualToAnchor: self.trailingAnchor constant: -16],
+        [self.avatarPlaceholderView.heightAnchor constraintEqualToAnchor: self.avatarPlaceholderView.widthAnchor]
+    ]];
+}
+
+- (void) setupAvatarImage {
+    [self.avatarPlaceholderView addSubview: self.avatarImageView];
+    self.avatarImageView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.avatarImageView.image = [UIImage imageNamed: @"placeholder"];
+    self.avatarImageView.layer.cornerRadius = 16;
+    self.avatarImageView.layer.masksToBounds = YES;
+    [NSLayoutConstraint activateConstraints: @[
+        [self.avatarImageView.widthAnchor constraintEqualToAnchor: self.avatarPlaceholderView.widthAnchor],
+        [self.avatarImageView.heightAnchor constraintEqualToAnchor: self.avatarPlaceholderView.heightAnchor],
+        [self.avatarImageView.centerXAnchor constraintEqualToAnchor: self.avatarPlaceholderView.centerXAnchor],
+        [self.avatarImageView.centerYAnchor constraintEqualToAnchor: self.avatarPlaceholderView.centerYAnchor],
     ]];
 }
 
@@ -77,7 +105,7 @@
     self.titleLabel.font = [UIFont fontWithName: @"Avenir Next Regular" size: 14.0];
     self.titleLabel.numberOfLines = 1;
     [NSLayoutConstraint activateConstraints: @[
-        [self.titleLabel.topAnchor constraintEqualToAnchor: self.imagePlacehodlerView.bottomAnchor constant: 16],
+        [self.titleLabel.topAnchor constraintEqualToAnchor: self.avatarPlaceholderView.bottomAnchor constant: 16],
         [self.titleLabel.leadingAnchor constraintEqualToAnchor: self.leadingAnchor constant: 16],
         [self.titleLabel.trailingAnchor constraintEqualToAnchor: self.trailingAnchor constant: -16]
     ]];
@@ -130,9 +158,19 @@
 
 - (void) updateWithCharacter: (Character*) character {
     self.titleLabel.text = character.name;
+    [self setupAvatarImageWithName: character.name];
     [self setRarityIconColorWithValue: character.rarity];
     [self setVisionIconColorWithValue: character.vision];
     [self setWeaponIconColorWithValue: character.weapon];
+}
+
+- (void) setupAvatarImageWithName: (NSString*) name {
+    NSString* lowerCasedName = [[name stringByReplacingOccurrencesOfString: @" " withString: @"-"] lowercaseString];
+    NSString* avatarName = [NSString stringWithFormat: @"%@-avatar", lowerCasedName];
+    UIImage* avatarImage = [UIImage imageNamed: avatarName];
+    if (avatarImage != nil) {
+        self.avatarImageView.image = avatarImage;
+    }
 }
 
 - (void) setRarityIconColorWithValue: (NSInteger) rarity {
@@ -152,6 +190,5 @@
     NSString* weaponName = [weapon.name lowercaseString];
     self.weaponIconImageView.image = [UIImage imageNamed: weaponName];
 }
-
 
 @end

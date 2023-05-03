@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "dehya-avatar.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
