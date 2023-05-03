@@ -147,6 +147,7 @@
 - (void) setupWeaponIcon {
     [self.iconsPlaceholderView addSubview: self.weaponIconImageView];
     self.weaponIconImageView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.weaponIconImageView.layer.opacity = 0.5f;
     [NSLayoutConstraint activateConstraints: @[
         [self.weaponIconImageView.widthAnchor constraintEqualToConstant: 24],
         [self.weaponIconImageView.heightAnchor constraintEqualToConstant: 24],
@@ -167,7 +168,6 @@
 - (void) setupAvatarImageWithName: (NSString*) name {
     NSString* lowerCasedName = [[name stringByReplacingOccurrencesOfString: @" " withString: @"-"] lowercaseString];
     NSString* avatarName = [NSString stringWithFormat: @"%@-avatar", lowerCasedName];
-    NSLog(@"%@", avatarName);
     UIImage* avatarImage = [UIImage imageNamed: avatarName];
     if (avatarImage != nil) {
         self.avatarImageView.image = avatarImage;
