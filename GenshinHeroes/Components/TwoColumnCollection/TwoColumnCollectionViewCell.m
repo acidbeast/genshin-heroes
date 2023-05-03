@@ -167,6 +167,7 @@
 - (void) setupAvatarImageWithName: (NSString*) name {
     NSString* lowerCasedName = [[name stringByReplacingOccurrencesOfString: @" " withString: @"-"] lowercaseString];
     NSString* avatarName = [NSString stringWithFormat: @"%@-avatar", lowerCasedName];
+    NSLog(@"%@", avatarName);
     UIImage* avatarImage = [UIImage imageNamed: avatarName];
     if (avatarImage != nil) {
         self.avatarImageView.image = avatarImage;
