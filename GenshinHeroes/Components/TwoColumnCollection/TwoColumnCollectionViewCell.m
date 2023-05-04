@@ -165,8 +165,6 @@
     self.favoriteButton.translatesAutoresizingMaskIntoConstraints = NO;
     self.favoriteButton.layer.zPosition = 1;
     [NSLayoutConstraint activateConstraints: @[
-        [self.favoriteButton.widthAnchor constraintEqualToConstant: 24],
-        [self.favoriteButton.heightAnchor constraintEqualToConstant: 24],
         [self.favoriteButton.topAnchor constraintEqualToAnchor: self.topAnchor constant: 8],
         [self.favoriteButton.trailingAnchor constraintEqualToAnchor: self.trailingAnchor constant: -8]
     ]];

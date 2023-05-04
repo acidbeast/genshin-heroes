@@ -9,8 +9,8 @@
 
 @implementation FavoriteButton
 
-- (instancetype) init {
-    self = [super init];
+- (instancetype) initWithFrame:(CGRect) frame {
+    self = [super initWithFrame: frame];
     if (self) {
         [self setup];
     }
@@ -26,6 +26,7 @@
 #pragma mark - Setup
 
 - (void) setup {
+    self.frame = CGRectMake(0, 0, 24, 24);
     self.backgroundColor = [UIColor whiteColor];
     self.layer.cornerRadius = 12;
     self.layer.borderWidth = 0;
