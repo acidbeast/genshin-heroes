@@ -95,6 +95,9 @@
     if (!cell) {
         cell = [[TwoColumnCollectionViewCell alloc] init];
     }
+    cell.favoriteActionBlock = ^(BOOL value) {
+        NSLog(@"favorite action value: %@", value ? @"YES" : @"NO");
+    };
     Character* character = [self.viewModel.characters objectAtIndex: indexPath.row];
     [cell updateWithCharacter: character];
     return cell;

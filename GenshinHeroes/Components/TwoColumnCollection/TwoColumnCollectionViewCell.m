@@ -17,6 +17,7 @@
 @property (strong, nonatomic) UIImageView* visionIconImageView;
 @property (strong, nonatomic) UIImageView* weaponIconImageView;
 @property (strong, nonatomic) FavoriteButton* favoriteButton;
+@property (assign, nonatomic) BOOL isFavorite;
 
 @end
 
@@ -25,17 +26,24 @@
 - (instancetype) initWithFrame:(CGRect)frame {
     self = [super initWithFrame: frame];
     if (self) {
-        self.avatarPlaceholderView = [[UIView alloc] init];
-        self.avatarImageView = [[UIImageView alloc] init];
-        self.titleLabel = [[UILabel alloc] init];
-        self.iconsPlaceholderView = [[UIView alloc] init];
-        self.rarityIconImageView = [[UIImageView alloc] init];
-        self.visionIconImageView = [[UIImageView alloc] init];
-        self.weaponIconImageView = [[UIImageView alloc] init];
-        self.favoriteButton = [[FavoriteButton alloc] init];
+        [self initValues];
         [self setup];
     }
     return self;
+}
+
+#pragma mark - Initialize Values
+
+- (void) initValues {
+    self.avatarPlaceholderView = [[UIView alloc] init];
+    self.avatarImageView = [[UIImageView alloc] init];
+    self.titleLabel = [[UILabel alloc] init];
+    self.iconsPlaceholderView = [[UIView alloc] init];
+    self.rarityIconImageView = [[UIImageView alloc] init];
+    self.visionIconImageView = [[UIImageView alloc] init];
+    self.weaponIconImageView = [[UIImageView alloc] init];
+    self.favoriteButton = [[FavoriteButton alloc] init];
+    self.isFavorite = NO;
 }
 
 #pragma mark - Prepare For Reuse
@@ -169,7 +177,11 @@
         [self.favoriteButton.trailingAnchor constraintEqualToAnchor: self.trailingAnchor constant: -8]
     ]];
     UIAction* buttonAction = [UIAction actionWithHandler:^(__kindof UIAction * _Nonnull action) {
-        [self setFavoriteValue];
+        if (self.favoriteActionBlock != nil) {
+            self.isFavorite = !self.isFavorite;
+            [self toggleFavoriteButtonImageStateWithValue: self.isFavorite];
+            self.favoriteActionBlock(self.isFavorite);
+        }
     }];
     [self.favoriteButton addAction:buttonAction forControlEvents: UIControlEventTouchUpInside];
 }
@@ -182,7 +194,8 @@
     [self setRarityIconColorWithValue: character.rarity];
     [self setVisionIconColorWithValue: character.vision];
     [self setWeaponIconColorWithValue: character.weapon];
-    [self setFavoriteImageWithValue: character.favorite];
+    [self setFavoriteWithValue: character.favorite];
+    [self toggleFavoriteButtonImageStateWithValue: self.isFavorite];
 }
 
 - (void) setupAvatarImageWithName: (NSString*) name {
@@ -212,14 +225,19 @@
     self.weaponIconImageView.image = [UIImage imageNamed: weaponName];
 }
 
-- (void) setFavoriteImageWithValue: (Favorite*) favorite {
-    NSLog(@"Favorite: %@", favorite.isFavorite ? @"YES" : @"NO");
-//    [self.favoriteButton setImage: [UIImage systemImageNamed: @"heart"] forState: UIControlStateNormal];
-//    self.favoriteButton.tintColor = Colors.shared.favorite[@"primary"];
+- (void) setFavoriteWithValue: (Favorite*) favorite {
+    if (favorite.isFavorite) {
+        self.isFavorite = favorite.isFavorite;
+    } else {
+        self.isFavorite = NO;
+    }
 }
 
-- (void) setFavoriteValue {
-    NSLog(@"Set Favorite");
+- (void) toggleFavoriteButtonImageStateWithValue: (BOOL) value {
+    NSString* iconName = [NSString stringWithFormat: @"%@", value == YES ? @"heart.fill" : @"heart"];
+    NSString* colorName = [NSString stringWithFormat: @"%@", value == YES ? @"selected" : @"primary"];
+    [self.favoriteButton setImage: [UIImage systemImageNamed: iconName] forState: UIControlStateNormal];
+    self.favoriteButton.tintColor = Colors.shared.favorite[colorName];
 }
 
 @end

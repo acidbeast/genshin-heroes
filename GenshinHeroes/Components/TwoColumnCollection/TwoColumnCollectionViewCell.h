@@ -16,7 +16,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef void (^FavoriteActionBlock)(BOOL value);
+
 @interface TwoColumnCollectionViewCell : UICollectionViewCell
+
+@property (copy, nonatomic) FavoriteActionBlock favoriteActionBlock;
 
 - (void) updateWithCharacter: (Character*) character;
 
