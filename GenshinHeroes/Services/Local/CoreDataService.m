@@ -53,6 +53,7 @@
     character.nation = [self createNationFromCharacterData: characterData];
     character.vision = [self createVisionFromCharacterData: characterData];
     character.weapon = [self createWeaponFromCharacterData: characterData];
+    character.favorite = [self createFavorite];
     return character;
 }
 
@@ -80,6 +81,13 @@
 }
 
 
+- (Favorite*) createFavorite {
+    Favorite* favorite = [NSEntityDescription insertNewObjectForEntityForName: @"Favorite" inManagedObjectContext: self.persistentContainer.viewContext];
+    favorite.isFavorite = NO;
+    return favorite;
+}
+
+
 - (NSArray*) getCharacters {
     NSFetchRequest* request = [[NSFetchRequest alloc] init];
     NSEntityDescription* description = [NSEntityDescription entityForName: @"Character" inManagedObjectContext: self.persistentContainer.viewContext];
@@ -91,6 +99,11 @@
     }
     NSArray* characters = [result valueForKey: @"finalResult"];
     return characters;
+}
+
+- (void) saveCharacter: (Character*) character withFavoriteValue: (BOOL) favoriteValue {
+    character.favorite.isFavorite = favoriteValue;
+    [self.persistentContainer.viewContext save: nil];
 }
 
 

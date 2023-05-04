@@ -36,6 +36,25 @@ typedef void (^FetchCharactersErrorBlock)(NSError* error);
     return self;
 }
 
+- (NSDate*) fetchCacheDate {
+    NSDate* cacheDate = [self.settingsService loadCacheExpirationDateDate];
+    if (cacheDate == nil) {
+        NSDate* newDate = [[NSDate alloc] initWithTimeIntervalSinceReferenceDate: 0];
+        [self.settingsService saveCacheExpirationDate: newDate];
+        return newDate;
+    }
+    return cacheDate;
+}
+
+- (BOOL) cacheIsExpired {
+    NSDate* cacheDate = [self fetchCacheDate];
+    NSDate* dateNow = [[NSDate alloc] initWithTimeIntervalSinceNow: 0];
+    NSTimeInterval secondsBetweenDates = [dateNow timeIntervalSinceDate: cacheDate];
+    NSInteger daysBetweenDates = (int)secondsBetweenDates / (60 * 60 * 24);
+    if (daysBetweenDates == NAN) { return YES; }
+    return daysBetweenDates > 14 ? YES : NO;
+}
+
 - (void) fetchCharacters {
     [self.delegate onFetchCharactersLoading];
     __weak MainVM* weakSelf = self;
@@ -61,28 +80,13 @@ typedef void (^FetchCharactersErrorBlock)(NSError* error);
     }
 }
 
-- (NSDate*) fetchCacheDate {
-    NSDate* cacheDate = [self.settingsService loadCacheExpirationDateDate];
-    if (cacheDate == nil) {
-        NSDate* newDate = [[NSDate alloc] initWithTimeIntervalSinceReferenceDate: 0];
-        [self.settingsService saveCacheExpirationDate: newDate];
-        return newDate;
-    }
-    return cacheDate;
-}
-
-- (BOOL) cacheIsExpired {
-    NSDate* cacheDate = [self fetchCacheDate];
-    NSDate* dateNow = [[NSDate alloc] initWithTimeIntervalSinceNow: 0];
-    NSTimeInterval secondsBetweenDates = [dateNow timeIntervalSinceDate: cacheDate];
-    NSInteger daysBetweenDates = (int)secondsBetweenDates / (60 * 60 * 24);
-    if (daysBetweenDates == NAN) { return YES; }
-    return daysBetweenDates > 14 ? YES : NO;
-}
-
 - (void) setCacheExpirationDateNow {
     NSDate* newDate = [[NSDate alloc] initWithTimeIntervalSinceNow: 0];
     [self.settingsService saveCacheExpirationDate: newDate];
+}
+
+- (void) saveCharacter: (Character*) character withFavoriteValue: (BOOL) favoriteValue {
+    [self.coreDataService saveCharacter: character withFavoriteValue: favoriteValue];
 }
 
 @end

@@ -85,7 +85,6 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return [self.viewModel.characters count];
-//    return 3;
 }
 
 #pragma mark - UICollectionViewDelegate
@@ -95,12 +94,18 @@
     if (!cell) {
         cell = [[TwoColumnCollectionViewCell alloc] init];
     }
-    cell.favoriteActionBlock = ^(BOOL value) {
-        NSLog(@"favorite action value: %@", value ? @"YES" : @"NO");
-    };
     Character* character = [self.viewModel.characters objectAtIndex: indexPath.row];
+    __weak MainVC* weakSelf = self;
+    cell.favoriteActionBlock = ^(BOOL value) {
+        [weakSelf.viewModel saveCharacter: character withFavoriteValue: value];
+    };
     [cell updateWithCharacter: character];
     return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    Character* character = [self.viewModel.characters objectAtIndex: indexPath.row];
+    NSLog(@"Go To Details with name: %@", character.name);
 }
 
 @end

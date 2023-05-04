@@ -9,6 +9,8 @@
 #import "SettingsService.h"
 #import "CharactersService.h"
 #import "CoreDataService.h"
+#import "Character+CoreDataClass.h"
+#import "Favorite+CoreDataClass.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -32,6 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
                         characterService: (CharactersService*) charactersService
                          coreDataService: (CoreDataService*) coreDataService;
 - (void) fetchCharacters;
+- (void) saveCharacter: (Character*) character withFavoriteValue: (BOOL) favoriteValue;
 
 @end
 

@@ -37,7 +37,7 @@
     self.layer.masksToBounds = NO;
     [self setImage: [UIImage systemImageNamed: @"heart"] forState: UIControlStateNormal];
     self.tintColor = Colors.shared.favorite[@"primary"];
-    self.imageEdgeInsets = UIEdgeInsetsMake(2, 1, 0, 1);
+    self.imageEdgeInsets = UIEdgeInsetsMake(5, 3, 4, 3);
 }
 
 @end
