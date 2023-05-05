@@ -32,7 +32,7 @@ typedef void (^FetchFavoritesErrorBlock)(NSError* error);
 
 - (void) fetchFavorites {
     self.favorites = [self.coreDataService fetchFavorites];
-    NSLog(@"fetchFavorites count: %ld", self.favorites.count);
+    [self.delegate onFetchFavoritesSuccess];
 }
 
 @end

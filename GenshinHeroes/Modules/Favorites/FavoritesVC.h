@@ -8,10 +8,12 @@
 #import <UIKit/UIKit.h>
 #import "MainRouter.h"
 #import "FavoritesVM.h"
+#import "TwoColumnCollectionVC.h"
+#import "LoadingView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FavoritesVC : UIViewController
+@interface FavoritesVC : TwoColumnCollectionVC <FavoritesVMDelegateProtocol, UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (strong, nonatomic) MainRouter* router;
 @property (strong, nonatomic) FavoritesVM* viewModel;
