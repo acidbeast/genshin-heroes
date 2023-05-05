@@ -35,6 +35,7 @@
 		7AB0FF7B29F8BFED00F522BD /* ErrorVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB0FF7A29F8BFED00F522BD /* ErrorVM.m */; };
 		7AD3C3212A01822800D937CB /* Colors.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD3C3202A01822800D937CB /* Colors.m */; };
 		7AD3C3252A02E12700D937CB /* FavoriteButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD3C3242A02E12700D937CB /* FavoriteButton.m */; };
+		7AD3C3282A04A3F200D937CB /* FavoritesVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD3C3272A04A3F200D937CB /* FavoritesVM.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +109,8 @@
 		7AD3C3202A01822800D937CB /* Colors.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Colors.m; sourceTree = "<group>"; };
 		7AD3C3232A02E12700D937CB /* FavoriteButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FavoriteButton.h; sourceTree = "<group>"; };
 		7AD3C3242A02E12700D937CB /* FavoriteButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FavoriteButton.m; sourceTree = "<group>"; };
+		7AD3C3262A04A3F200D937CB /* FavoritesVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FavoritesVM.h; sourceTree = "<group>"; };
+		7AD3C3272A04A3F200D937CB /* FavoritesVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FavoritesVM.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +166,8 @@
 			children = (
 				7A82B63F29EE33F500A5EF93 /* FavoritesVC.h */,
 				7A82B64029EE33F500A5EF93 /* FavoritesVC.m */,
+				7AD3C3262A04A3F200D937CB /* FavoritesVM.h */,
+				7AD3C3272A04A3F200D937CB /* FavoritesVM.m */,
 			);
 			path = Favorites;
 			sourceTree = "<group>";
@@ -505,6 +510,7 @@
 				7AB0FF6E29F76E9E00F522BD /* UIColor+Hex.m in Sources */,
 				7A28558229E9EB2600EA680F /* ModuleBuilder.m in Sources */,
 				7A7598DF29BC403100DDC42A /* AppDelegate.m in Sources */,
+				7AD3C3282A04A3F200D937CB /* FavoritesVM.m in Sources */,
 				7A82B65429F062A100A5EF93 /* CharactersService.m in Sources */,
 				7A28557F29E9D07200EA680F /* MainRouter.m in Sources */,
 				7AB0FF6A29F7079400F522BD /* LoadingView.m in Sources */,

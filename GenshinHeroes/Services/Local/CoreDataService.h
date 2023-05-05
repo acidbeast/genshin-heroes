@@ -27,6 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
                     onError: (void(^)(NSError* error)) onError;
 - (NSArray*) getCharacters;
 - (void) saveCharacter: (Character*) character withFavoriteValue: (BOOL) favoriteValue;
+- (NSArray*) fetchFavorites;
 - (void) saveContext;
 - (void) deleteAllObjects;
 

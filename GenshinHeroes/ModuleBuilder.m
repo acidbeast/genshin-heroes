@@ -28,7 +28,7 @@
 }
 
 - (UINavigationController*) createFavoritesNavController {
-    return [self createNavControllerWithTabTitle: @"Favorites" imageName: @"star" selectedImageName: @"star.fill"];
+    return [self createNavControllerWithTabTitle: @"Favorites" imageName: @"heart" selectedImageName: @"heart.fill"];
 }
 
 - (UIViewController*) createMainModuleWithRouter: (MainRouter*) router {    
@@ -41,7 +41,9 @@
 }
 
 - (UIViewController*) createFavoritesModuleWithRouter: (MainRouter*) router {
-    FavoritesVC* vc = [[FavoritesVC alloc] init];
+    FavoritesVM* viewModel = [[FavoritesVM alloc] initWithcoreDataService: [CoreDataService shared]];
+    FavoritesVC* vc = [[FavoritesVC alloc] initWithViewModel: viewModel];
+    vc.router = router;
     return vc;
 }
 

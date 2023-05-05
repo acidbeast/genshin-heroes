@@ -6,10 +6,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MainRouter.h"
+#import "FavoritesVM.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface FavoritesVC : UIViewController
+
+@property (strong, nonatomic) MainRouter* router;
+@property (strong, nonatomic) FavoritesVM* viewModel;
+
+- (instancetype) initWithViewModel: (FavoritesVM*) viewModel;
 
 @end
 

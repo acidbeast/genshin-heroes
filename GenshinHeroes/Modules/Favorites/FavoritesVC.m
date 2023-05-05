@@ -13,10 +13,22 @@
 
 @implementation FavoritesVC
 
-- (void)viewDidLoad {
+- (instancetype) initWithViewModel: (FavoritesVM*) viewModel {
+    self = [super init];
+    if (self) {
+        self.router = nil;
+        self.viewModel = viewModel;
+    }
+    return self;
+}
+
+- (void) viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor yellowColor];
 }
 
+- (void) viewWillAppear:(BOOL) animated {
+    [super viewWillAppear: animated];
+}
 
 @end

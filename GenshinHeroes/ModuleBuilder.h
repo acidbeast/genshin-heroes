@@ -5,13 +5,19 @@
 //  Created by Dmitry Shlepkin on 4/14/23.
 //
 
+// Frameworks
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+
+// Modules
 #import "MainVC.h"
 #import "MainVM.h"
 #import "ErrorVC.h"
 #import "ErrorVM.h"
 #import "FavoritesVC.h"
+#import "FavoritesVM.h"
+
+// Services
 #import "SettingsService.h"
 #import "CharactersService.h"
 #import "CoreDataService.h"

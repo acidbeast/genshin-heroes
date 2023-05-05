@@ -87,11 +87,15 @@
     return favorite;
 }
 
+#pragma mark - Characters
 
-- (NSArray*) getCharacters {
+- (NSArray*) getCharactersWithPredicate: (NSPredicate*) predicate {
     NSFetchRequest* request = [[NSFetchRequest alloc] init];
     NSEntityDescription* description = [NSEntityDescription entityForName: @"Character" inManagedObjectContext: self.persistentContainer.viewContext];
     [request setEntity: description];
+    if (predicate != nil) {
+        [request setPredicate: predicate];
+    }
     NSError* requestError = nil;
     NSPersistentStoreResult* result = [self.persistentContainer.viewContext executeRequest: request error: &requestError];
     if (requestError) {
@@ -101,11 +105,24 @@
     return characters;
 }
 
-- (void) saveCharacter: (Character*) character withFavoriteValue: (BOOL) favoriteValue {
-    character.favorite.isFavorite = favoriteValue;
-    [self.persistentContainer.viewContext save: nil];
+- (NSArray*) getCharacters {
+    return [self getCharactersWithPredicate: nil];
 }
 
+- (void) saveCharacter: (Character*) character withFavoriteValue: (BOOL) favoriteValue {
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        character.favorite.isFavorite = favoriteValue;
+        [self.persistentContainer.viewContext save: nil];
+    });
+}
+
+#pragma mark - Favorites
+
+- (NSArray*) fetchFavorites {
+    NSLog(@"fetchFavorites");
+    NSPredicate* predicate = [NSPredicate predicateWithFormat: @"favorite.isFavorite = YES"];
+    return [self getCharactersWithPredicate: predicate];
+}
 
 - (NSArray*) getAllObjects {
     NSFetchRequest* request = [[NSFetchRequest alloc] init];
