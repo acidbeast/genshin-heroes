@@ -178,8 +178,6 @@
     ]];
     UIAction* buttonAction = [UIAction actionWithHandler:^(__kindof UIAction * _Nonnull action) {
         if (self.favoriteActionBlock != nil) {
-            self.isFavorite = !self.isFavorite;
-            [self toggleFavoriteButtonImageStateWithValue: self.isFavorite];
             self.favoriteActionBlock(self.isFavorite);
         }
     }];
@@ -194,7 +192,7 @@
     [self setRarityIconColorWithValue: character.rarity];
     [self setVisionIconColorWithValue: character.vision];
     [self setWeaponIconColorWithValue: character.weapon];
-    [self setFavoriteWithValue: character.favorite];
+    [self setFavoriteWith: character.favorite];
     [self toggleFavoriteButtonImageStateWithValue: self.isFavorite];
 }
 
@@ -225,7 +223,7 @@
     self.weaponIconImageView.image = [UIImage imageNamed: weaponName];
 }
 
-- (void) setFavoriteWithValue: (Favorite*) favorite {
+- (void) setFavoriteWith: (Favorite*) favorite {
     if (favorite.isFavorite) {
         self.isFavorite = favorite.isFavorite;
     } else {
@@ -238,6 +236,11 @@
     NSString* colorName = [NSString stringWithFormat: @"%@", value == YES ? @"selected" : @"primary"];
     [self.favoriteButton setImage: [UIImage systemImageNamed: iconName] forState: UIControlStateNormal];
     self.favoriteButton.tintColor = Colors.shared.favorite[colorName];
+}
+
+- (void) setFavoriteWithValue: (BOOL) value {
+    self.isFavorite = value;
+    [self toggleFavoriteButtonImageStateWithValue: value];
 }
 
 @end

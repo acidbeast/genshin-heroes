@@ -23,6 +23,7 @@ typedef void (^FavoriteActionBlock)(BOOL value);
 @property (copy, nonatomic) FavoriteActionBlock favoriteActionBlock;
 
 - (void) updateWithCharacter: (Character*) character;
+- (void) setFavoriteWithValue: (BOOL) value;
 
 @end
 

@@ -109,17 +109,25 @@
     return [self getCharactersWithPredicate: nil];
 }
 
-- (void) saveCharacter: (Character*) character withFavoriteValue: (BOOL) favoriteValue {
+- (void) saveCharacter: (Character*) character
+     withFavoriteValue: (BOOL) favoriteValue
+             onSuccess: (EmptyBlock) onSuccess
+               onError: (BlockWitError) onError {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         character.favorite.isFavorite = favoriteValue;
-        [self.persistentContainer.viewContext save: nil];
+        NSError* error = nil;
+        [self.persistentContainer.viewContext save: &error];
+        if (error != nil) {
+            onError(error);
+        } else {
+            onSuccess();
+        }
     });
 }
 
 #pragma mark - Favorites
 
 - (NSArray*) fetchFavorites {
-    NSLog(@"fetchFavorites");
     NSPredicate* predicate = [NSPredicate predicateWithFormat: @"favorite.isFavorite = YES"];
     return [self getCharactersWithPredicate: predicate];
 }

@@ -61,11 +61,11 @@
 #pragma mark - MainVMDelegateProtocol
 
 - (void) onFetchCharactersLoading {
-    NSLog(@"onFetchCharactersLoading");
+    [self.collectionView removeFromSuperview];
+    [self setupLoadingView];
 }
 
 - (void) onFetchCharactersSuccess {
-    NSLog(@"onFetchCharactersSuccess");
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.loadingView removeFromSuperview];
         // TODO: check amount of characters, if 0 show empty screen.
@@ -75,7 +75,6 @@
 }
 
 - (void) onFetchCharactersError: (NSError*) error {
-    NSLog(@"onFetchCharactersError: %@", error.localizedDescription);
     [self.router showErrorWithText: @"Network Error"
                         buttonText: @"Try Again"
                        actionBlock: nil];
@@ -96,8 +95,19 @@
     }
     Character* character = [self.viewModel.characters objectAtIndex: indexPath.row];
     __weak MainVC* weakSelf = self;
+    __weak TwoColumnCollectionViewCell* weakCell = cell;
     cell.favoriteActionBlock = ^(BOOL value) {
-        [weakSelf.viewModel saveCharacter: character withFavoriteValue: value];
+        [weakSelf.viewModel saveCharacter: character
+                        withFavoriteValue: value
+                                onSuccess: ^{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [weakCell setFavoriteWithValue: !value];
+            });
+        }
+                                  onError:^(NSError *error) {
+        // TODO: Show error notification with error over content
+        }
+        ];
     };
     [cell updateWithCharacter: character];
     return cell;

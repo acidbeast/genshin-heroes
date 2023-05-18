@@ -7,14 +7,12 @@
 
 #import "MainVM.h"
 
-typedef void (^FetchCharactersErrorBlock)(NSError* error);
-
 @interface MainVM ()
 
 @property (weak, nonatomic) SettingsService* settingsService;
 @property (weak, nonatomic) CharactersService* charactersService;
 @property (weak, nonatomic) CoreDataService* coreDataService;
-@property (copy, nonatomic) FetchCharactersErrorBlock fetchCharactersErrorBlock;
+@property (copy, nonatomic) BlockWitError fetchCharactersErrorBlock;
 
 @end
 
@@ -85,8 +83,14 @@ typedef void (^FetchCharactersErrorBlock)(NSError* error);
     [self.settingsService saveCacheExpirationDate: newDate];
 }
 
-- (void) saveCharacter: (Character*) character withFavoriteValue: (BOOL) favoriteValue {
-    [self.coreDataService saveCharacter: character withFavoriteValue: favoriteValue];
+- (void) saveCharacter: (Character*) character
+     withFavoriteValue: (BOOL) favoriteValue
+             onSuccess:(EmptyBlock) onSuccess
+               onError:(BlockWitError) onError {
+    [self.coreDataService saveCharacter: character
+                      withFavoriteValue: favoriteValue
+                              onSuccess: onSuccess
+                                onError: onError];
 }
 
 @end

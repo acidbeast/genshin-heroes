@@ -65,11 +65,11 @@
 #pragma mark - FavoritesVMDelegateProtocol
 
 - (void) onFetchFavoritesLoading {
-    NSLog(@"onFetchFavoritesLoading");
+    [self.collectionView removeFromSuperview];
+    [self setupLoadingView];
 }
 
 - (void) onFetchFavoritesSuccess {
-    NSLog(@"onFetchFavoritesSuccess");
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.loadingView removeFromSuperview];
         // TODO: check amount of characters, if 0 show empty screen.
@@ -78,7 +78,9 @@
 }
 
 - (void) onFetchFavoritesError: (NSError*) error {
-    NSLog(@"onFetchFavoritesError");
+    [self.router showErrorWithText: @"Network Error"
+                        buttonText: @"Try Again"
+                       actionBlock: nil];
 }
 
 #pragma mark - UICollectionViewDataSource

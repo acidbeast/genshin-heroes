@@ -14,6 +14,7 @@
 #import "Vision+CoreDataClass.h"
 #import "Weapon+CoreDataClass.h"
 #import "Favorite+CoreDataClass.h"
+#import "Blocks.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -26,7 +27,10 @@ NS_ASSUME_NONNULL_BEGIN
                   onSuccess: (void(^)(void)) onSuccess
                     onError: (void(^)(NSError* error)) onError;
 - (NSArray*) getCharacters;
-- (void) saveCharacter: (Character*) character withFavoriteValue: (BOOL) favoriteValue;
+- (void) saveCharacter: (Character*) character
+     withFavoriteValue: (BOOL) favoriteValue
+             onSuccess: (EmptyBlock) onSuccess
+               onError: (BlockWitError) onError;
 - (NSArray*) fetchFavorites;
 - (void) saveContext;
 - (void) deleteAllObjects;

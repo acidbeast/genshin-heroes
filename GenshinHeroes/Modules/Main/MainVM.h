@@ -11,6 +11,7 @@
 #import "CoreDataService.h"
 #import "Character+CoreDataClass.h"
 #import "Favorite+CoreDataClass.h"
+#import "Blocks.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -34,7 +35,10 @@ NS_ASSUME_NONNULL_BEGIN
                         characterService: (CharactersService*) charactersService
                          coreDataService: (CoreDataService*) coreDataService;
 - (void) fetchCharacters;
-- (void) saveCharacter: (Character*) character withFavoriteValue: (BOOL) favoriteValue;
+- (void) saveCharacter: (Character*) character
+     withFavoriteValue: (BOOL) favoriteValue
+             onSuccess:(EmptyBlock) onSuccess
+               onError:(BlockWitError) onError;
 
 @end
 
