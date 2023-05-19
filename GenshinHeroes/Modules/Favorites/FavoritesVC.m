@@ -135,6 +135,7 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     Character* character = [self.viewModel.favorites objectAtIndex: indexPath.row];
     [self.router showHeroDetailsWithName: character.name];
+    [self.router hideTabBar];
 }
 
 @end

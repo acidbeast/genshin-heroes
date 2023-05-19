@@ -37,6 +37,8 @@
 		7AD3C3252A02E12700D937CB /* FavoriteButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD3C3242A02E12700D937CB /* FavoriteButton.m */; };
 		7AD3C3282A04A3F200D937CB /* FavoritesVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD3C3272A04A3F200D937CB /* FavoritesVM.m */; };
 		7ADC190E2A1725D6007A37F8 /* EmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC190D2A1725D6007A37F8 /* EmptyView.m */; };
+		7ADC19112A172C5A007A37F8 /* HeroDetailsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC19102A172C5A007A37F8 /* HeroDetailsVC.m */; };
+		7ADC19142A172C6C007A37F8 /* HeroDetailsVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC19132A172C6C007A37F8 /* HeroDetailsVM.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +117,10 @@
 		7ADC190A2A169D85007A37F8 /* Blocks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Blocks.h; sourceTree = "<group>"; };
 		7ADC190C2A1725D6007A37F8 /* EmptyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EmptyView.h; sourceTree = "<group>"; };
 		7ADC190D2A1725D6007A37F8 /* EmptyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmptyView.m; sourceTree = "<group>"; };
+		7ADC190F2A172C5A007A37F8 /* HeroDetailsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeroDetailsVC.h; sourceTree = "<group>"; };
+		7ADC19102A172C5A007A37F8 /* HeroDetailsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeroDetailsVC.m; sourceTree = "<group>"; };
+		7ADC19122A172C6C007A37F8 /* HeroDetailsVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeroDetailsVM.h; sourceTree = "<group>"; };
+		7ADC19132A172C6C007A37F8 /* HeroDetailsVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeroDetailsVM.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +184,10 @@
 		7A28557729E9CD8400EA680F /* HeroDetails */ = {
 			isa = PBXGroup;
 			children = (
+				7ADC190F2A172C5A007A37F8 /* HeroDetailsVC.h */,
+				7ADC19102A172C5A007A37F8 /* HeroDetailsVC.m */,
+				7ADC19122A172C6C007A37F8 /* HeroDetailsVM.h */,
+				7ADC19132A172C6C007A37F8 /* HeroDetailsVM.m */,
 			);
 			path = HeroDetails;
 			sourceTree = "<group>";
@@ -514,7 +524,9 @@
 				7A7598F329BC403400DDC42A /* main.m in Sources */,
 				7A7598EB29BC403100DDC42A /* GenshinHeroes.xcdatamodeld in Sources */,
 				7AD3C3252A02E12700D937CB /* FavoriteButton.m in Sources */,
+				7ADC19112A172C5A007A37F8 /* HeroDetailsVC.m in Sources */,
 				7AB0FF7429F84C3700F522BD /* IndicatorView.m in Sources */,
+				7ADC19142A172C6C007A37F8 /* HeroDetailsVM.m in Sources */,
 				7AB0FF7B29F8BFED00F522BD /* ErrorVM.m in Sources */,
 				7A82B64429EE3E4600A5EF93 /* SettingsService.m in Sources */,
 				7A7598E529BC403100DDC42A /* MainVC.m in Sources */,

@@ -51,13 +51,15 @@
 - (void) showErrorWithText: (NSString*) errorText
                 buttonText: (NSString*) buttonText
                actionBlock: (ErrorActionBlock) actionBlock {
-    UIViewController* errorVC = [self.moduleBuilder createErrorBlockWithRouter: self errorText: errorText buttonText: buttonText actionBlock: actionBlock];
+    UIViewController* errorVC = [self.moduleBuilder createErrorModuleWithRouter: self errorText: errorText buttonText: buttonText actionBlock: actionBlock];
     UINavigationController* navigationController = [self.tabBarController selectedViewController];
     [navigationController pushViewController: errorVC animated: YES];
 }
 
 - (void) showHeroDetailsWithName: (NSString*) name {
-    NSLog(@"showHeroDetailsWithName: %@", name);
+    UIViewController* heroDetailsVC = [self.moduleBuilder createHeroDetailsModuleWithRouter: self heroName: name];
+    UINavigationController* navigationController = [self.tabBarController selectedViewController];
+    [navigationController pushViewController: heroDetailsVC animated: YES];
 }
 
 @end

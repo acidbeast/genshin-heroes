@@ -16,6 +16,8 @@
 #import "ErrorVM.h"
 #import "FavoritesVC.h"
 #import "FavoritesVM.h"
+#import "HeroDetailsVC.h"
+#import "HeroDetailsVM.h"
 
 // Services
 #import "SettingsService.h"
@@ -33,10 +35,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (UINavigationController*) createFavoritesNavController;
 - (UIViewController*) createMainModuleWithRouter: (MainRouter*) router;
 - (UIViewController*) createFavoritesModuleWithRouter: (MainRouter*) router;
-- (UIViewController*) createErrorBlockWithRouter: (MainRouter*) router
+- (UIViewController*) createErrorModuleWithRouter: (MainRouter*) router
                                        errorText: (NSString*) errorText
                                       buttonText: (NSString*) buttonText
                                      actionBlock: (ErrorActionBlock) actionBlock;
+- (UIViewController*) createHeroDetailsModuleWithRouter: (MainRouter*) router
+                                               heroName: (NSString*) heroName;
 
 @end
 

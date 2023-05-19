@@ -47,7 +47,7 @@
     return vc;
 }
 
-- (UIViewController*) createErrorBlockWithRouter: (MainRouter*) router
+- (UIViewController*) createErrorModuleWithRouter: (MainRouter*) router
                                        errorText: (NSString*) errorText
                                       buttonText: (NSString*) buttonText
                                      actionBlock: (ErrorActionBlock) actionBlock {
@@ -55,6 +55,14 @@
                                             buttonText: buttonText
                                            actionBlock: actionBlock];
     ErrorVC* vc = [[ErrorVC alloc] initWithViewModel: viewModel];
+    vc.router = router;
+    return vc;
+}
+
+- (UIViewController*) createHeroDetailsModuleWithRouter: (MainRouter*) router
+                                               heroName: (NSString*) heroName {
+    HeroDetailsVM* viewModel = [[HeroDetailsVM alloc] initWithHeroName: heroName];
+    HeroDetailsVC* vc = [[HeroDetailsVC alloc] initWithViewModel: viewModel];
     vc.router = router;
     return vc;
 }
