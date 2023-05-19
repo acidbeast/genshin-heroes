@@ -34,6 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void) showErrorWithText: (NSString*) errorText
                 buttonText: (NSString*) buttonText
                actionBlock: (ErrorActionBlock __nullable) actionBlock;
+- (void) showHeroDetailsWithName: (NSString*) name;
 
 @end
 

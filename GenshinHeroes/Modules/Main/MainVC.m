@@ -116,7 +116,7 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     Character* character = [self.viewModel.characters objectAtIndex: indexPath.row];
-    NSLog(@"Go To Details with name: %@", character.name);
+    [self.router showHeroDetailsWithName: character.name];
 }
 
 @end

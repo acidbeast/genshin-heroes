@@ -56,4 +56,8 @@
     [navigationController pushViewController: errorVC animated: YES];
 }
 
+- (void) showHeroDetailsWithName: (NSString*) name {
+    NSLog(@"showHeroDetailsWithName: %@", name);
+}
+
 @end

@@ -153,7 +153,6 @@
 		7A28557529E9CD7400EA680F /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				7A4D8D7D29FB633300C05090 /* Views */,
 				7A7598E329BC403100DDC42A /* MainVC.h */,
 				7A7598E429BC403100DDC42A /* MainVC.m */,
 				7A82B64529EF223300A5EF93 /* MainVM.h */,
@@ -228,13 +227,6 @@
 				7A28557E29E9D07200EA680F /* MainRouter.m */,
 			);
 			path = Router;
-			sourceTree = "<group>";
-		};
-		7A4D8D7D29FB633300C05090 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		7A4D8D7E29FB69D800C05090 /* LoadingView */ = {
