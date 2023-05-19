@@ -109,6 +109,11 @@
     return [self getCharactersWithPredicate: nil];
 }
 
+- (Character*) getCharacterWithName: (NSString*) name {
+    NSPredicate* predicate = [NSPredicate predicateWithFormat: @"name = %@", name];
+    return [self getCharactersWithPredicate: predicate][0];
+}
+
 - (void) saveCharacter: (Character*) character
      withFavoriteValue: (BOOL) favoriteValue
              onSuccess: (EmptyBlock) onSuccess

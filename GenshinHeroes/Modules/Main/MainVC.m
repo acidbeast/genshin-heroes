@@ -37,6 +37,11 @@
     [self.viewModel fetchCharacters];
 }
 
+- (void) viewWillAppear: (BOOL) animated {
+    [super viewWillAppear: animated];
+    [self.router showTabBar];
+}
+
 #pragma mark - Setup
 
 - (void) setup {
@@ -86,7 +91,6 @@
         } else {
             [self setupCollectionView];
         }
-        [self.router showTabBar];
     });
 }
 

@@ -39,6 +39,7 @@
     [super viewWillAppear: animated];
     [self.viewModel fetchFavorites];
     [self.collectionView reloadData];
+    [self.router showTabBar];
 }
 
 #pragma mark - Setup

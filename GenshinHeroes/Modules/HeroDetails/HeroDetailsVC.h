@@ -8,6 +8,7 @@
 #import <UIKit/UIKit.h>
 #import "HeroDetailsVM.h"
 #import "MainRouter.h"
+#import "LoadingView.h"
 
 @class MainRouter;
 

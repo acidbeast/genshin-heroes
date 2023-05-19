@@ -32,6 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
              onSuccess: (EmptyBlock) onSuccess
                onError: (BlockWitError) onError;
 - (NSArray*) fetchFavorites;
+- (Character*) getCharacterWithName: (NSString*) name;
 - (void) saveContext;
 - (void) deleteAllObjects;
 
