@@ -10,6 +10,7 @@
 #import "TwoColumnCollectionVC.h"
 #import "MainVM.h"
 #import "LoadingView.h"
+#import "EmptyView.h"
 
 @class MainRouter;
 

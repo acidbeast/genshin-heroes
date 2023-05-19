@@ -36,6 +36,7 @@
 		7AD3C3212A01822800D937CB /* Colors.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD3C3202A01822800D937CB /* Colors.m */; };
 		7AD3C3252A02E12700D937CB /* FavoriteButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD3C3242A02E12700D937CB /* FavoriteButton.m */; };
 		7AD3C3282A04A3F200D937CB /* FavoritesVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD3C3272A04A3F200D937CB /* FavoritesVM.m */; };
+		7ADC190E2A1725D6007A37F8 /* EmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC190D2A1725D6007A37F8 /* EmptyView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +113,8 @@
 		7AD3C3262A04A3F200D937CB /* FavoritesVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FavoritesVM.h; sourceTree = "<group>"; };
 		7AD3C3272A04A3F200D937CB /* FavoritesVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FavoritesVM.m; sourceTree = "<group>"; };
 		7ADC190A2A169D85007A37F8 /* Blocks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Blocks.h; sourceTree = "<group>"; };
+		7ADC190C2A1725D6007A37F8 /* EmptyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EmptyView.h; sourceTree = "<group>"; };
+		7ADC190D2A1725D6007A37F8 /* EmptyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmptyView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				7ADC19092A169D71007A37F8 /* Blocks */,
+				7ADC190B2A1725B6007A37F8 /* EmptyView */,
 				7AD3C3222A02DFE900D937CB /* FavoriteButton */,
 				7A4D8D8629FB716F00C05090 /* IndicatorView */,
 				7A4D8D7E29FB69D800C05090 /* LoadingView */,
@@ -369,6 +373,15 @@
 			path = Blocks;
 			sourceTree = "<group>";
 		};
+		7ADC190B2A1725B6007A37F8 /* EmptyView */ = {
+			isa = PBXGroup;
+			children = (
+				7ADC190C2A1725D6007A37F8 /* EmptyView.h */,
+				7ADC190D2A1725D6007A37F8 /* EmptyView.m */,
+			);
+			path = EmptyView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -507,6 +520,7 @@
 				7A7598E529BC403100DDC42A /* MainVC.m in Sources */,
 				7AB0FF7829F8BFC400F522BD /* ErrorVC.m in Sources */,
 				7AD3C3212A01822800D937CB /* Colors.m in Sources */,
+				7ADC190E2A1725D6007A37F8 /* EmptyView.m in Sources */,
 				7A4D8D7C29FAFC9800C05090 /* UIWindow+keyWindow.m in Sources */,
 				7A82B64729EF223300A5EF93 /* MainVM.m in Sources */,
 				7AB0FF6E29F76E9E00F522BD /* UIColor+Hex.m in Sources */,

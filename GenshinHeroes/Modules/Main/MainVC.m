@@ -11,6 +11,7 @@
 @interface MainVC ()
 
 @property (strong, nonatomic) LoadingView* loadingView;
+@property (strong, nonatomic) EmptyView* emptyView;
 
 @end
 
@@ -23,6 +24,7 @@
         self.viewModel = viewModel;
         self.viewModel.delegate = self;
         self.loadingView = [[LoadingView alloc] initWithFrame: CGRectZero];
+        self.emptyView = [[EmptyView alloc] initWithText: @"Heroes collection\nis empty"];
         self.collectionView.dataSource = self;
         self.collectionView.delegate = self;
     }
@@ -58,6 +60,17 @@
     ]];
 }
 
+- (void) setupEmptyView {
+    [self.view addSubview: self.emptyView];
+    self.emptyView.translatesAutoresizingMaskIntoConstraints = NO;
+    [NSLayoutConstraint activateConstraints: @[
+        [self.emptyView.topAnchor constraintEqualToAnchor: self.view.topAnchor],
+        [self.emptyView.bottomAnchor constraintEqualToAnchor: self.view.bottomAnchor],
+        [self.emptyView.leadingAnchor constraintEqualToAnchor: self.view.leadingAnchor],
+        [self.emptyView.trailingAnchor constraintEqualToAnchor: self.view.trailingAnchor]
+    ]];
+}
+
 #pragma mark - MainVMDelegateProtocol
 
 - (void) onFetchCharactersLoading {
@@ -68,8 +81,11 @@
 - (void) onFetchCharactersSuccess {
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.loadingView removeFromSuperview];
-        // TODO: check amount of characters, if 0 show empty screen.
-        [self setupCollectionView];
+        if ([self.viewModel.characters count] == 0) {
+            [self setupEmptyView];
+        } else {
+            [self setupCollectionView];
+        }
         [self.router showTabBar];
     });
 }
