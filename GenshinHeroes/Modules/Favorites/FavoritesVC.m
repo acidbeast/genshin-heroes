@@ -35,6 +35,7 @@
 
 - (void) viewWillAppear:(BOOL) animated {
     [super viewWillAppear: animated];
+    NSLog(@"viewWillAppear");
     [self.viewModel fetchFavorites];
     [self.collectionView reloadData];
 }
@@ -99,8 +100,18 @@
     Character* character = [self.viewModel.favorites objectAtIndex: indexPath.row];
     __weak FavoritesVC* weakSelf = self;
     cell.favoriteActionBlock = ^(BOOL value) {
-        NSLog(@"save favorite");
-        //[weakSelf.viewModel saveCharacter: character withFavoriteValue: value];
+        [weakSelf.viewModel saveCharacter: character
+                        withFavoriteValue: false
+                                onSuccess: ^{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.viewModel fetchFavorites];
+                [self.collectionView reloadData];
+            });
+        }
+                                  onError:^(NSError *error) {
+        // TODO: Show error notification with error over content
+        }
+        ];
     };
     [cell updateWithCharacter: character];
     return cell;

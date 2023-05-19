@@ -28,6 +28,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype) initWithcoreDataService: (CoreDataService*) coreDataService;
 - (void) fetchFavorites;
+- (void) saveCharacter: (Character*) character
+     withFavoriteValue: (BOOL) favoriteValue
+             onSuccess:(EmptyBlock) onSuccess
+               onError:(BlockWitError) onError;
 
 @end
 

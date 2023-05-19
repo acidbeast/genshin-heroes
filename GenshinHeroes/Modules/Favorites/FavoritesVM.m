@@ -35,4 +35,14 @@ typedef void (^FetchFavoritesErrorBlock)(NSError* error);
     [self.delegate onFetchFavoritesSuccess];
 }
 
+- (void) saveCharacter: (Character*) character
+     withFavoriteValue: (BOOL) favoriteValue
+             onSuccess:(EmptyBlock) onSuccess
+               onError:(BlockWitError) onError {
+    [self.coreDataService saveCharacter: character
+                      withFavoriteValue: favoriteValue
+                              onSuccess: onSuccess
+                                onError: onError];
+}
+
 @end
