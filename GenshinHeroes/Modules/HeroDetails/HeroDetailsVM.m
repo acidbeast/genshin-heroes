@@ -21,6 +21,7 @@
     if (self) {
         self.heroName = heroName;
         self.coreDataService = coreDataService;
+        self.sections = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -28,6 +29,20 @@
 - (void) getHeroDetails {
     self.hero = [self.coreDataService getCharacterWithName: self.heroName];
     NSLog(@"getHeroDetails: %@", self.hero);
+    [self createSectionsWith: self.hero];
+    NSLog(@"sections %@", self.sections);
+}
+
+
+- (void) createSectionsWith: (Character*) hero {
+    DetailsSection* imageSection = [[DetailsSection alloc] initWithType: DetailsSectionTypeImage imageName: @"imageUrl"];
+    DetailsSection* titleSection = [[DetailsSection alloc] initWithType: DetailsSectionTypeTitle title: @"title 1"];
+    DetailsSection* ratingSection = [[DetailsSection alloc] initWithType: DetailsSectionTypeRating rating: 0];
+    DetailsSection* textSection = [[DetailsSection alloc] initWithType: DetailsSectionTypeTitle text: @"text 1"];
+    [self.sections addObject: imageSection];
+    [self.sections addObject: titleSection];
+    [self.sections addObject: ratingSection];
+    [self.sections addObject: textSection];
 }
 
 @end

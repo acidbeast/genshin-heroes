@@ -8,6 +8,7 @@
 #import <Foundation/Foundation.h>
 #import "CoreDataService.h"
 #import "Character+CoreDataClass.h"
+#import "DetailsSection.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -24,6 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) id <HeroDetailsVMDelegateProtocol> delegate;
 @property (strong, nonatomic) NSString* heroName;
 @property (strong, nonatomic) Character* hero;
+@property (strong, nonatomic) NSMutableArray* sections;
 
 - (instancetype) initWithHeroName: (NSString*) heroName
                   coreDataService: (CoreDataService*) coreDataService;
