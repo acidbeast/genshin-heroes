@@ -176,7 +176,7 @@
         [self.favoriteButton.topAnchor constraintEqualToAnchor: self.topAnchor constant: 8],
         [self.favoriteButton.trailingAnchor constraintEqualToAnchor: self.trailingAnchor constant: -8]
     ]];
-    UIAction* buttonAction = [UIAction actionWithHandler:^(__kindof UIAction * _Nonnull action) {
+    UIAction* buttonAction = [UIAction actionWithHandler: ^(__kindof UIAction * _Nonnull action) {
         if (self.favoriteActionBlock != nil) {
             self.favoriteActionBlock(self.isFavorite);
         }

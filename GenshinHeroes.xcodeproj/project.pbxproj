@@ -39,6 +39,7 @@
 		7ADC190E2A1725D6007A37F8 /* EmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC190D2A1725D6007A37F8 /* EmptyView.m */; };
 		7ADC19112A172C5A007A37F8 /* HeroDetailsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC19102A172C5A007A37F8 /* HeroDetailsVC.m */; };
 		7ADC19142A172C6C007A37F8 /* HeroDetailsVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC19132A172C6C007A37F8 /* HeroDetailsVM.m */; };
+		7ADC19182A1C595C007A37F8 /* BackButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC19172A1C595C007A37F8 /* BackButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +122,8 @@
 		7ADC19102A172C5A007A37F8 /* HeroDetailsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeroDetailsVC.m; sourceTree = "<group>"; };
 		7ADC19122A172C6C007A37F8 /* HeroDetailsVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeroDetailsVM.h; sourceTree = "<group>"; };
 		7ADC19132A172C6C007A37F8 /* HeroDetailsVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeroDetailsVM.m; sourceTree = "<group>"; };
+		7ADC19162A1C595C007A37F8 /* BackButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BackButton.h; sourceTree = "<group>"; };
+		7ADC19172A1C595C007A37F8 /* BackButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BackButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +198,7 @@
 		7A28557829E9CE6400EA680F /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				7ADC19152A1C58D7007A37F8 /* BackButton */,
 				7ADC19092A169D71007A37F8 /* Blocks */,
 				7ADC190B2A1725B6007A37F8 /* EmptyView */,
 				7AD3C3222A02DFE900D937CB /* FavoriteButton */,
@@ -392,6 +396,15 @@
 			path = EmptyView;
 			sourceTree = "<group>";
 		};
+		7ADC19152A1C58D7007A37F8 /* BackButton */ = {
+			isa = PBXGroup;
+			children = (
+				7ADC19162A1C595C007A37F8 /* BackButton.h */,
+				7ADC19172A1C595C007A37F8 /* BackButton.m */,
+			);
+			path = BackButton;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -533,6 +546,7 @@
 				7AB0FF7829F8BFC400F522BD /* ErrorVC.m in Sources */,
 				7AD3C3212A01822800D937CB /* Colors.m in Sources */,
 				7ADC190E2A1725D6007A37F8 /* EmptyView.m in Sources */,
+				7ADC19182A1C595C007A37F8 /* BackButton.m in Sources */,
 				7A4D8D7C29FAFC9800C05090 /* UIWindow+keyWindow.m in Sources */,
 				7A82B64729EF223300A5EF93 /* MainVM.m in Sources */,
 				7AB0FF6E29F76E9E00F522BD /* UIColor+Hex.m in Sources */,

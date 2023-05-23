@@ -10,6 +10,9 @@
 @interface HeroDetailsVC ()
 
 @property (strong, nonatomic) LoadingView* loadingView;
+@property (strong, nonatomic) BackButton* backButton;
+@property (strong, nonatomic) UICollectionView* collectionView;
+@property (strong, nonatomic) UICollectionViewFlowLayout* collectionLayout;
 
 @end
 
@@ -19,7 +22,11 @@
     self = [super init];
     if (self) {
         self.viewModel = viewModel;
+        self.viewModel.delegate = self;
+        self.collectionLayout = [[UICollectionViewFlowLayout alloc] init];
+        self.collectionView = [[UICollectionView alloc] initWithFrame: CGRectZero collectionViewLayout: self.collectionLayout];
         self.loadingView = [[LoadingView alloc] init];
+        self.backButton = [[BackButton alloc] init];
     }
     return self;
 }
@@ -34,12 +41,30 @@
 
 - (void) setup {
     [self setupNavigation];
+    [self setupBackButton];
     [self setupLoadingView];
 }
 
 - (void) setupNavigation {
-    [self.navigationController setNavigationBarHidden: NO];
-    self.navigationItem.title = [[NSString alloc] initWithFormat: @"%@", self.viewModel.heroName];
+    [self.navigationController setNavigationBarHidden: YES];
+    //self.navigationItem.title = [[NSString alloc] initWithFormat: @"%@", self.viewModel.heroName];
+}
+
+- (void) setupBackButton {
+    [self.view addSubview: self.backButton];
+    self.backButton.translatesAutoresizingMaskIntoConstraints = NO;
+    self.backButton.layer.zPosition = 1;
+    [NSLayoutConstraint activateConstraints: @[
+        [self.backButton.widthAnchor constraintEqualToConstant: 24],
+        [self.backButton.heightAnchor constraintEqualToConstant: 24],
+        [self.backButton.topAnchor constraintEqualToAnchor: self.view.safeAreaLayoutGuide.topAnchor constant: 16],
+        [self.backButton.leadingAnchor constraintEqualToAnchor: self.view.safeAreaLayoutGuide.leadingAnchor constant: 16]
+    ]];
+    UIAction* backButtonAction = [UIAction actionWithHandler:^(__kindof UIAction* _Nonnull action) {
+        NSLog(@"Action");
+        [self.router back];
+    }];
+    [self.backButton addAction: backButtonAction forControlEvents: UIControlEventTouchUpInside];
 }
 
 - (void) setupLoadingView {
@@ -51,6 +76,10 @@
         [self.loadingView.leadingAnchor constraintEqualToAnchor: self.view.leadingAnchor],
         [self.loadingView.trailingAnchor constraintEqualToAnchor: self.view.trailingAnchor]
     ]];
+}
+
+- (void) setupCollectionView {
+    
 }
 
 @end

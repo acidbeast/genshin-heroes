@@ -17,7 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol MainRouterProtocol <NSObject>
 
--(void) start;
+- (void) start;
+- (void) back;
 
 @end
 
@@ -29,6 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithModuleBuilder: (ModuleBuilder*) moduleBuilder
                      tabBarController: (UITabBarController*) tabBarController;
 - (void) start;
+- (void) back;
 - (void) showTabBar;
 - (void) hideTabBar;
 - (void) showErrorWithText: (NSString*) errorText

@@ -62,4 +62,9 @@
     [navigationController pushViewController: heroDetailsVC animated: YES];
 }
 
+- (void) back {
+    UINavigationController* navigationController = [self.tabBarController selectedViewController];
+    [navigationController popViewControllerAnimated: YES];
+}
+
 @end

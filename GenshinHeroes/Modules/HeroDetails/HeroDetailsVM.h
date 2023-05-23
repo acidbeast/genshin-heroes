@@ -11,8 +11,17 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol HeroDetailsVMDelegateProtocol
+
+- (void) onFetchHeroLoading;
+- (void) onFetchHeroSuccess;
+- (void) onFetchHeroError: (NSError*) error;
+
+@end
+
 @interface HeroDetailsVM : NSObject
 
+@property (weak, nonatomic) id <HeroDetailsVMDelegateProtocol> delegate;
 @property (strong, nonatomic) NSString* heroName;
 @property (strong, nonatomic) Character* hero;
 
