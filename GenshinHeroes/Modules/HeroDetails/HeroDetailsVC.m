@@ -41,8 +41,8 @@
 
 - (void) setup {
     [self setupNavigation];
-    [self setupBackButton];
     [self setupLoadingView];
+    [self setupBackButton];
 }
 
 - (void) setupNavigation {
@@ -52,19 +52,15 @@
 
 - (void) setupBackButton {
     [self.view addSubview: self.backButton];
-    self.backButton.translatesAutoresizingMaskIntoConstraints = NO;
-    self.backButton.layer.zPosition = 1;
+    self.backButton.layer.zPosition = 2;
     [NSLayoutConstraint activateConstraints: @[
-        [self.backButton.widthAnchor constraintEqualToConstant: 24],
-        [self.backButton.heightAnchor constraintEqualToConstant: 24],
         [self.backButton.topAnchor constraintEqualToAnchor: self.view.safeAreaLayoutGuide.topAnchor constant: 16],
         [self.backButton.leadingAnchor constraintEqualToAnchor: self.view.safeAreaLayoutGuide.leadingAnchor constant: 16]
     ]];
-    UIAction* backButtonAction = [UIAction actionWithHandler:^(__kindof UIAction* _Nonnull action) {
-        NSLog(@"Action");
+    UIAction* buttonAction = [UIAction actionWithHandler: ^(UIAction* action) {
         [self.router back];
     }];
-    [self.backButton addAction: backButtonAction forControlEvents: UIControlEventTouchUpInside];
+    [self.backButton addAction:buttonAction forControlEvents: UIControlEventTouchUpInside];
 }
 
 - (void) setupLoadingView {

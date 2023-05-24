@@ -18,8 +18,8 @@
 }
 
 - (UIView*) hitTest: (CGPoint) point withEvent: (UIEvent*) event {
-    int extesionValue = 8;
-    CGRect extendedFrame = CGRectMake(0 - extesionValue, 0 - extesionValue, self.bounds.size.width + (extesionValue * 2), self.bounds.size.height + (extesionValue * 2));
+    int extensionValue = 8;
+    CGRect extendedFrame = CGRectMake(0 - extensionValue, 0 - extensionValue, self.bounds.size.width + (extensionValue * 2), self.bounds.size.height + (extensionValue * 2));
     return CGRectContainsPoint(extendedFrame, point) == 1 ? self : nil;
 }
 

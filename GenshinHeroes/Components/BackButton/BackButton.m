@@ -17,15 +17,16 @@
     return self;
 }
 
-- (UIView*) hitTest:(CGPoint)point withEvent:(UIEvent *)event {
-    int extensionValue = 8;
-    CGRect extendedFrame = CGRectMake(0 - extensionValue, 0 - extensionValue, self.bounds.size.width, self.bounds.size.height);
-    return CGRectContainsPoint(extendedFrame, point) == 1 ? self : nil;
-}
+//- (UIView*) hitTest: (CGPoint) point withEvent: (UIEvent*) event {
+//    int extensionValue = 8;
+//    CGRect extendedFrame = CGRectMake(0 - extensionValue, 0 - extensionValue, self.bounds.size.width + (extensionValue * 2), self.bounds.size.height + (extensionValue * 2));
+//    return CGRectContainsPoint(extendedFrame, point) == 1 ? self : nil;
+//}
 
 #pragma mark - Setup
 
 - (void) setup {
+    self.translatesAutoresizingMaskIntoConstraints = NO;
     self.frame = CGRectMake(0, 0, 24, 24);
     self.backgroundColor = [UIColor whiteColor];
     self.layer.cornerRadius = 12;
@@ -38,6 +39,10 @@
     [self setImage: [UIImage systemImageNamed: @"chevron.backward"] forState: UIControlStateNormal];
     self.tintColor = Colors.shared.favorite[@"primary"];
     self.imageEdgeInsets = UIEdgeInsetsMake(5, 3, 4, 3);
+    [NSLayoutConstraint activateConstraints: @[
+        [self.widthAnchor constraintEqualToConstant: 24],
+        [self.heightAnchor constraintEqualToConstant: 24]
+    ]];
 }
 
 
