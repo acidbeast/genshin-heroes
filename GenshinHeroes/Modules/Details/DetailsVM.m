@@ -36,7 +36,7 @@
 
 - (void) createSectionsWith: (Character*) hero {
     DetailsSection* imageSection = [[DetailsSection alloc] initWithType: DetailsSectionTypeImage imageName: @"imageUrl"];
-    DetailsSection* titleSection = [[DetailsSection alloc] initWithType: DetailsSectionTypeTitle title: @"title 1"];
+    DetailsSection* titleSection = [[DetailsSection alloc] initWithType: DetailsSectionTypeTitle title: hero.name];
     DetailsSection* ratingSection = [[DetailsSection alloc] initWithType: DetailsSectionTypeRating rating: 0];
     DetailsSection* textSection = [[DetailsSection alloc] initWithType: DetailsSectionTypeTitle text: @"text 1"];
     [self.sections addObject: imageSection];

@@ -170,7 +170,7 @@
 
 - (CGSize) collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     CGFloat width = (CGRectGetWidth(self.view.frame));
-    return CGSizeMake(width - 32, 100);
+    return CGSizeMake(width - 32, 0);
 }
 
 - (UIEdgeInsets) collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {

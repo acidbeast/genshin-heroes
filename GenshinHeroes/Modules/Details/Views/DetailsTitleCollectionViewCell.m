@@ -7,6 +7,13 @@
 
 #import "DetailsTitleCollectionViewCell.h"
 
+@interface DetailsTitleCollectionViewCell ()
+
+@property (strong, nonatomic) UILabel* titleLabel;
+
+@end
+
+
 @implementation DetailsTitleCollectionViewCell
 
 - (instancetype) initWithFrame:(CGRect)frame {
@@ -18,33 +25,43 @@
     return self;
 }
 
+- (UICollectionViewLayoutAttributes*) preferredLayoutAttributesFittingAttributes:(UICollectionViewLayoutAttributes*) layoutAttributes {
+    CGSize targetSize = CGSizeMake(layoutAttributes.frame.size.width, 0);
+    [layoutAttributes setSize: [self.contentView systemLayoutSizeFittingSize: targetSize withHorizontalFittingPriority: UILayoutPriorityRequired verticalFittingPriority: UILayoutPriorityFittingSizeLevel]];
+    return layoutAttributes;
+}
+
 - (void) initValues {
-    
+    self.titleLabel = [[UILabel alloc] init];
 }
 
 #pragma mark - Prepare For Reuse
 
 - (void) prepareForReuse {
     [super prepareForReuse];
+    self.titleLabel.text = @"";
 }
 
 #pragma mark - Setup
 
 - (void) setup {
-    NSLog(@"DetailsTitleCollectionViewCell setup");
-    UILabel* label = [[UILabel alloc] init];
-    label.text = @"Title";
-    label.textColor = [UIColor blackColor];
-    label.translatesAutoresizingMaskIntoConstraints = NO;
-    [self addSubview: label];
+    [self setupTitleLabel];
+}
+
+
+- (void) setupTitleLabel {
+    [self addSubview: self.titleLabel];
+    self.titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    self.titleLabel.textColor = Colors.shared.text[@"primary"];
+    self.titleLabel.font = [UIFont fontWithName: @"Avenir Next Regular" size: 24.0];
     [NSLayoutConstraint activateConstraints: @[
-        [label.leadingAnchor constraintEqualToAnchor: self.leadingAnchor],
-        [label.trailingAnchor constraintEqualToAnchor: self.trailingAnchor]
+        [self.titleLabel.leadingAnchor constraintEqualToAnchor: self.leadingAnchor],
+        [self.titleLabel.trailingAnchor constraintEqualToAnchor: self.trailingAnchor]
     ]];
 }
 
 - (void) updateWithSection: (DetailsSection*) section {
-    NSLog(@"section: %@", section);
+    self.titleLabel.text = section.title;
 }
 
 @end
