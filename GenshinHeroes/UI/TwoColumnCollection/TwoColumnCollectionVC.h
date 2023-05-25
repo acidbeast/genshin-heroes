@@ -8,13 +8,13 @@
 #import <UIKit/UIKit.h>
 #import "UIColor+Hex.h"
 #import "TwoColumnCollectionViewCell.h"
+#import "UICollectionViewCell+Identifier.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TwoColumnCollectionVC : UIViewController <UICollectionViewDelegateFlowLayout>
 
 @property (strong, nonatomic) UICollectionView* collectionView;
-@property (strong, nonatomic) NSString* cellId;
 
 - (void) setupCollectionView;
 - (void) registerCells;

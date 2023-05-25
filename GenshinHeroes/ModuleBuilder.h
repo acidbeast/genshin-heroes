@@ -16,8 +16,8 @@
 #import "ErrorVM.h"
 #import "FavoritesVC.h"
 #import "FavoritesVM.h"
-#import "HeroDetailsVC.h"
-#import "HeroDetailsVM.h"
+#import "DetailsVC.h"
+#import "DetailsVM.h"
 
 // Services
 #import "SettingsService.h"

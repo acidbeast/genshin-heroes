@@ -18,7 +18,6 @@
 - (instancetype) init {
     self = [super init];
     if (self) {
-        self.cellId = NSStringFromClass([TwoColumnCollectionViewCell class]);
         self.collectionFlowLayout = [[UICollectionViewFlowLayout alloc] init];
         [self.collectionFlowLayout setScrollDirection: UICollectionViewScrollDirectionVertical];
         self.collectionView = [[UICollectionView alloc] initWithFrame: CGRectZero collectionViewLayout: self.collectionFlowLayout];
@@ -47,7 +46,7 @@
 #pragma mark - Register Cells
 
 - (void) registerCells {
-    [self.collectionView registerClass: [TwoColumnCollectionViewCell class] forCellWithReuseIdentifier: self.cellId];
+    [self.collectionView registerClass: [TwoColumnCollectionViewCell class] forCellWithReuseIdentifier: [TwoColumnCollectionViewCell identifier]];
 }
 
 #pragma mark - UICollectionViewDelegateFlowLayout

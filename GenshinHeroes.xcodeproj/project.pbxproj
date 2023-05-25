@@ -37,10 +37,13 @@
 		7AD3C3252A02E12700D937CB /* FavoriteButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD3C3242A02E12700D937CB /* FavoriteButton.m */; };
 		7AD3C3282A04A3F200D937CB /* FavoritesVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD3C3272A04A3F200D937CB /* FavoritesVM.m */; };
 		7ADC190E2A1725D6007A37F8 /* EmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC190D2A1725D6007A37F8 /* EmptyView.m */; };
-		7ADC19112A172C5A007A37F8 /* HeroDetailsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC19102A172C5A007A37F8 /* HeroDetailsVC.m */; };
-		7ADC19142A172C6C007A37F8 /* HeroDetailsVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC19132A172C6C007A37F8 /* HeroDetailsVM.m */; };
+		7ADC19112A172C5A007A37F8 /* DetailsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC19102A172C5A007A37F8 /* DetailsVC.m */; };
+		7ADC19142A172C6C007A37F8 /* DetailsVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC19132A172C6C007A37F8 /* DetailsVM.m */; };
 		7ADC19182A1C595C007A37F8 /* BackButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC19172A1C595C007A37F8 /* BackButton.m */; };
 		7ADC191D2A1C6621007A37F8 /* DetailsSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC191C2A1C6620007A37F8 /* DetailsSection.m */; };
+		7ADC19212A1E1448007A37F8 /* DetailsImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC19202A1E1448007A37F8 /* DetailsImageCollectionViewCell.m */; };
+		7ADC19242A1E1465007A37F8 /* DetailsTitleCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC19232A1E1465007A37F8 /* DetailsTitleCollectionViewCell.m */; };
+		7ADC19272A1E14B8007A37F8 /* UICollectionViewCell+Identifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC19262A1E14B8007A37F8 /* UICollectionViewCell+Identifier.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,15 +122,21 @@
 		7ADC190A2A169D85007A37F8 /* Blocks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Blocks.h; sourceTree = "<group>"; };
 		7ADC190C2A1725D6007A37F8 /* EmptyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EmptyView.h; sourceTree = "<group>"; };
 		7ADC190D2A1725D6007A37F8 /* EmptyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmptyView.m; sourceTree = "<group>"; };
-		7ADC190F2A172C5A007A37F8 /* HeroDetailsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeroDetailsVC.h; sourceTree = "<group>"; };
-		7ADC19102A172C5A007A37F8 /* HeroDetailsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeroDetailsVC.m; sourceTree = "<group>"; };
-		7ADC19122A172C6C007A37F8 /* HeroDetailsVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeroDetailsVM.h; sourceTree = "<group>"; };
-		7ADC19132A172C6C007A37F8 /* HeroDetailsVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeroDetailsVM.m; sourceTree = "<group>"; };
+		7ADC190F2A172C5A007A37F8 /* DetailsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsVC.h; sourceTree = "<group>"; };
+		7ADC19102A172C5A007A37F8 /* DetailsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsVC.m; sourceTree = "<group>"; };
+		7ADC19122A172C6C007A37F8 /* DetailsVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsVM.h; sourceTree = "<group>"; };
+		7ADC19132A172C6C007A37F8 /* DetailsVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsVM.m; sourceTree = "<group>"; };
 		7ADC19162A1C595C007A37F8 /* BackButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BackButton.h; sourceTree = "<group>"; };
 		7ADC19172A1C595C007A37F8 /* BackButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BackButton.m; sourceTree = "<group>"; };
 		7ADC191A2A1C651B007A37F8 /* DetailsSectionType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsSectionType.h; sourceTree = "<group>"; };
 		7ADC191B2A1C6620007A37F8 /* DetailsSection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsSection.h; sourceTree = "<group>"; };
 		7ADC191C2A1C6620007A37F8 /* DetailsSection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsSection.m; sourceTree = "<group>"; };
+		7ADC191F2A1E1448007A37F8 /* DetailsImageCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsImageCollectionViewCell.h; sourceTree = "<group>"; };
+		7ADC19202A1E1448007A37F8 /* DetailsImageCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsImageCollectionViewCell.m; sourceTree = "<group>"; };
+		7ADC19222A1E1465007A37F8 /* DetailsTitleCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsTitleCollectionViewCell.h; sourceTree = "<group>"; };
+		7ADC19232A1E1465007A37F8 /* DetailsTitleCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsTitleCollectionViewCell.m; sourceTree = "<group>"; };
+		7ADC19252A1E14B8007A37F8 /* UICollectionViewCell+Identifier.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UICollectionViewCell+Identifier.h"; sourceTree = "<group>"; };
+		7ADC19262A1E14B8007A37F8 /* UICollectionViewCell+Identifier.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UICollectionViewCell+Identifier.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,7 +169,7 @@
 			children = (
 				7AB0FF7529F8BF9400F522BD /* Error */,
 				7A28557629E9CD7C00EA680F /* Favorites */,
-				7A28557729E9CD8400EA680F /* HeroDetails */,
+				7A28557729E9CD8400EA680F /* Details */,
 				7A28557529E9CD7400EA680F /* Main */,
 			);
 			path = Modules;
@@ -188,19 +197,20 @@
 			path = Favorites;
 			sourceTree = "<group>";
 		};
-		7A28557729E9CD8400EA680F /* HeroDetails */ = {
+		7A28557729E9CD8400EA680F /* Details */ = {
 			isa = PBXGroup;
 			children = (
 				7ADC19192A1C64B2007A37F8 /* Model */,
-				7ADC190F2A172C5A007A37F8 /* HeroDetailsVC.h */,
-				7ADC19102A172C5A007A37F8 /* HeroDetailsVC.m */,
-				7ADC19122A172C6C007A37F8 /* HeroDetailsVM.h */,
-				7ADC19132A172C6C007A37F8 /* HeroDetailsVM.m */,
+				7ADC191E2A1E12A4007A37F8 /* Views */,
+				7ADC190F2A172C5A007A37F8 /* DetailsVC.h */,
+				7ADC19102A172C5A007A37F8 /* DetailsVC.m */,
+				7ADC19122A172C6C007A37F8 /* DetailsVM.h */,
+				7ADC19132A172C6C007A37F8 /* DetailsVM.m */,
 			);
-			path = HeroDetails;
+			path = Details;
 			sourceTree = "<group>";
 		};
-		7A28557829E9CE6400EA680F /* Components */ = {
+		7A28557829E9CE6400EA680F /* UI */ = {
 			isa = PBXGroup;
 			children = (
 				7ADC19152A1C58D7007A37F8 /* BackButton */,
@@ -211,7 +221,7 @@
 				7A4D8D7E29FB69D800C05090 /* LoadingView */,
 				7A4D8D7F29FB69E500C05090 /* TwoColumnCollection */,
 			);
-			path = Components;
+			path = UI;
 			sourceTree = "<group>";
 		};
 		7A28557A29E9CE9700EA680F /* Services */ = {
@@ -306,10 +316,10 @@
 			children = (
 				7AD3C31E2A0181FC00D937CB /* Styles */,
 				7AB0FF6B29F76E7000F522BD /* Extensions */,
-				7A28557829E9CE6400EA680F /* Components */,
 				7A28557429E9CD4E00EA680F /* Modules */,
 				7A28557A29E9CE9700EA680F /* Services */,
 				7A28558329E9EEFC00EA680F /* Router */,
+				7A28557829E9CE6400EA680F /* UI */,
 				7A7598DD29BC403100DDC42A /* AppDelegate.h */,
 				7A7598DE29BC403100DDC42A /* AppDelegate.m */,
 				7A6EBC3429EDB88800B0E0A2 /* MainTabBarController.h */,
@@ -351,6 +361,8 @@
 				7AB0FF6D29F76E9E00F522BD /* UIColor+Hex.m */,
 				7A4D8D7A29FAFC9800C05090 /* UIWindow+keyWindow.h */,
 				7A4D8D7B29FAFC9800C05090 /* UIWindow+keyWindow.m */,
+				7ADC19252A1E14B8007A37F8 /* UICollectionViewCell+Identifier.h */,
+				7ADC19262A1E14B8007A37F8 /* UICollectionViewCell+Identifier.m */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -418,6 +430,17 @@
 				7ADC191C2A1C6620007A37F8 /* DetailsSection.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		7ADC191E2A1E12A4007A37F8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7ADC191F2A1E1448007A37F8 /* DetailsImageCollectionViewCell.h */,
+				7ADC19202A1E1448007A37F8 /* DetailsImageCollectionViewCell.m */,
+				7ADC19222A1E1465007A37F8 /* DetailsTitleCollectionViewCell.h */,
+				7ADC19232A1E1465007A37F8 /* DetailsTitleCollectionViewCell.m */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -552,9 +575,9 @@
 				7A7598F329BC403400DDC42A /* main.m in Sources */,
 				7A7598EB29BC403100DDC42A /* GenshinHeroes.xcdatamodeld in Sources */,
 				7AD3C3252A02E12700D937CB /* FavoriteButton.m in Sources */,
-				7ADC19112A172C5A007A37F8 /* HeroDetailsVC.m in Sources */,
+				7ADC19112A172C5A007A37F8 /* DetailsVC.m in Sources */,
 				7AB0FF7429F84C3700F522BD /* IndicatorView.m in Sources */,
-				7ADC19142A172C6C007A37F8 /* HeroDetailsVM.m in Sources */,
+				7ADC19142A172C6C007A37F8 /* DetailsVM.m in Sources */,
 				7AB0FF7B29F8BFED00F522BD /* ErrorVM.m in Sources */,
 				7A82B64429EE3E4600A5EF93 /* SettingsService.m in Sources */,
 				7A7598E529BC403100DDC42A /* MainVC.m in Sources */,
@@ -562,11 +585,14 @@
 				7ADC191D2A1C6621007A37F8 /* DetailsSection.m in Sources */,
 				7AD3C3212A01822800D937CB /* Colors.m in Sources */,
 				7ADC190E2A1725D6007A37F8 /* EmptyView.m in Sources */,
+				7ADC19242A1E1465007A37F8 /* DetailsTitleCollectionViewCell.m in Sources */,
 				7ADC19182A1C595C007A37F8 /* BackButton.m in Sources */,
+				7ADC19272A1E14B8007A37F8 /* UICollectionViewCell+Identifier.m in Sources */,
 				7A4D8D7C29FAFC9800C05090 /* UIWindow+keyWindow.m in Sources */,
 				7A82B64729EF223300A5EF93 /* MainVM.m in Sources */,
 				7AB0FF6E29F76E9E00F522BD /* UIColor+Hex.m in Sources */,
 				7A28558229E9EB2600EA680F /* ModuleBuilder.m in Sources */,
+				7ADC19212A1E1448007A37F8 /* DetailsImageCollectionViewCell.m in Sources */,
 				7A7598DF29BC403100DDC42A /* AppDelegate.m in Sources */,
 				7AD3C3282A04A3F200D937CB /* FavoritesVM.m in Sources */,
 				7A82B65429F062A100A5EF93 /* CharactersService.m in Sources */,

@@ -61,9 +61,9 @@
 
 - (UIViewController*) createHeroDetailsModuleWithRouter: (MainRouter*) router
                                                heroName: (NSString*) heroName {
-    HeroDetailsVM* viewModel = [[HeroDetailsVM alloc] initWithHeroName: heroName
+    DetailsVM* viewModel = [[DetailsVM alloc] initWithHeroName: heroName
                                                        coreDataService: [CoreDataService shared]];
-    HeroDetailsVC* vc = [[HeroDetailsVC alloc] initWithViewModel: viewModel];
+    DetailsVC* vc = [[DetailsVC alloc] initWithViewModel: viewModel];
     vc.router = router;
     return vc;
 }

@@ -5,15 +5,15 @@
 //  Created by Dmitry Shlepkin on 5/19/23.
 //
 
-#import "HeroDetailsVM.h"
+#import "DetailsVM.h"
 
-@interface HeroDetailsVM ()
+@interface DetailsVM ()
 
 @property (weak, nonatomic) CoreDataService* coreDataService;
 
 @end
 
-@implementation HeroDetailsVM
+@implementation DetailsVM
 
 - (instancetype) initWithHeroName: (NSString*) heroName
                   coreDataService: (CoreDataService*) coreDataService {

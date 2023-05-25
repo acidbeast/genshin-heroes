@@ -11,6 +11,7 @@
 #import "MainVM.h"
 #import "LoadingView.h"
 #import "EmptyView.h"
+#import "UICollectionViewCell+Identifier.h"
 
 @class MainRouter;
 

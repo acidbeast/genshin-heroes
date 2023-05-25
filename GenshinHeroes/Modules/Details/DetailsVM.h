@@ -12,7 +12,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol HeroDetailsVMDelegateProtocol
+@protocol DetailsVMDelegate
 
 - (void) onFetchHeroLoading;
 - (void) onFetchHeroSuccess;
@@ -20,9 +20,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface HeroDetailsVM : NSObject
+@interface DetailsVM : NSObject
 
-@property (weak, nonatomic) id <HeroDetailsVMDelegateProtocol> delegate;
+@property (weak, nonatomic) id <DetailsVMDelegate> delegate;
 @property (strong, nonatomic) NSString* heroName;
 @property (strong, nonatomic) Character* hero;
 @property (strong, nonatomic) NSMutableArray* sections;

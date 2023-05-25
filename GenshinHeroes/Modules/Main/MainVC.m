@@ -109,7 +109,7 @@
 #pragma mark - UICollectionViewDelegate
 
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    TwoColumnCollectionViewCell* cell = [self.collectionView dequeueReusableCellWithReuseIdentifier: self.cellId forIndexPath: indexPath];
+    TwoColumnCollectionViewCell* cell = [self.collectionView dequeueReusableCellWithReuseIdentifier: [TwoColumnCollectionViewCell identifier] forIndexPath: indexPath];
     if (!cell) {
         cell = [[TwoColumnCollectionViewCell alloc] init];
     }
