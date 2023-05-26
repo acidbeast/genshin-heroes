@@ -44,10 +44,12 @@
 
 - (void) setup {
     [self setupNavigation];
+    [self setupView];
     [self registerCells];
 //    [self setupLoadingView];
-    [self setupCollectionView];
     [self setupBackButton];
+    [self setupCollectionView];
+    [self bringButtonsToFront];
 }
 
 - (void) setupNavigation {
@@ -55,12 +57,15 @@
     //self.navigationItem.title = [[NSString alloc] initWithFormat: @"%@", self.viewModel.heroName];
 }
 
+- (void) setupView {
+    self.view.backgroundColor = Colors.shared.background[@"white"];
+}
+
 - (void) setupBackButton {
     [self.view addSubview: self.backButton];
-    self.backButton.layer.zPosition = 2;
     [NSLayoutConstraint activateConstraints: @[
         [self.backButton.topAnchor constraintEqualToAnchor: self.view.safeAreaLayoutGuide.topAnchor constant: 32],
-        [self.backButton.leadingAnchor constraintEqualToAnchor: self.view.safeAreaLayoutGuide.leadingAnchor constant: 16]
+        [self.backButton.leadingAnchor constraintEqualToAnchor: self.view.safeAreaLayoutGuide.leadingAnchor constant: 32]
     ]];
     UIAction* buttonAction = [UIAction actionWithHandler: ^(UIAction* action) {
         [self.router back];
@@ -82,13 +87,16 @@
 - (void) setupCollectionView {
     [self.view addSubview: self.collectionView];
     self.collectionView.translatesAutoresizingMaskIntoConstraints = NO;
-    self.collectionView.backgroundColor = [UIColor colorWithHex: @"#ebeaef"];
     [NSLayoutConstraint activateConstraints: @[
         [self.collectionView.topAnchor constraintEqualToAnchor: self.view.topAnchor],
         [self.collectionView.bottomAnchor constraintEqualToAnchor: self.view.bottomAnchor],
         [self.collectionView.leadingAnchor constraintEqualToAnchor: self.view.leadingAnchor],
         [self.collectionView.trailingAnchor constraintEqualToAnchor: self.view.trailingAnchor]
     ]];
+}
+
+- (void) bringButtonsToFront {
+    [self.view bringSubviewToFront: self.backButton];
 }
 
 #pragma mark - Register Cells
@@ -171,34 +179,22 @@
 
 - (CGSize) collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     DetailsSection* section = self.viewModel.sections[indexPath.row];
-    CGFloat width = (CGRectGetWidth(self.view.frame));
-    CGFloat imageHeight = width * 1.2f;
+    CGFloat side = (CGRectGetWidth(self.view.frame)) - 32;
     CGSize size = CGSizeZero;
     switch (section.type) {
         case DetailsSectionTypeImage:
-            size = CGSizeMake(width, imageHeight);
+            size = CGSizeMake(side, side);
             break;
             
         default:
-            size = CGSizeMake(width - 32, 0);
+            size = CGSizeMake(side, 0);
             break;
     }
     return size;
 }
 
 - (UIEdgeInsets) collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger) sectionIndex {
-    DetailsSection* section = self.viewModel.sections[sectionIndex];
-    UIEdgeInsets insets = UIEdgeInsetsZero;
-    switch (section.type) {
-        case DetailsSectionTypeImage:
-            insets = UIEdgeInsetsMake(16, 0, 16, 0);
-            break;
-            
-        default:
-            insets = UIEdgeInsetsMake(16, 16, 16, 16);
-            break;
-    }
-    return insets;
+    return UIEdgeInsetsMake(16, 16, 16, 16);
 }
 
 - (CGFloat) collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {

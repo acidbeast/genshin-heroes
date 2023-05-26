@@ -32,7 +32,8 @@
 
 - (void) initBackgroundColors {
     self.background = @{
-        @"primary": [UIColor colorWithHex: @"#ebeaef"]
+        @"primary": [UIColor colorWithHex: @"#ebeaef"],
+        @"white": [UIColor colorWithHex: @"#ffffff"],
     };
 }
 

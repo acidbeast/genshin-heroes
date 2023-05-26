@@ -44,16 +44,16 @@
 
 - (void) setupImageView {
     CGFloat width = self.frame.size.width;
-    CGFloat height = width * 1.2f;
     [self addSubview: self.imageView];
     self.imageView.translatesAutoresizingMaskIntoConstraints = NO;
     self.imageView.backgroundColor = [UIColor colorWithHex: @"#efefef"];
     self.imageView.image = [UIImage imageNamed: @"placeholder"];
     self.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    self.imageView.layer.cornerRadius = 16;
     self.imageView.layer.masksToBounds = YES;
     [NSLayoutConstraint activateConstraints: @[
         [self.imageView.widthAnchor constraintEqualToConstant: width],
-        [self.imageView.heightAnchor constraintEqualToConstant: height]
+        [self.imageView.heightAnchor constraintEqualToConstant: width]
     ]];
 }
 
