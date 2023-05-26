@@ -10,6 +10,7 @@
 @interface DetailsVC ()
 
 @property (strong, nonatomic) LoadingView* loadingView;
+@property (strong, nonatomic) FavoriteButton* favoriteButton;
 @property (strong, nonatomic) BackButton* backButton;
 @property (strong, nonatomic) UICollectionView* collectionView;
 @property (strong, nonatomic) UICollectionViewFlowLayout* collectionLayout;
@@ -30,6 +31,7 @@
         self.collectionView.dataSource = self;
         self.loadingView = [[LoadingView alloc] init];
         self.backButton = [[BackButton alloc] init];
+        self.favoriteButton = [[FavoriteButton alloc] init];
     }
     return self;
 }
@@ -48,6 +50,7 @@
     [self registerCells];
 //    [self setupLoadingView];
     [self setupBackButton];
+    [self setupFavoriteButton];
     [self setupCollectionView];
     [self bringButtonsToFront];
 }
@@ -71,6 +74,19 @@
         [self.router back];
     }];
     [self.backButton addAction:buttonAction forControlEvents: UIControlEventTouchUpInside];
+}
+
+- (void) setupFavoriteButton {
+    [self.view addSubview: self.favoriteButton];
+    self.favoriteButton.translatesAutoresizingMaskIntoConstraints = NO;
+    [NSLayoutConstraint activateConstraints: @[
+        [self.favoriteButton.topAnchor constraintEqualToAnchor: self.view.safeAreaLayoutGuide.topAnchor constant: 32],
+        [self.favoriteButton.trailingAnchor constraintEqualToAnchor: self.view.safeAreaLayoutGuide.trailingAnchor constant: -32]
+    ]];
+    UIAction* buttonAction = [UIAction actionWithHandler: ^(__kindof UIAction * _Nonnull action) {
+        NSLog(@"123456");
+    }];
+    [self.favoriteButton addAction:buttonAction forControlEvents: UIControlEventTouchUpInside];
 }
 
 - (void) setupLoadingView {
@@ -97,6 +113,7 @@
 
 - (void) bringButtonsToFront {
     [self.view bringSubviewToFront: self.backButton];
+    [self.view bringSubviewToFront: self.favoriteButton];
 }
 
 #pragma mark - Register Cells
