@@ -28,21 +28,25 @@
 
 - (void) getHeroDetails {
     self.hero = [self.coreDataService getCharacterWithName: self.heroName];
-    NSLog(@"getHeroDetails: %@", self.hero);
     [self createSectionsWith: self.hero];
-    NSLog(@"sections %@", self.sections);
 }
 
 
 - (void) createSectionsWith: (Character*) hero {
-    DetailsSection* imageSection = [[DetailsSection alloc] initWithType: DetailsSectionTypeImage imageName: @"imageUrl"];
+    DetailsSection* imageSection = [[DetailsSection alloc] initWithType: DetailsSectionTypeImage imageName: [self heroImageWithName: hero.name suffix: @"big"]];
     DetailsSection* titleSection = [[DetailsSection alloc] initWithType: DetailsSectionTypeTitle title: hero.name];
     DetailsSection* ratingSection = [[DetailsSection alloc] initWithType: DetailsSectionTypeRating rating: 0];
-    DetailsSection* textSection = [[DetailsSection alloc] initWithType: DetailsSectionTypeTitle text: @"text 1"];
+    DetailsSection* textSection = [[DetailsSection alloc] initWithType: DetailsSectionTypeText text: @"text 1"];
     [self.sections addObject: imageSection];
     [self.sections addObject: titleSection];
     [self.sections addObject: ratingSection];
     [self.sections addObject: textSection];
+}
+
+- (NSString*) heroImageWithName: (NSString*) name suffix: (NSString*) suffix {
+    NSString* lowerCasedName = [[name stringByReplacingOccurrencesOfString: @" " withString: @"-"] lowercaseString];
+    NSString* imageName = [NSString stringWithFormat: @"%@-big", lowerCasedName];
+    return imageName;
 }
 
 @end

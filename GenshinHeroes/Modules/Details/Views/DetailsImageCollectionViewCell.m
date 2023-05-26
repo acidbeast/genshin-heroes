@@ -9,6 +9,8 @@
 
 @interface DetailsImageCollectionViewCell ()
 
+@property (strong, nonatomic) UIImageView* imageView;
+
 @end
 
 @implementation DetailsImageCollectionViewCell
@@ -23,7 +25,7 @@
 }
 
 - (void) initValues {
-    
+    self.imageView = [[UIImageView alloc] init];
 }
 
 
@@ -31,25 +33,42 @@
 
 - (void) prepareForReuse {
     [super prepareForReuse];
+    self.imageView.image = nil;
 }
 
 #pragma mark - Setup
 
 - (void) setup {
-    NSLog(@"DetailsImageCollectionViewCell setup");
-    UILabel* label = [[UILabel alloc] init];
-    label.text = @"Image";
-    label.textColor = [UIColor blackColor];
-    label.translatesAutoresizingMaskIntoConstraints = NO;
-    [self addSubview: label];
+    [self setupImageView];
+}
+
+- (void) setupImageView {
+    CGFloat width = self.frame.size.width;
+    CGFloat height = width * 0.61f;
+    [self addSubview: self.imageView];
+    self.imageView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.imageView.backgroundColor = [UIColor colorWithHex: @"#efefef"];
+    self.imageView.image = [UIImage imageNamed: @"placeholder"];
+    self.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    self.imageView.layer.masksToBounds = YES;
     [NSLayoutConstraint activateConstraints: @[
-        [label.leadingAnchor constraintEqualToAnchor: self.leadingAnchor],
-        [label.trailingAnchor constraintEqualToAnchor: self.trailingAnchor]
+        [self.imageView.widthAnchor constraintEqualToConstant: width],
+        [self.imageView.heightAnchor constraintEqualToConstant: height]
     ]];
 }
 
+
+#pragma mark - Update cell with data
+
 - (void) updateWithSection: (DetailsSection*) section {
-    NSLog(@"section: %@", section);
+    [self setupImageWithName: section.imageName];
+}
+
+- (void) setupImageWithName: (NSString*) imageName {
+    UIImage* avatarImage = [UIImage imageNamed: imageName];
+    if (avatarImage != nil) {
+        self.imageView.image = avatarImage;
+    }
 }
 
 @end

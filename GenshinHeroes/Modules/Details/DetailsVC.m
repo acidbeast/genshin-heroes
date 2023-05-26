@@ -59,7 +59,7 @@
     [self.view addSubview: self.backButton];
     self.backButton.layer.zPosition = 2;
     [NSLayoutConstraint activateConstraints: @[
-        [self.backButton.topAnchor constraintEqualToAnchor: self.view.safeAreaLayoutGuide.topAnchor constant: 16],
+        [self.backButton.topAnchor constraintEqualToAnchor: self.view.safeAreaLayoutGuide.topAnchor constant: 32],
         [self.backButton.leadingAnchor constraintEqualToAnchor: self.view.safeAreaLayoutGuide.leadingAnchor constant: 16]
     ]];
     UIAction* buttonAction = [UIAction actionWithHandler: ^(UIAction* action) {
@@ -169,12 +169,35 @@
 #pragma mark - UICollectionViewDelegateFlowLayout
 
 - (CGSize) collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    DetailsSection* section = self.viewModel.sections[indexPath.row];
     CGFloat width = (CGRectGetWidth(self.view.frame));
-    return CGSizeMake(width - 32, 0);
+    CGFloat imageHeight = width * 0.61f;
+    CGSize size = CGSizeZero;
+    switch (section.type) {
+        case DetailsSectionTypeImage:
+            size = CGSizeMake(width, imageHeight);
+            break;
+            
+        default:
+            size = CGSizeMake(width - 32, 0);
+            break;
+    }
+    return size;
 }
 
-- (UIEdgeInsets) collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    return UIEdgeInsetsMake(16, 16, 16, 16);
+- (UIEdgeInsets) collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger) sectionIndex {
+    DetailsSection* section = self.viewModel.sections[sectionIndex];
+    UIEdgeInsets insets = UIEdgeInsetsZero;
+    switch (section.type) {
+        case DetailsSectionTypeImage:
+            insets = UIEdgeInsetsMake(16, 0, 16, 0);
+            break;
+            
+        default:
+            insets = UIEdgeInsetsMake(16, 16, 16, 16);
+            break;
+    }
+    return insets;
 }
 
 - (CGFloat) collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
