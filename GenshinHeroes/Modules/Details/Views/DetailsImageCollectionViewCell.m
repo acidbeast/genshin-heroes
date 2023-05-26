@@ -44,7 +44,7 @@
 
 - (void) setupImageView {
     CGFloat width = self.frame.size.width;
-    CGFloat height = width * 0.61f;
+    CGFloat height = width * 1.2f;
     [self addSubview: self.imageView];
     self.imageView.translatesAutoresizingMaskIntoConstraints = NO;
     self.imageView.backgroundColor = [UIColor colorWithHex: @"#efefef"];
@@ -68,6 +68,7 @@
     UIImage* avatarImage = [UIImage imageNamed: imageName];
     if (avatarImage != nil) {
         self.imageView.image = avatarImage;
+        self.imageView.contentMode = UIViewContentModeScaleAspectFill;
     }
 }
 

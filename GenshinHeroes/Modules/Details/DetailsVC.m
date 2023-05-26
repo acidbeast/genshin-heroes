@@ -82,6 +82,7 @@
 - (void) setupCollectionView {
     [self.view addSubview: self.collectionView];
     self.collectionView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.collectionView.backgroundColor = [UIColor colorWithHex: @"#ebeaef"];
     [NSLayoutConstraint activateConstraints: @[
         [self.collectionView.topAnchor constraintEqualToAnchor: self.view.topAnchor],
         [self.collectionView.bottomAnchor constraintEqualToAnchor: self.view.bottomAnchor],
@@ -171,7 +172,7 @@
 - (CGSize) collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     DetailsSection* section = self.viewModel.sections[indexPath.row];
     CGFloat width = (CGRectGetWidth(self.view.frame));
-    CGFloat imageHeight = width * 0.61f;
+    CGFloat imageHeight = width * 1.2f;
     CGSize size = CGSizeZero;
     switch (section.type) {
         case DetailsSectionTypeImage:
