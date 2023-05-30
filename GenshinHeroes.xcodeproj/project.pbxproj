@@ -44,6 +44,8 @@
 		7ADC19212A1E1448007A37F8 /* DetailsImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC19202A1E1448007A37F8 /* DetailsImageCollectionViewCell.m */; };
 		7ADC19242A1E1465007A37F8 /* DetailsTitleCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC19232A1E1465007A37F8 /* DetailsTitleCollectionViewCell.m */; };
 		7ADC19272A1E14B8007A37F8 /* UICollectionViewCell+Identifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC19262A1E14B8007A37F8 /* UICollectionViewCell+Identifier.m */; };
+		7ADC192A2A21339D007A37F8 /* DetailsRatingCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC19292A21339D007A37F8 /* DetailsRatingCollectionViewCell.m */; };
+		7ADC192D2A2615FA007A37F8 /* DetailsTextCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC192C2A2615FA007A37F8 /* DetailsTextCollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,6 +139,10 @@
 		7ADC19232A1E1465007A37F8 /* DetailsTitleCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsTitleCollectionViewCell.m; sourceTree = "<group>"; };
 		7ADC19252A1E14B8007A37F8 /* UICollectionViewCell+Identifier.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UICollectionViewCell+Identifier.h"; sourceTree = "<group>"; };
 		7ADC19262A1E14B8007A37F8 /* UICollectionViewCell+Identifier.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UICollectionViewCell+Identifier.m"; sourceTree = "<group>"; };
+		7ADC19282A21339D007A37F8 /* DetailsRatingCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsRatingCollectionViewCell.h; sourceTree = "<group>"; };
+		7ADC19292A21339D007A37F8 /* DetailsRatingCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsRatingCollectionViewCell.m; sourceTree = "<group>"; };
+		7ADC192B2A2615FA007A37F8 /* DetailsTextCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsTextCollectionViewCell.h; sourceTree = "<group>"; };
+		7ADC192C2A2615FA007A37F8 /* DetailsTextCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsTextCollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -439,6 +445,10 @@
 				7ADC19202A1E1448007A37F8 /* DetailsImageCollectionViewCell.m */,
 				7ADC19222A1E1465007A37F8 /* DetailsTitleCollectionViewCell.h */,
 				7ADC19232A1E1465007A37F8 /* DetailsTitleCollectionViewCell.m */,
+				7ADC19282A21339D007A37F8 /* DetailsRatingCollectionViewCell.h */,
+				7ADC19292A21339D007A37F8 /* DetailsRatingCollectionViewCell.m */,
+				7ADC192B2A2615FA007A37F8 /* DetailsTextCollectionViewCell.h */,
+				7ADC192C2A2615FA007A37F8 /* DetailsTextCollectionViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -584,12 +594,14 @@
 				7AB0FF7829F8BFC400F522BD /* ErrorVC.m in Sources */,
 				7ADC191D2A1C6621007A37F8 /* DetailsSection.m in Sources */,
 				7AD3C3212A01822800D937CB /* Colors.m in Sources */,
+				7ADC192D2A2615FA007A37F8 /* DetailsTextCollectionViewCell.m in Sources */,
 				7ADC190E2A1725D6007A37F8 /* EmptyView.m in Sources */,
 				7ADC19242A1E1465007A37F8 /* DetailsTitleCollectionViewCell.m in Sources */,
 				7ADC19182A1C595C007A37F8 /* BackButton.m in Sources */,
 				7ADC19272A1E14B8007A37F8 /* UICollectionViewCell+Identifier.m in Sources */,
 				7A4D8D7C29FAFC9800C05090 /* UIWindow+keyWindow.m in Sources */,
 				7A82B64729EF223300A5EF93 /* MainVM.m in Sources */,
+				7ADC192A2A21339D007A37F8 /* DetailsRatingCollectionViewCell.m in Sources */,
 				7AB0FF6E29F76E9E00F522BD /* UIColor+Hex.m in Sources */,
 				7A28558229E9EB2600EA680F /* ModuleBuilder.m in Sources */,
 				7ADC19212A1E1448007A37F8 /* DetailsImageCollectionViewCell.m in Sources */,

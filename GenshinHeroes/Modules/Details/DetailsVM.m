@@ -35,8 +35,8 @@
 - (void) createSectionsWith: (Character*) hero {
     DetailsSection* imageSection = [[DetailsSection alloc] initWithType: DetailsSectionTypeImage imageName: [self heroImageWithName: hero.name suffix: @"big"]];
     DetailsSection* titleSection = [[DetailsSection alloc] initWithType: DetailsSectionTypeTitle title: hero.name];
-    DetailsSection* ratingSection = [[DetailsSection alloc] initWithType: DetailsSectionTypeRating rating: 0];
-    DetailsSection* textSection = [[DetailsSection alloc] initWithType: DetailsSectionTypeText text: @"text 1"];
+    DetailsSection* ratingSection = [[DetailsSection alloc] initWithType: DetailsSectionTypeRating rating: hero.rarity];
+    DetailsSection* textSection = [[DetailsSection alloc] initWithType: DetailsSectionTypeText text: hero.about];
     [self.sections addObject: imageSection];
     [self.sections addObject: titleSection];
     [self.sections addObject: ratingSection];

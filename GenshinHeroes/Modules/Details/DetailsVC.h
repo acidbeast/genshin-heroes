@@ -15,6 +15,8 @@
 
 #import "DetailsImageCollectionViewCell.h"
 #import "DetailsTitleCollectionViewCell.h"
+#import "DetailsRatingCollectionViewCell.h"
+#import "DetailsTextCollectionViewCell.h"
 
 @class MainRouter;
 

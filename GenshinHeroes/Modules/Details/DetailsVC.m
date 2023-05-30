@@ -122,6 +122,8 @@
     [self registerCellWith: [UICollectionViewCell class]];
     [self registerCellWith: [DetailsImageCollectionViewCell class]];
     [self registerCellWith: [DetailsTitleCollectionViewCell class]];
+    [self registerCellWith: [DetailsRatingCollectionViewCell class]];
+    [self registerCellWith: [DetailsTextCollectionViewCell class]];
 }
 
 - (void) registerCellWith: (Class) cellClass {
@@ -148,6 +150,18 @@
 
 - (UICollectionViewCell*) createTitleCellWith: (NSIndexPath*) indexPath section: (DetailsSection*) section {
     DetailsTitleCollectionViewCell* cell = [self createCellWith: [DetailsTitleCollectionViewCell class] indexPath: indexPath];
+    [cell updateWithSection: section];
+    return cell;
+}
+
+- (UICollectionViewCell*) createRatingCellWith: (NSIndexPath*) indexPath section: (DetailsSection*) section {
+    DetailsRatingCollectionViewCell* cell = [self createCellWith: [DetailsRatingCollectionViewCell class] indexPath: indexPath];
+    [cell updateWithSection: section];
+    return cell;
+}
+
+- (UICollectionViewCell*) createTextCellWith: (NSIndexPath*) indexPath section: (DetailsSection*) section {
+    DetailsTextCollectionViewCell* cell = [self createCellWith: [DetailsTextCollectionViewCell class] indexPath: indexPath];
     [cell updateWithSection: section];
     return cell;
 }
@@ -179,6 +193,14 @@
             cell = [self createTitleCellWith: indexPath section: section];
             break;
             
+        case DetailsSectionTypeRating:
+            cell = [self createRatingCellWith: indexPath section: section];
+            break;
+            
+        case DetailsSectionTypeText:
+            cell = [self createTextCellWith: indexPath section: section];
+            break;
+            
         default:
             cell = [self.collectionView dequeueReusableCellWithReuseIdentifier: [UICollectionViewCell identifier] forIndexPath: indexPath];
             if (!cell) {
@@ -191,7 +213,6 @@
 
 #pragma mark - UICollectionViewDelegate
 
-
 #pragma mark - UICollectionViewDelegateFlowLayout
 
 - (CGSize) collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -203,8 +224,12 @@
             size = CGSizeMake(side, side);
             break;
             
+        case DetailsSectionTypeRating:
+            size = CGSizeMake(side, 32);
+            break;
+            
         default:
-            size = CGSizeMake(side, 0);
+            size = CGSizeMake(side, 32);
             break;
     }
     return size;

@@ -25,11 +25,7 @@
     return self;
 }
 
-- (UICollectionViewLayoutAttributes*) preferredLayoutAttributesFittingAttributes:(UICollectionViewLayoutAttributes*) layoutAttributes {
-    CGSize targetSize = CGSizeMake(layoutAttributes.frame.size.width, 0);
-    [layoutAttributes setSize: [self.contentView systemLayoutSizeFittingSize: targetSize withHorizontalFittingPriority: UILayoutPriorityRequired verticalFittingPriority: UILayoutPriorityFittingSizeLevel]];
-    return layoutAttributes;
-}
+#pragma mark - Init values
 
 - (void) initValues {
     self.titleLabel = [[UILabel alloc] init];
@@ -52,6 +48,7 @@
 - (void) setupTitleLabel {
     [self addSubview: self.titleLabel];
     self.titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    self.titleLabel.numberOfLines = 0;
     self.titleLabel.textColor = Colors.shared.text[@"primary"];
     self.titleLabel.font = [UIFont fontWithName: @"Avenir Next Regular" size: 24.0];
     [NSLayoutConstraint activateConstraints: @[
