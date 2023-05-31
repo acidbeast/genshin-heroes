@@ -39,7 +39,12 @@
 #pragma mark - Setup
 
 - (void) setup {
+    [self setupStyle];
     [self setupImageView];
+}
+
+- (void) setupStyle {
+    
 }
 
 - (void) setupImageView {
@@ -53,7 +58,11 @@
     self.imageView.layer.masksToBounds = YES;
     [NSLayoutConstraint activateConstraints: @[
         [self.imageView.widthAnchor constraintEqualToConstant: width],
-        [self.imageView.heightAnchor constraintEqualToConstant: width]
+        [self.imageView.heightAnchor constraintEqualToConstant: width],
+        [self.imageView.topAnchor constraintEqualToAnchor: self.topAnchor],
+        [self.imageView.bottomAnchor constraintEqualToAnchor: self.bottomAnchor],
+        [self.imageView.leadingAnchor constraintEqualToAnchor: self.leadingAnchor],
+        [self.imageView.trailingAnchor constraintEqualToAnchor: self.trailingAnchor]
     ]];
 }
 

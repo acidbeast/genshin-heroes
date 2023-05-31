@@ -13,7 +13,6 @@
 @property (strong, nonatomic) FavoriteButton* favoriteButton;
 @property (strong, nonatomic) BackButton* backButton;
 @property (strong, nonatomic) UICollectionView* collectionView;
-@property (strong, nonatomic) UICollectionViewFlowLayout* collectionLayout;
 
 @end
 
@@ -24,9 +23,9 @@
     if (self) {
         self.viewModel = viewModel;
         self.viewModel.delegate = self;
-        self.collectionLayout = [[UICollectionViewFlowLayout alloc] init];
-        [self.collectionLayout setScrollDirection: UICollectionViewScrollDirectionVertical];
-        self.collectionView = [[UICollectionView alloc] initWithFrame: CGRectZero collectionViewLayout: self.collectionLayout];
+        UICollectionViewCompositionalLayout* layout = [self setupCompositionalLayout];
+        self.collectionView = [[UICollectionView alloc] initWithFrame: CGRectZero collectionViewLayout: layout];
+        self.collectionView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         self.collectionView.delegate = self;
         self.collectionView.dataSource = self;
         self.loadingView = [[LoadingView alloc] init];
@@ -55,9 +54,9 @@
     [self bringButtonsToFront];
 }
 
+
 - (void) setupNavigation {
     [self.navigationController setNavigationBarHidden: YES];
-    //self.navigationItem.title = [[NSString alloc] initWithFormat: @"%@", self.viewModel.heroName];
 }
 
 - (void) setupView {
@@ -67,8 +66,8 @@
 - (void) setupBackButton {
     [self.view addSubview: self.backButton];
     [NSLayoutConstraint activateConstraints: @[
-        [self.backButton.topAnchor constraintEqualToAnchor: self.view.safeAreaLayoutGuide.topAnchor constant: 32],
-        [self.backButton.leadingAnchor constraintEqualToAnchor: self.view.safeAreaLayoutGuide.leadingAnchor constant: 32]
+        [self.backButton.topAnchor constraintEqualToAnchor: self.view.safeAreaLayoutGuide.topAnchor constant: 16],
+        [self.backButton.leadingAnchor constraintEqualToAnchor: self.view.safeAreaLayoutGuide.leadingAnchor constant: 16]
     ]];
     UIAction* buttonAction = [UIAction actionWithHandler: ^(UIAction* action) {
         [self.router back];
@@ -80,8 +79,8 @@
     [self.view addSubview: self.favoriteButton];
     self.favoriteButton.translatesAutoresizingMaskIntoConstraints = NO;
     [NSLayoutConstraint activateConstraints: @[
-        [self.favoriteButton.topAnchor constraintEqualToAnchor: self.view.safeAreaLayoutGuide.topAnchor constant: 32],
-        [self.favoriteButton.trailingAnchor constraintEqualToAnchor: self.view.safeAreaLayoutGuide.trailingAnchor constant: -32]
+        [self.favoriteButton.topAnchor constraintEqualToAnchor: self.view.safeAreaLayoutGuide.topAnchor constant: 16],
+        [self.favoriteButton.trailingAnchor constraintEqualToAnchor: self.view.safeAreaLayoutGuide.trailingAnchor constant: -16]
     ]];
     UIAction* buttonAction = [UIAction actionWithHandler: ^(__kindof UIAction * _Nonnull action) {
         NSLog(@"123456");
@@ -100,15 +99,28 @@
     ]];
 }
 
+- (UICollectionViewCompositionalLayout*) setupCompositionalLayout {
+    UICollectionViewCompositionalLayoutConfiguration* configuration = [[UICollectionViewCompositionalLayoutConfiguration alloc] init];
+    configuration.interSectionSpacing = 16;
+    configuration.scrollDirection = UICollectionViewScrollDirectionVertical;
+    UICollectionLayoutListConfiguration* config = [[UICollectionLayoutListConfiguration alloc] initWithAppearance: UICollectionLayoutListAppearancePlain];
+    config.showsSeparators = NO;
+    UICollectionViewCompositionalLayout* layout = [UICollectionViewCompositionalLayout layoutWithListConfiguration: config];
+    [layout setConfiguration: configuration];
+    return layout;
+}
+
 - (void) setupCollectionView {
     [self.view addSubview: self.collectionView];
     self.collectionView.translatesAutoresizingMaskIntoConstraints = NO;
     [NSLayoutConstraint activateConstraints: @[
         [self.collectionView.topAnchor constraintEqualToAnchor: self.view.topAnchor],
         [self.collectionView.bottomAnchor constraintEqualToAnchor: self.view.bottomAnchor],
-        [self.collectionView.leadingAnchor constraintEqualToAnchor: self.view.leadingAnchor],
-        [self.collectionView.trailingAnchor constraintEqualToAnchor: self.view.trailingAnchor]
+        [self.collectionView.leadingAnchor constraintEqualToAnchor: self.view.leadingAnchor constant: 16],
+        [self.collectionView.trailingAnchor constraintEqualToAnchor: self.view.trailingAnchor constant: -16]
     ]];
+    self.collectionView.showsVerticalScrollIndicator = NO;
+    self.collectionView.showsHorizontalScrollIndicator = NO;
 }
 
 - (void) bringButtonsToFront {
@@ -223,13 +235,9 @@
         case DetailsSectionTypeImage:
             size = CGSizeMake(side, side);
             break;
-            
-        case DetailsSectionTypeRating:
-            size = CGSizeMake(side, 32);
-            break;
-            
+
         default:
-            size = CGSizeMake(side, 32);
+            size = CGSizeMake(side, 0);
             break;
     }
     return size;
@@ -239,8 +247,8 @@
     return UIEdgeInsetsMake(16, 16, 16, 16);
 }
 
-- (CGFloat) collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
-    return 16;
-}
+//- (CGFloat) collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
+//    return 16;
+//}
 
 @end

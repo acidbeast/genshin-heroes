@@ -44,18 +44,15 @@
 }
 
 - (void) setupStarsStack {
-    NSLog(@"setupStarsStack");
     [self addSubview: self.stack];
     self.stack.translatesAutoresizingMaskIntoConstraints = NO;
     self.stack.axis = UILayoutConstraintAxisHorizontal;
     self.stack.distribution = UIStackViewDistributionFill;
     self.stack.alignment = UIStackViewAlignmentLeading;
-    self.stack.backgroundColor = [UIColor blackColor];
     [NSLayoutConstraint activateConstraints: @[
         [self.stack.heightAnchor constraintEqualToConstant: 32],
         [self.stack.topAnchor constraintEqualToAnchor: self.topAnchor],
-        [self.stack.leadingAnchor constraintEqualToAnchor: self.leadingAnchor],
-        [self.stack.trailingAnchor constraintEqualToAnchor: self.trailingAnchor]
+        [self.stack.leadingAnchor constraintEqualToAnchor: self.leadingAnchor]
     ]];
 }
 
@@ -65,16 +62,14 @@
 #pragma mark - Update with section
 
 - (void) updateWithSection: (DetailsSection*) section {
-    NSLog(@"updateWithSection: %ld", section.rating);
-//    for (int i = 0; i <= section.rating; i++ ) {
-//        [self addStarsToStackWithRarity: section.rating];
-//    }
+    for (int i = 0; i < section.rating; i++ ) {
+        [self addStarsToStackWithRarity: section.rating];
+    }
 }
 
 #pragma mark - Methods
 
 - (void) addStarsToStackWithRarity: (NSInteger) rarity {
-    NSLog(@"addStarsToStackWithRarity");
     UIImageView* starImageView = [[UIImageView alloc] initWithImage: [UIImage systemImageNamed: @"star.fill"]];
     starImageView.translatesAutoresizingMaskIntoConstraints = NO;
     starImageView.tintColor = Colors.shared.rarity[[NSString stringWithFormat: @"rarity%ld", rarity]];

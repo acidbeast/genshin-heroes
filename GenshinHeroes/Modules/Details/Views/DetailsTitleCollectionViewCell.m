@@ -52,6 +52,8 @@
     self.titleLabel.textColor = Colors.shared.text[@"primary"];
     self.titleLabel.font = [UIFont fontWithName: @"Avenir Next Regular" size: 24.0];
     [NSLayoutConstraint activateConstraints: @[
+        [self.titleLabel.topAnchor constraintEqualToAnchor: self.topAnchor constant: 16],
+        [self.titleLabel.bottomAnchor constraintEqualToAnchor: self.bottomAnchor constant: -8],
         [self.titleLabel.leadingAnchor constraintEqualToAnchor: self.leadingAnchor],
         [self.titleLabel.trailingAnchor constraintEqualToAnchor: self.trailingAnchor]
     ]];

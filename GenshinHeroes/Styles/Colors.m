@@ -58,8 +58,8 @@
 
 - (void) initRarityColors {
     self.rarity = @{
-        @"rarity4": [UIColor colorWithHex: @"#FAA922"],
-        @"rarity5": [UIColor colorWithHex: @"#AC6BAD"]
+        @"rarity4": [UIColor colorWithHex: @"#AC6BAD"],
+        @"rarity5": [UIColor colorWithHex: @"#FAA922"]
     };
 }
 
