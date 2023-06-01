@@ -8,12 +8,16 @@
 #import <UIKit/UIKit.h>
 #import "DetailsSection.h"
 #import "UIColor+Hex.h"
+#import "Blocks.h"
+#import "BackButton.h"
+#import "FavoriteButton.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DetailsImageCollectionViewCell : UICollectionViewCell
 
 - (void) updateWithSection: (DetailsSection*) section;
+- (void) updateWithBackAction: (EmptyBlock) backAction favoriteAction: (EmptyBlock) favoriteAction;
 
 @end
 

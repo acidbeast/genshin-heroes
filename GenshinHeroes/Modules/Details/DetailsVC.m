@@ -10,8 +10,6 @@
 @interface DetailsVC ()
 
 @property (strong, nonatomic) LoadingView* loadingView;
-@property (strong, nonatomic) FavoriteButton* favoriteButton;
-@property (strong, nonatomic) BackButton* backButton;
 @property (strong, nonatomic) UICollectionView* collectionView;
 
 @end
@@ -29,8 +27,6 @@
         self.collectionView.delegate = self;
         self.collectionView.dataSource = self;
         self.loadingView = [[LoadingView alloc] init];
-        self.backButton = [[BackButton alloc] init];
-        self.favoriteButton = [[FavoriteButton alloc] init];
     }
     return self;
 }
@@ -48,10 +44,7 @@
     [self setupView];
     [self registerCells];
 //    [self setupLoadingView];
-    [self setupBackButton];
-    [self setupFavoriteButton];
     [self setupCollectionView];
-    [self bringButtonsToFront];
 }
 
 
@@ -61,31 +54,6 @@
 
 - (void) setupView {
     self.view.backgroundColor = Colors.shared.background[@"white"];
-}
-
-- (void) setupBackButton {
-    [self.view addSubview: self.backButton];
-    [NSLayoutConstraint activateConstraints: @[
-        [self.backButton.topAnchor constraintEqualToAnchor: self.view.safeAreaLayoutGuide.topAnchor constant: 16],
-        [self.backButton.leadingAnchor constraintEqualToAnchor: self.view.safeAreaLayoutGuide.leadingAnchor constant: 16]
-    ]];
-    UIAction* buttonAction = [UIAction actionWithHandler: ^(UIAction* action) {
-        [self.router back];
-    }];
-    [self.backButton addAction:buttonAction forControlEvents: UIControlEventTouchUpInside];
-}
-
-- (void) setupFavoriteButton {
-    [self.view addSubview: self.favoriteButton];
-    self.favoriteButton.translatesAutoresizingMaskIntoConstraints = NO;
-    [NSLayoutConstraint activateConstraints: @[
-        [self.favoriteButton.topAnchor constraintEqualToAnchor: self.view.safeAreaLayoutGuide.topAnchor constant: 16],
-        [self.favoriteButton.trailingAnchor constraintEqualToAnchor: self.view.safeAreaLayoutGuide.trailingAnchor constant: -16]
-    ]];
-    UIAction* buttonAction = [UIAction actionWithHandler: ^(__kindof UIAction * _Nonnull action) {
-        NSLog(@"123456");
-    }];
-    [self.favoriteButton addAction:buttonAction forControlEvents: UIControlEventTouchUpInside];
 }
 
 - (void) setupLoadingView {
@@ -123,11 +91,6 @@
     self.collectionView.showsHorizontalScrollIndicator = NO;
 }
 
-- (void) bringButtonsToFront {
-    [self.view bringSubviewToFront: self.backButton];
-    [self.view bringSubviewToFront: self.favoriteButton];
-}
-
 #pragma mark - Register Cells
 
 - (void) registerCells {
@@ -157,6 +120,13 @@
 - (UICollectionViewCell*) createImageCellWith: (NSIndexPath*) indexPath section: (DetailsSection*) section {
     DetailsImageCollectionViewCell* cell = [self createCellWith: [DetailsImageCollectionViewCell class] indexPath: indexPath];
     [cell updateWithSection: section];
+    __weak DetailsVC* weakSelf = self;
+    [cell updateWithBackAction: ^{
+        NSLog(@"11111111");
+        [weakSelf.router back];        
+    } favoriteAction: ^{
+            NSLog(@"222222");
+        }];
     return cell;
 }
 
@@ -246,9 +216,5 @@
 - (UIEdgeInsets) collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger) sectionIndex {
     return UIEdgeInsetsMake(16, 16, 16, 16);
 }
-
-//- (CGFloat) collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
-//    return 16;
-//}
 
 @end

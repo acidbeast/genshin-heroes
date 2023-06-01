@@ -9,8 +9,6 @@
 #import "DetailsVM.h"
 #import "MainRouter.h"
 #import "LoadingView.h"
-#import "BackButton.h"
-#import "FavoriteButton.h"
 #import "UICollectionViewCell+Identifier.h"
 
 #import "DetailsImageCollectionViewCell.h"
