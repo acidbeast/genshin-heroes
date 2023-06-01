@@ -42,7 +42,7 @@
     DetailsSection* nationSection = [[DetailsSection alloc] initWithType: DetailsSectionTypeTwoColumns title: @"Nation:" value: hero.nation.name background: YES];
     DetailsSection* affiliationSection = [[DetailsSection alloc] initWithType: DetailsSectionTypeTwoColumns title: @"Affiliation:" value: hero.affiliation background: NO];
     DetailsSection* constellationSection = [[DetailsSection alloc] initWithType: DetailsSectionTypeTwoColumns title: @"Constelatlion:" value: hero.constellation background: YES];
-    DetailsSection* birthdaySection = [[DetailsSection alloc] initWithType: DetailsSectionTypeTwoColumns title: @"Birthday:" value: hero.birthday background: NO];
+    DetailsSection* birthdaySection = [[DetailsSection alloc] initWithType: DetailsSectionTypeTwoColumns title: @"Birthday:" value: [self formatDate: hero.birthday] background: NO];
     [self.sections addObject: imageSection];
     [self.sections addObject: titleSection];
     [self.sections addObject: ratingSection];
@@ -59,6 +59,15 @@
     NSString* lowerCasedName = [[name stringByReplacingOccurrencesOfString: @" " withString: @"-"] lowercaseString];
     NSString* imageName = [NSString stringWithFormat: @"%@-big", lowerCasedName];
     return imageName;
+}
+
+- (NSString*) formatDate: (NSString*) dateString {
+    NSDateFormatter* dateFormatterIn = [[NSDateFormatter alloc] init];
+    dateFormatterIn.dateFormat = @"0000-MM-dd";
+    NSDateFormatter* dateFormatterOut = [[NSDateFormatter alloc] init];
+    dateFormatterOut.dateFormat = @"MM/dd";
+    NSDate* date = [dateFormatterIn dateFromString: dateString];
+    return [dateFormatterOut stringFromDate: date];
 }
 
 @end
