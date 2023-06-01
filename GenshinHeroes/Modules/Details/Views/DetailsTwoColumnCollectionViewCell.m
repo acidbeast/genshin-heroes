@@ -11,6 +11,7 @@
 
 @property (strong, nonatomic) UILabel* titleLabel;
 @property (strong, nonatomic) UILabel* valueLabel;
+@property (assign, nonatomic) CGFloat columnWidth;
 
 @end
 
@@ -31,6 +32,7 @@
 - (void) initValues {
     self.titleLabel = [[UILabel alloc] init];
     self.valueLabel = [[UILabel alloc] init];
+    self.columnWidth = (self.frame.size.width / 2) - 8;
 }
 
 - (void) setup {
@@ -41,28 +43,35 @@
 - (void) setupTitleLabel {
     [self addSubview: self.titleLabel];
     self.titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    self.titleLabel.font = [UIFont fontWithName: @"Avenir Next Regular" size: 15.0];
     [NSLayoutConstraint activateConstraints: @[
-        [self.titleLabel.topAnchor constraintEqualToAnchor: self.topAnchor constant: 16],
-        [self.titleLabel.bottomAnchor constraintEqualToAnchor: self.bottomAnchor constant: -16],
-        [self.titleLabel.leadingAnchor constraintEqualToAnchor: self.leadingAnchor]
+        [self.titleLabel.widthAnchor constraintEqualToConstant: self.columnWidth],
+        [self.titleLabel.topAnchor constraintEqualToAnchor: self.topAnchor constant: 4],
+        [self.titleLabel.bottomAnchor constraintEqualToAnchor: self.bottomAnchor constant: -4],
+        [self.titleLabel.leadingAnchor constraintEqualToAnchor: self.leadingAnchor constant: 4]
     ]];
 }
 
 - (void) setupValueLabel {
     [self addSubview: self.valueLabel];
     self.valueLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    self.valueLabel.font = [UIFont fontWithName: @"Avenir Next Regular" size: 15.0];
     [NSLayoutConstraint activateConstraints: @[
-        [self.valueLabel.topAnchor constraintEqualToAnchor: self.topAnchor constant: 16],
-        [self.valueLabel.bottomAnchor constraintEqualToAnchor: self.bottomAnchor constant: -16],
-        [self.valueLabel.trailingAnchor constraintEqualToAnchor: self.trailingAnchor]
+        [self.titleLabel.widthAnchor constraintEqualToConstant: self.columnWidth],
+        [self.valueLabel.topAnchor constraintEqualToAnchor: self.topAnchor constant: 4],
+        [self.valueLabel.bottomAnchor constraintEqualToAnchor: self.bottomAnchor constant: -4],
+        [self.valueLabel.trailingAnchor constraintEqualToAnchor: self.trailingAnchor constant: -4]
     ]];
 }
 
 #pragma mark - Update with section
 
 - (void) updateWithSection: (DetailsSection*) section  {
-    self.titleLabel.text = section.text;
-    self.valueLabel.text = section.text;
+    self.titleLabel.text = section.title;
+    self.valueLabel.text = section.value;
+    if (section.background) {
+        self.backgroundColor = Colors.shared.background[@"primary"];
+    }
 }
 
 

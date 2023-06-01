@@ -42,7 +42,7 @@
     self.textLabel.numberOfLines = 0;
     [NSLayoutConstraint activateConstraints: @[
         [self.textLabel.topAnchor constraintEqualToAnchor: self.topAnchor],
-        [self.textLabel.bottomAnchor constraintEqualToAnchor: self.bottomAnchor],
+        [self.textLabel.bottomAnchor constraintEqualToAnchor: self.bottomAnchor constant: -16],
         [self.textLabel.leadingAnchor constraintEqualToAnchor: self.leadingAnchor],
         [self.textLabel.trailingAnchor constraintEqualToAnchor: self.trailingAnchor]
     ]];

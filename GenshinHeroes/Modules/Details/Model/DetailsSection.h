@@ -19,12 +19,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property (assign, nonatomic) NSInteger rating;
 @property (strong, nonatomic) NSString* _Nullable imageName;
 @property (strong, nonatomic) NSString* _Nullable value;
+@property (assign, nonatomic) Boolean background;
 
 - (instancetype) initWithType: (DetailsSectionType) type title: (NSString*) title;
 - (instancetype) initWithType: (DetailsSectionType) type text: (NSString*) text;
 - (instancetype) initWithType: (DetailsSectionType) type rating: (NSInteger) rating;
 - (instancetype) initWithType: (DetailsSectionType) type imageName: (NSString*) imageName;
-- (instancetype) initWithType: (DetailsSectionType) type title: (NSString*) title value: (NSString*) value;
+- (instancetype) initWithType: (DetailsSectionType) type title: (NSString*) title value: (NSString*) value background: (Boolean) background;
 
 @end
 
