@@ -99,6 +99,7 @@
     [self registerCellWith: [DetailsTitleCollectionViewCell class]];
     [self registerCellWith: [DetailsRatingCollectionViewCell class]];
     [self registerCellWith: [DetailsTextCollectionViewCell class]];
+    [self registerCellWith: [DetailsTwoColumnCollectionViewCell class]];
 }
 
 - (void) registerCellWith: (Class) cellClass {
@@ -148,6 +149,12 @@
     return cell;
 }
 
+- (UICollectionViewCell*) createTwoColumnCellWith: (NSIndexPath*) indexPath section: (DetailsSection*) section {
+    DetailsTwoColumnCollectionViewCell* cell = [self createCellWith: [DetailsTwoColumnCollectionViewCell class] indexPath: indexPath];
+    [cell updateWithSection: section];
+    return cell;
+}
+
 - (id) createCellWith: (Class) class indexPath: (NSIndexPath*) indexPath {
     id cell = [self.collectionView dequeueReusableCellWithReuseIdentifier: [class identifier] forIndexPath: indexPath];
     if (!cell) {
@@ -181,6 +188,10 @@
             
         case DetailsSectionTypeText:
             cell = [self createTextCellWith: indexPath section: section];
+            break;
+            
+        case DetailsSectionTypeTwoColumns:
+            cell = [self createTwoColumnCellWith: indexPath section: section];
             break;
             
         default:

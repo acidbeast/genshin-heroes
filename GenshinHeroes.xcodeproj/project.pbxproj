@@ -46,6 +46,7 @@
 		7ADC19272A1E14B8007A37F8 /* UICollectionViewCell+Identifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC19262A1E14B8007A37F8 /* UICollectionViewCell+Identifier.m */; };
 		7ADC192A2A21339D007A37F8 /* DetailsRatingCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC19292A21339D007A37F8 /* DetailsRatingCollectionViewCell.m */; };
 		7ADC192D2A2615FA007A37F8 /* DetailsTextCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC192C2A2615FA007A37F8 /* DetailsTextCollectionViewCell.m */; };
+		7ADC19302A28365B007A37F8 /* DetailsTwoColumnCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC192F2A28365B007A37F8 /* DetailsTwoColumnCollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -143,6 +144,8 @@
 		7ADC19292A21339D007A37F8 /* DetailsRatingCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsRatingCollectionViewCell.m; sourceTree = "<group>"; };
 		7ADC192B2A2615FA007A37F8 /* DetailsTextCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsTextCollectionViewCell.h; sourceTree = "<group>"; };
 		7ADC192C2A2615FA007A37F8 /* DetailsTextCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsTextCollectionViewCell.m; sourceTree = "<group>"; };
+		7ADC192E2A28365B007A37F8 /* DetailsTwoColumnCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsTwoColumnCollectionViewCell.h; sourceTree = "<group>"; };
+		7ADC192F2A28365B007A37F8 /* DetailsTwoColumnCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsTwoColumnCollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -449,6 +452,8 @@
 				7ADC19292A21339D007A37F8 /* DetailsRatingCollectionViewCell.m */,
 				7ADC192B2A2615FA007A37F8 /* DetailsTextCollectionViewCell.h */,
 				7ADC192C2A2615FA007A37F8 /* DetailsTextCollectionViewCell.m */,
+				7ADC192E2A28365B007A37F8 /* DetailsTwoColumnCollectionViewCell.h */,
+				7ADC192F2A28365B007A37F8 /* DetailsTwoColumnCollectionViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -584,6 +589,7 @@
 			files = (
 				7A7598F329BC403400DDC42A /* main.m in Sources */,
 				7A7598EB29BC403100DDC42A /* GenshinHeroes.xcdatamodeld in Sources */,
+				7ADC19302A28365B007A37F8 /* DetailsTwoColumnCollectionViewCell.m in Sources */,
 				7AD3C3252A02E12700D937CB /* FavoriteButton.m in Sources */,
 				7ADC19112A172C5A007A37F8 /* DetailsVC.m in Sources */,
 				7AB0FF7429F84C3700F522BD /* IndicatorView.m in Sources */,

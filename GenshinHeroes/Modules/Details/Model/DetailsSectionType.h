@@ -12,7 +12,8 @@ typedef enum {
     DetailsSectionTypeImage,
     DetailsSectionTypeTitle,
     DetailsSectionTypeRating,
-    DetailsSectionTypeText
+    DetailsSectionTypeText,
+    DetailsSectionTypeTwoColumns
 } DetailsSectionType;
 
 #endif /* DetailsSectionType_h */

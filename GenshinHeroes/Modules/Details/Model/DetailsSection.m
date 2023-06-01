@@ -45,4 +45,14 @@
     return self;
 }
 
+- (instancetype) initWithType: (DetailsSectionType) type title: (NSString*) title value: (NSString*) value {
+    self = [super init];
+    if (self) {
+        self.type = type;
+        self.title = title;
+        self.value = value;
+    }
+    return self;
+}
+
 @end

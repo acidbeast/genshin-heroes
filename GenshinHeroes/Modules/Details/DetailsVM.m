@@ -37,10 +37,12 @@
     DetailsSection* titleSection = [[DetailsSection alloc] initWithType: DetailsSectionTypeTitle title: hero.name];
     DetailsSection* ratingSection = [[DetailsSection alloc] initWithType: DetailsSectionTypeRating rating: hero.rarity];
     DetailsSection* textSection = [[DetailsSection alloc] initWithType: DetailsSectionTypeText text: hero.about];
+    DetailsSection* testValueSection = [[DetailsSection alloc] initWithType: DetailsSectionTypeTwoColumns title: @"11111111" value: @"22222222"];
     [self.sections addObject: imageSection];
     [self.sections addObject: titleSection];
     [self.sections addObject: ratingSection];
     [self.sections addObject: textSection];
+    [self.sections addObject: testValueSection];
 }
 
 - (NSString*) heroImageWithName: (NSString*) name suffix: (NSString*) suffix {
