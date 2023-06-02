@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "CoreDataService.h"
+#import "CharactersDatabaseProvider.h"
 #import "Character+CoreDataClass.h"
 #import "Favorite+CoreDataClass.h"
 
@@ -26,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) NSArray* favorites;
 @property (weak, nonatomic) id <FavoritesVMDelegateProtocol> delegate;
 
-- (instancetype) initWithcoreDataService: (CoreDataService*) coreDataService;
+- (instancetype) initWithcoreDataService: (CharactersDatabaseProvider*) coreDataService;
 - (void) fetchFavorites;
 - (void) saveCharacter: (Character*) character
      withFavoriteValue: (BOOL) favoriteValue

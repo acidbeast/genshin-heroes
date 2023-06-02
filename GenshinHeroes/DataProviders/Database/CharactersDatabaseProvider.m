@@ -5,16 +5,16 @@
 //  Created by Dmitry Shlepkin on 4/21/23.
 //
 
-#import "CoreDataService.h"
+#import "CharactersDatabaseProvider.h"
 
-@implementation CoreDataService
+@implementation CharactersDatabaseProvider
 
 
 + (instancetype) shared {
-    static CoreDataService* service = nil;
+    static CharactersDatabaseProvider* service = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        service = [[CoreDataService alloc] init];
+        service = [[CharactersDatabaseProvider alloc] init];
     });
     return service;
 }

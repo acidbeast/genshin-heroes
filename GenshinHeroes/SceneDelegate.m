@@ -11,7 +11,7 @@
 #import "ModuleBuilder.h"
 #import "Router/MainRouter.h"
 #import "MainTabBarController.h"
-#import "CoreDataService.h"
+#import "CharactersDatabaseProvider.h"
 
 @interface SceneDelegate ()
 
@@ -39,7 +39,7 @@
 
 
 - (void)sceneDidEnterBackground:(UIScene *)scene {
-    [[CoreDataService shared] saveContext];
+    [[CharactersDatabaseProvider shared] saveContext];
 }
 
 

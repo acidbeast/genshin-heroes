@@ -5,22 +5,22 @@
 //  Created by Dmitry Shlepkin on 4/19/23.
 //
 
-#import "CharactersService.h"
+#import "CharactersNetworkProvider.h"
 #import "Character+CoreDataClass.h"
 
-@interface CharactersService ()
+@interface CharactersNetworkProvider ()
 
 @end
 
-@implementation CharactersService
+@implementation CharactersNetworkProvider
 
 static NSString* charactersURL = @"https://api.genshin.dev/characters/all";
 
 + (instancetype) shared {
-    static CharactersService* service = nil;
+    static CharactersNetworkProvider* service = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        service = [[CharactersService alloc] init];
+        service = [[CharactersNetworkProvider alloc] init];
     });
     return service;
 }

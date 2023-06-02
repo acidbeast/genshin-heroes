@@ -18,7 +18,18 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CoreDataService : NSObject
+@protocol CharactersDatabaseProviderProtocol <NSObject>
+
+- (NSArray*) getCharacters;
+- (Character*) getCharacterWithName: (NSString*) name;
+- (void) saveCharactersWith: (NSDictionary*) characters
+                  onSuccess: (void(^)(void)) onSuccess
+                    onError: (void(^)(NSError* error)) onError;
+
+@end
+
+
+@interface CharactersDatabaseProvider : NSObject <CharactersDatabaseProviderProtocol>
 
 @property (readonly, strong) NSPersistentContainer *persistentContainer;
 

@@ -20,9 +20,10 @@
 #import "DetailsVM.h"
 
 // Services
-#import "SettingsService.h"
 #import "CharactersService.h"
-#import "CoreDataService.h"
+#import "SettingsProvider.h"
+#import "CharactersNetworkProvider.h"
+#import "CharactersDatabaseProvider.h"
 
 @class MainRouter;
 

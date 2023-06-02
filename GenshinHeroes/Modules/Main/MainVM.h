@@ -6,17 +6,19 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SettingsService.h"
+//#import "SettingsProvider.h"
 #import "CharactersService.h"
-#import "CoreDataService.h"
+//#import "CharactersNetworkProvider.h"
+//#import "CharactersDatabaseProvider.h"
 #import "Character+CoreDataClass.h"
 #import "Favorite+CoreDataClass.h"
 #import "Blocks.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class SettingsService;
+//@class SettingsProvider;
 @class CharactersService;
+//@class CharactersNetworkProvider;
 
 @protocol MainVMDelegateProtocol <NSObject>
 
@@ -31,9 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) NSArray* characters;
 @property (weak, nonatomic) id <MainVMDelegateProtocol> delegate;
 
-- (instancetype) initWithSettingsService: (SettingsService*) settingsService
-                        characterService: (CharactersService*) charactersService
-                         coreDataService: (CoreDataService*) coreDataService;
+- (instancetype) initWithService: (id <CharactersServiceProtocol>) service;
 - (void) fetchCharacters;
 - (void) saveCharacter: (Character*) character
      withFavoriteValue: (BOOL) favoriteValue

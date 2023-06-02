@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "CoreDataService.h"
+#import "CharactersDatabaseProvider.h"
 #import "Character+CoreDataClass.h"
 #import "DetailsSection.h"
 
@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) NSMutableArray* sections;
 
 - (instancetype) initWithHeroName: (NSString*) heroName
-                  coreDataService: (CoreDataService*) coreDataService;
+                  coreDataService: (CharactersDatabaseProvider*) coreDataService;
 
 - (void) getHeroDetails;
 

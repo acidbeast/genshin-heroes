@@ -123,7 +123,6 @@
     [cell updateWithSection: section];
     __weak DetailsVC* weakSelf = self;
     [cell updateWithBackAction: ^{
-        NSLog(@"11111111");
         [weakSelf.router back];        
     } favoriteAction: ^{
             NSLog(@"222222");

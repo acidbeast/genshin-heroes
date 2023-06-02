@@ -31,17 +31,16 @@
     return [self createNavControllerWithTabTitle: @"Favorites" imageName: @"heart" selectedImageName: @"heart.fill"];
 }
 
-- (UIViewController*) createMainModuleWithRouter: (MainRouter*) router {    
-    MainVM* viewModel = [[MainVM alloc] initWithSettingsService: [SettingsService shared]
-                                               characterService: [CharactersService shared]
-                                                coreDataService: [CoreDataService shared]];
+- (UIViewController*) createMainModuleWithRouter: (MainRouter*) router {
+    CharactersService* service = [[CharactersService alloc] initWithNetworkProvider: [CharactersNetworkProvider shared] databaseProvider: [CharactersDatabaseProvider shared] settingsPrvider: [SettingsProvider shared]];
+    MainVM* viewModel = [[MainVM alloc] initWithService: service];
     MainVC* vc = [[MainVC alloc] initWithViewModel: viewModel];
     vc.router = router;
     return vc;
 }
 
 - (UIViewController*) createFavoritesModuleWithRouter: (MainRouter*) router {
-    FavoritesVM* viewModel = [[FavoritesVM alloc] initWithcoreDataService: [CoreDataService shared]];
+    FavoritesVM* viewModel = [[FavoritesVM alloc] initWithcoreDataService: [CharactersDatabaseProvider shared]];
     FavoritesVC* vc = [[FavoritesVC alloc] initWithViewModel: viewModel];
     vc.router = router;
     return vc;
@@ -62,7 +61,7 @@
 - (UIViewController*) createHeroDetailsModuleWithRouter: (MainRouter*) router
                                                heroName: (NSString*) heroName {
     DetailsVM* viewModel = [[DetailsVM alloc] initWithHeroName: heroName
-                                                       coreDataService: [CoreDataService shared]];
+                                                       coreDataService: [CharactersDatabaseProvider shared]];
     DetailsVC* vc = [[DetailsVC alloc] initWithViewModel: viewModel];
     vc.router = router;
     return vc;

@@ -9,14 +9,14 @@
 
 @interface DetailsVM ()
 
-@property (weak, nonatomic) CoreDataService* coreDataService;
+@property (weak, nonatomic) CharactersDatabaseProvider* coreDataService;
 
 @end
 
 @implementation DetailsVM
 
 - (instancetype) initWithHeroName: (NSString*) heroName
-                  coreDataService: (CoreDataService*) coreDataService {
+                  coreDataService: (CharactersDatabaseProvider*) coreDataService {
     self = [super init];
     if (self) {
         self.heroName = heroName;

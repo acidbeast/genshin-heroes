@@ -11,14 +11,14 @@ typedef void (^FetchFavoritesErrorBlock)(NSError* error);
 
 @interface FavoritesVM ()
 
-@property (weak, nonatomic) CoreDataService* coreDataService;
+@property (weak, nonatomic) CharactersDatabaseProvider* coreDataService;
 @property (copy, nonatomic) FetchFavoritesErrorBlock fetchFavoritesErrorBlock;
 
 @end
 
 @implementation FavoritesVM
 
-- (instancetype) initWithcoreDataService: (CoreDataService*) coreDataService {
+- (instancetype) initWithcoreDataService: (CharactersDatabaseProvider*) coreDataService {
     self = [super init];
     if (self) {
         __weak FavoritesVM* weakSelf = self;

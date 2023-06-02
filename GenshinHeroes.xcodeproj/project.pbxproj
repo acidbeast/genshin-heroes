@@ -24,10 +24,10 @@
 		7A75990729BC403500DDC42A /* GenshinHeroesUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A75990629BC403500DDC42A /* GenshinHeroesUITests.m */; };
 		7A75990929BC403500DDC42A /* GenshinHeroesUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A75990829BC403500DDC42A /* GenshinHeroesUITestsLaunchTests.m */; };
 		7A82B64129EE33F500A5EF93 /* FavoritesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A82B64029EE33F500A5EF93 /* FavoritesVC.m */; };
-		7A82B64429EE3E4600A5EF93 /* SettingsService.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A82B64329EE3E4600A5EF93 /* SettingsService.m */; };
+		7A82B64429EE3E4600A5EF93 /* SettingsProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A82B64329EE3E4600A5EF93 /* SettingsProvider.m */; };
 		7A82B64729EF223300A5EF93 /* MainVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A82B64629EF223300A5EF93 /* MainVM.m */; };
-		7A82B65429F062A100A5EF93 /* CharactersService.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A82B65329F062A100A5EF93 /* CharactersService.m */; };
-		7A82B65729F2280200A5EF93 /* CoreDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A82B65629F2280200A5EF93 /* CoreDataService.m */; };
+		7A82B65429F062A100A5EF93 /* CharactersNetworkProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A82B65329F062A100A5EF93 /* CharactersNetworkProvider.m */; };
+		7A82B65729F2280200A5EF93 /* CharactersDatabaseProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A82B65629F2280200A5EF93 /* CharactersDatabaseProvider.m */; };
 		7AB0FF6A29F7079400F522BD /* LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB0FF6929F7079400F522BD /* LoadingView.m */; };
 		7AB0FF6E29F76E9E00F522BD /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB0FF6D29F76E9E00F522BD /* UIColor+Hex.m */; };
 		7AB0FF7429F84C3700F522BD /* IndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB0FF7329F84C3700F522BD /* IndicatorView.m */; };
@@ -47,6 +47,7 @@
 		7ADC192A2A21339D007A37F8 /* DetailsRatingCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC19292A21339D007A37F8 /* DetailsRatingCollectionViewCell.m */; };
 		7ADC192D2A2615FA007A37F8 /* DetailsTextCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC192C2A2615FA007A37F8 /* DetailsTextCollectionViewCell.m */; };
 		7ADC19302A28365B007A37F8 /* DetailsTwoColumnCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC192F2A28365B007A37F8 /* DetailsTwoColumnCollectionViewCell.m */; };
+		7ADC19392A2A5FCD007A37F8 /* CharactersService.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC19382A2A5FCD007A37F8 /* CharactersService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,14 +99,14 @@
 		7A75990829BC403500DDC42A /* GenshinHeroesUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GenshinHeroesUITestsLaunchTests.m; sourceTree = "<group>"; };
 		7A82B63F29EE33F500A5EF93 /* FavoritesVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FavoritesVC.h; sourceTree = "<group>"; };
 		7A82B64029EE33F500A5EF93 /* FavoritesVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FavoritesVC.m; sourceTree = "<group>"; };
-		7A82B64229EE3E4600A5EF93 /* SettingsService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsService.h; sourceTree = "<group>"; };
-		7A82B64329EE3E4600A5EF93 /* SettingsService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingsService.m; sourceTree = "<group>"; };
+		7A82B64229EE3E4600A5EF93 /* SettingsProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsProvider.h; sourceTree = "<group>"; };
+		7A82B64329EE3E4600A5EF93 /* SettingsProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingsProvider.m; sourceTree = "<group>"; };
 		7A82B64529EF223300A5EF93 /* MainVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainVM.h; sourceTree = "<group>"; };
 		7A82B64629EF223300A5EF93 /* MainVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainVM.m; sourceTree = "<group>"; };
-		7A82B65229F062A100A5EF93 /* CharactersService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CharactersService.h; sourceTree = "<group>"; };
-		7A82B65329F062A100A5EF93 /* CharactersService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CharactersService.m; sourceTree = "<group>"; };
-		7A82B65529F2280200A5EF93 /* CoreDataService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataService.h; sourceTree = "<group>"; };
-		7A82B65629F2280200A5EF93 /* CoreDataService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreDataService.m; sourceTree = "<group>"; };
+		7A82B65229F062A100A5EF93 /* CharactersNetworkProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CharactersNetworkProvider.h; sourceTree = "<group>"; };
+		7A82B65329F062A100A5EF93 /* CharactersNetworkProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CharactersNetworkProvider.m; sourceTree = "<group>"; };
+		7A82B65529F2280200A5EF93 /* CharactersDatabaseProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CharactersDatabaseProvider.h; sourceTree = "<group>"; };
+		7A82B65629F2280200A5EF93 /* CharactersDatabaseProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CharactersDatabaseProvider.m; sourceTree = "<group>"; };
 		7AB0FF6829F7079400F522BD /* LoadingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoadingView.h; sourceTree = "<group>"; };
 		7AB0FF6929F7079400F522BD /* LoadingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoadingView.m; sourceTree = "<group>"; };
 		7AB0FF6C29F76E9E00F522BD /* UIColor+Hex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
@@ -146,6 +147,8 @@
 		7ADC192C2A2615FA007A37F8 /* DetailsTextCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsTextCollectionViewCell.m; sourceTree = "<group>"; };
 		7ADC192E2A28365B007A37F8 /* DetailsTwoColumnCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsTwoColumnCollectionViewCell.h; sourceTree = "<group>"; };
 		7ADC192F2A28365B007A37F8 /* DetailsTwoColumnCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsTwoColumnCollectionViewCell.m; sourceTree = "<group>"; };
+		7ADC19372A2A5FCD007A37F8 /* CharactersService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CharactersService.h; sourceTree = "<group>"; };
+		7ADC19382A2A5FCD007A37F8 /* CharactersService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CharactersService.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,30 +238,10 @@
 		7A28557A29E9CE9700EA680F /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				7A28557C29E9CEAA00EA680F /* Network */,
-				7A28557B29E9CEA600EA680F /* Local */,
+				7ADC19372A2A5FCD007A37F8 /* CharactersService.h */,
+				7ADC19382A2A5FCD007A37F8 /* CharactersService.m */,
 			);
 			path = Services;
-			sourceTree = "<group>";
-		};
-		7A28557B29E9CEA600EA680F /* Local */ = {
-			isa = PBXGroup;
-			children = (
-				7A82B64229EE3E4600A5EF93 /* SettingsService.h */,
-				7A82B64329EE3E4600A5EF93 /* SettingsService.m */,
-				7A82B65529F2280200A5EF93 /* CoreDataService.h */,
-				7A82B65629F2280200A5EF93 /* CoreDataService.m */,
-			);
-			path = Local;
-			sourceTree = "<group>";
-		};
-		7A28557C29E9CEAA00EA680F /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				7A82B65229F062A100A5EF93 /* CharactersService.h */,
-				7A82B65329F062A100A5EF93 /* CharactersService.m */,
-			);
-			path = Network;
 			sourceTree = "<group>";
 		};
 		7A28558329E9EEFC00EA680F /* Router */ = {
@@ -322,11 +305,12 @@
 		7A7598DC29BC403100DDC42A /* GenshinHeroes */ = {
 			isa = PBXGroup;
 			children = (
-				7AD3C31E2A0181FC00D937CB /* Styles */,
+				7ADC19332A2A5ED1007A37F8 /* DataProviders */,
 				7AB0FF6B29F76E7000F522BD /* Extensions */,
 				7A28557429E9CD4E00EA680F /* Modules */,
-				7A28557A29E9CE9700EA680F /* Services */,
 				7A28558329E9EEFC00EA680F /* Router */,
+				7AD3C31E2A0181FC00D937CB /* Styles */,
+				7A28557A29E9CE9700EA680F /* Services */,
 				7A28557829E9CE6400EA680F /* UI */,
 				7A7598DD29BC403100DDC42A /* AppDelegate.h */,
 				7A7598DE29BC403100DDC42A /* AppDelegate.m */,
@@ -448,6 +432,43 @@
 				7ADC192F2A28365B007A37F8 /* DetailsTwoColumnCollectionViewCell.m */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		7ADC19332A2A5ED1007A37F8 /* DataProviders */ = {
+			isa = PBXGroup;
+			children = (
+				7ADC19352A2A5F01007A37F8 /* Database */,
+				7ADC19342A2A5EF8007A37F8 /* Network */,
+				7ADC19362A2A5F07007A37F8 /* Local */,
+			);
+			path = DataProviders;
+			sourceTree = "<group>";
+		};
+		7ADC19342A2A5EF8007A37F8 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				7A82B65229F062A100A5EF93 /* CharactersNetworkProvider.h */,
+				7A82B65329F062A100A5EF93 /* CharactersNetworkProvider.m */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		7ADC19352A2A5F01007A37F8 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				7A82B65529F2280200A5EF93 /* CharactersDatabaseProvider.h */,
+				7A82B65629F2280200A5EF93 /* CharactersDatabaseProvider.m */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		7ADC19362A2A5F07007A37F8 /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				7A82B64229EE3E4600A5EF93 /* SettingsProvider.h */,
+				7A82B64329EE3E4600A5EF93 /* SettingsProvider.m */,
+			);
+			path = Local;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -587,10 +608,11 @@
 				7AB0FF7429F84C3700F522BD /* IndicatorView.m in Sources */,
 				7ADC19142A172C6C007A37F8 /* DetailsVM.m in Sources */,
 				7AB0FF7B29F8BFED00F522BD /* ErrorVM.m in Sources */,
-				7A82B64429EE3E4600A5EF93 /* SettingsService.m in Sources */,
+				7A82B64429EE3E4600A5EF93 /* SettingsProvider.m in Sources */,
 				7A7598E529BC403100DDC42A /* MainVC.m in Sources */,
 				7AB0FF7829F8BFC400F522BD /* ErrorVC.m in Sources */,
 				7ADC191D2A1C6621007A37F8 /* DetailsSection.m in Sources */,
+				7ADC19392A2A5FCD007A37F8 /* CharactersService.m in Sources */,
 				7AD3C3212A01822800D937CB /* Colors.m in Sources */,
 				7ADC192D2A2615FA007A37F8 /* DetailsTextCollectionViewCell.m in Sources */,
 				7ADC190E2A1725D6007A37F8 /* EmptyView.m in Sources */,
@@ -605,11 +627,11 @@
 				7ADC19212A1E1448007A37F8 /* DetailsImageCollectionViewCell.m in Sources */,
 				7A7598DF29BC403100DDC42A /* AppDelegate.m in Sources */,
 				7AD3C3282A04A3F200D937CB /* FavoritesVM.m in Sources */,
-				7A82B65429F062A100A5EF93 /* CharactersService.m in Sources */,
+				7A82B65429F062A100A5EF93 /* CharactersNetworkProvider.m in Sources */,
 				7A28557F29E9D07200EA680F /* MainRouter.m in Sources */,
 				7AB0FF6A29F7079400F522BD /* LoadingView.m in Sources */,
 				7A4D8D8929FB71DB00C05090 /* TwoColumnCollectionViewCell.m in Sources */,
-				7A82B65729F2280200A5EF93 /* CoreDataService.m in Sources */,
+				7A82B65729F2280200A5EF93 /* CharactersDatabaseProvider.m in Sources */,
 				7A6EBC3629EDB88900B0E0A2 /* MainTabBarController.m in Sources */,
 				7A7598E229BC403100DDC42A /* SceneDelegate.m in Sources */,
 				7A82B64129EE33F500A5EF93 /* FavoritesVC.m in Sources */,

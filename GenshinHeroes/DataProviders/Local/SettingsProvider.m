@@ -1,19 +1,19 @@
 //
-//  SettingsService.m
+//  SettingsProvider.m
 //  GenshinHeroes
 //
 //  Created by Dmitry Shlepkin on 4/18/23.
 //
 
-#import "SettingsService.h"
+#import "SettingsProvider.h"
 
-@interface SettingsService ()
+@interface SettingsProvider ()
 
 @property (strong, nonatomic) NSUserDefaults* userDefaults;
 
 @end
 
-@implementation SettingsService
+@implementation SettingsProvider
 
 static NSString* const kSettingsCacheExpirationDate = @"settings.cache.expirationDate";
 
@@ -26,11 +26,11 @@ static NSString* const kSettingsCacheExpirationDate = @"settings.cache.expiratio
     return self;
 }
 
-+ (SettingsService*) shared {
-    static SettingsService* settingsService = nil;
++ (SettingsProvider*) shared {
+    static SettingsProvider* settingsService = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        settingsService = [[SettingsService alloc] init];
+        settingsService = [[SettingsProvider alloc] init];
     });
     return settingsService;
 }
