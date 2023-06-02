@@ -223,7 +223,6 @@
 			isa = PBXGroup;
 			children = (
 				7ADC19152A1C58D7007A37F8 /* BackButton */,
-				7ADC19092A169D71007A37F8 /* Blocks */,
 				7ADC190B2A1725B6007A37F8 /* EmptyView */,
 				7AD3C3222A02DFE900D937CB /* FavoriteButton */,
 				7A4D8D8629FB716F00C05090 /* IndicatorView */,
@@ -331,6 +330,7 @@
 				7A28557829E9CE6400EA680F /* UI */,
 				7A7598DD29BC403100DDC42A /* AppDelegate.h */,
 				7A7598DE29BC403100DDC42A /* AppDelegate.m */,
+				7ADC190A2A169D85007A37F8 /* Blocks.h */,
 				7A6EBC3429EDB88800B0E0A2 /* MainTabBarController.h */,
 				7A6EBC3529EDB88800B0E0A2 /* MainTabBarController.m */,
 				7A28558029E9EB2600EA680F /* ModuleBuilder.h */,
@@ -403,14 +403,6 @@
 				7AD3C3242A02E12700D937CB /* FavoriteButton.m */,
 			);
 			path = FavoriteButton;
-			sourceTree = "<group>";
-		};
-		7ADC19092A169D71007A37F8 /* Blocks */ = {
-			isa = PBXGroup;
-			children = (
-				7ADC190A2A169D85007A37F8 /* Blocks.h */,
-			);
-			path = Blocks;
 			sourceTree = "<group>";
 		};
 		7ADC190B2A1725B6007A37F8 /* EmptyView */ = {

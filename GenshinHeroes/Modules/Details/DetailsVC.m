@@ -204,28 +204,4 @@
     return cell;
 }
 
-#pragma mark - UICollectionViewDelegate
-
-#pragma mark - UICollectionViewDelegateFlowLayout
-
-- (CGSize) collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    DetailsSection* section = self.viewModel.sections[indexPath.row];
-    CGFloat side = (CGRectGetWidth(self.view.frame)) - 32;
-    CGSize size = CGSizeZero;
-    switch (section.type) {
-        case DetailsSectionTypeImage:
-            size = CGSizeMake(side, side);
-            break;
-
-        default:
-            size = CGSizeMake(side, 0);
-            break;
-    }
-    return size;
-}
-
-- (UIEdgeInsets) collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger) sectionIndex {
-    return UIEdgeInsetsMake(16, 16, 16, 16);
-}
-
 @end
