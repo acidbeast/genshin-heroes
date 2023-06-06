@@ -48,6 +48,9 @@
 		7ADC192D2A2615FA007A37F8 /* DetailsTextCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC192C2A2615FA007A37F8 /* DetailsTextCollectionViewCell.m */; };
 		7ADC19302A28365B007A37F8 /* DetailsTwoColumnCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC192F2A28365B007A37F8 /* DetailsTwoColumnCollectionViewCell.m */; };
 		7ADC19392A2A5FCD007A37F8 /* CharactersService.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC19382A2A5FCD007A37F8 /* CharactersService.m */; };
+		7ADC193C2A2ECC45007A37F8 /* FavoritesService.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC193B2A2ECC45007A37F8 /* FavoritesService.m */; };
+		7ADC193F2A2ECCAF007A37F8 /* FavoritesDatabaseProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC193E2A2ECCAF007A37F8 /* FavoritesDatabaseProvider.m */; };
+		7ADC19422A2ECE4D007A37F8 /* DatabaseProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC19412A2ECE4D007A37F8 /* DatabaseProvider.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -149,6 +152,12 @@
 		7ADC192F2A28365B007A37F8 /* DetailsTwoColumnCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsTwoColumnCollectionViewCell.m; sourceTree = "<group>"; };
 		7ADC19372A2A5FCD007A37F8 /* CharactersService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CharactersService.h; sourceTree = "<group>"; };
 		7ADC19382A2A5FCD007A37F8 /* CharactersService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CharactersService.m; sourceTree = "<group>"; };
+		7ADC193A2A2ECC45007A37F8 /* FavoritesService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FavoritesService.h; sourceTree = "<group>"; };
+		7ADC193B2A2ECC45007A37F8 /* FavoritesService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FavoritesService.m; sourceTree = "<group>"; };
+		7ADC193D2A2ECCAF007A37F8 /* FavoritesDatabaseProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FavoritesDatabaseProvider.h; sourceTree = "<group>"; };
+		7ADC193E2A2ECCAF007A37F8 /* FavoritesDatabaseProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FavoritesDatabaseProvider.m; sourceTree = "<group>"; };
+		7ADC19402A2ECE4D007A37F8 /* DatabaseProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DatabaseProvider.h; sourceTree = "<group>"; };
+		7ADC19412A2ECE4D007A37F8 /* DatabaseProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DatabaseProvider.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,6 +249,8 @@
 			children = (
 				7ADC19372A2A5FCD007A37F8 /* CharactersService.h */,
 				7ADC19382A2A5FCD007A37F8 /* CharactersService.m */,
+				7ADC193A2A2ECC45007A37F8 /* FavoritesService.h */,
+				7ADC193B2A2ECC45007A37F8 /* FavoritesService.m */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -458,6 +469,10 @@
 			children = (
 				7A82B65529F2280200A5EF93 /* CharactersDatabaseProvider.h */,
 				7A82B65629F2280200A5EF93 /* CharactersDatabaseProvider.m */,
+				7ADC19402A2ECE4D007A37F8 /* DatabaseProvider.h */,
+				7ADC19412A2ECE4D007A37F8 /* DatabaseProvider.m */,
+				7ADC193D2A2ECCAF007A37F8 /* FavoritesDatabaseProvider.h */,
+				7ADC193E2A2ECCAF007A37F8 /* FavoritesDatabaseProvider.m */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -614,10 +629,12 @@
 				7ADC191D2A1C6621007A37F8 /* DetailsSection.m in Sources */,
 				7ADC19392A2A5FCD007A37F8 /* CharactersService.m in Sources */,
 				7AD3C3212A01822800D937CB /* Colors.m in Sources */,
+				7ADC19422A2ECE4D007A37F8 /* DatabaseProvider.m in Sources */,
 				7ADC192D2A2615FA007A37F8 /* DetailsTextCollectionViewCell.m in Sources */,
 				7ADC190E2A1725D6007A37F8 /* EmptyView.m in Sources */,
 				7ADC19242A1E1465007A37F8 /* DetailsTitleCollectionViewCell.m in Sources */,
 				7ADC19182A1C595C007A37F8 /* BackButton.m in Sources */,
+				7ADC193C2A2ECC45007A37F8 /* FavoritesService.m in Sources */,
 				7ADC19272A1E14B8007A37F8 /* UICollectionViewCell+Identifier.m in Sources */,
 				7A4D8D7C29FAFC9800C05090 /* UIWindow+keyWindow.m in Sources */,
 				7A82B64729EF223300A5EF93 /* MainVM.m in Sources */,
@@ -628,6 +645,7 @@
 				7A7598DF29BC403100DDC42A /* AppDelegate.m in Sources */,
 				7AD3C3282A04A3F200D937CB /* FavoritesVM.m in Sources */,
 				7A82B65429F062A100A5EF93 /* CharactersNetworkProvider.m in Sources */,
+				7ADC193F2A2ECCAF007A37F8 /* FavoritesDatabaseProvider.m in Sources */,
 				7A28557F29E9D07200EA680F /* MainRouter.m in Sources */,
 				7AB0FF6A29F7079400F522BD /* LoadingView.m in Sources */,
 				7A4D8D8929FB71DB00C05090 /* TwoColumnCollectionViewCell.m in Sources */,

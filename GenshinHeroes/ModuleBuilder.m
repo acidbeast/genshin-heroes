@@ -40,7 +40,8 @@
 }
 
 - (UIViewController*) createFavoritesModuleWithRouter: (MainRouter*) router {
-    FavoritesVM* viewModel = [[FavoritesVM alloc] initWithcoreDataService: [CharactersDatabaseProvider shared]];
+    FavoritesService* service = [[FavoritesService alloc] initWithDatabaseProvider: [FavoritesDatabaseProvider shared]];
+    FavoritesVM* viewModel = [[FavoritesVM alloc] initWithFavoritesService: service];
     FavoritesVC* vc = [[FavoritesVC alloc] initWithViewModel: viewModel];
     vc.router = router;
     return vc;

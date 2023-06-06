@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
+#import "DatabaseProvider.h"
 #import "Character+CoreDataClass.h"
 #import "Nation+CoreDataClass.h"
 #import "SkillTalent+CoreDataClass.h"
@@ -18,7 +18,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol CharactersDatabaseProviderProtocol <NSObject>
+@protocol CharactersDatabaseProviderProtocol
 
 - (NSArray*) getCharacters;
 - (Character*) getCharacterWithName: (NSString*) name;
@@ -29,9 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 
-@interface CharactersDatabaseProvider : NSObject <CharactersDatabaseProviderProtocol>
-
-@property (readonly, strong) NSPersistentContainer *persistentContainer;
+@interface CharactersDatabaseProvider : DatabaseProvider <CharactersDatabaseProviderProtocol>
 
 + (instancetype) shared;
 - (void) saveCharactersWith: (NSDictionary*) characters
@@ -42,10 +40,8 @@ NS_ASSUME_NONNULL_BEGIN
      withFavoriteValue: (BOOL) favoriteValue
              onSuccess: (EmptyBlock) onSuccess
                onError: (BlockWitError) onError;
-- (NSArray*) fetchFavorites;
 - (Character*) getCharacterWithName: (NSString*) name;
 - (void) saveContext;
-- (void) deleteAllObjects;
 
 @end
 
