@@ -24,10 +24,11 @@
 };
 
 
-- (void) fetchFavorites: (void(^)(NSArray* characters)) successCallback
-                              onError: (BlockWitError) errorCalback {
-    // TODO: Pass callbacks
-    [self.databaseProvider fetchFavorites];
+- (void) getFavorites: (void(^)(NSArray* characters)) successCallback
+                              onError: (BlockWitError) errorCallback {
+    [self.databaseProvider getFavoritesWithSuccess: ^(NSArray * _Nonnull favorites) {
+        successCallback([self convertToCharactersWith: favorites]);
+    } onError: errorCallback];
 }
 
 - (void) saveCharacter: (Character*) character
@@ -38,6 +39,15 @@
                        withFavoriteValue: (BOOL) favoriteValue
                                onSuccess: (EmptyBlock) onSuccess
                                  onError: (BlockWitError) onError];
+}
+
+- (NSArray*) convertToCharactersWith: (NSArray*) favorites {
+    NSMutableArray* result = [[NSMutableArray alloc] init];
+    for (Favorite* favorite in favorites) {
+        Character* character = favorite.character;
+        [result addObject: character];
+    }
+    return [NSArray arrayWithArray: result];
 }
 
 @end

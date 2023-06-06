@@ -37,7 +37,7 @@
 
 - (void) viewWillAppear:(BOOL) animated {
     [super viewWillAppear: animated];
-    [self.viewModel fetchFavorites];
+    [self.viewModel getFavorites];
     [self.collectionView reloadData];
     [self.router showTabBar];
 }
@@ -108,7 +108,7 @@
 
 #pragma mark - UICollectionViewDelegate
 
-- (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
+- (nonnull __kindof UICollectionViewCell*) collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     TwoColumnCollectionViewCell* cell = [self.collectionView dequeueReusableCellWithReuseIdentifier: [TwoColumnCollectionViewCell identifier] forIndexPath: indexPath];
     if (!cell) {
         cell = [[TwoColumnCollectionViewCell alloc] init];
@@ -120,7 +120,7 @@
                         withFavoriteValue: false
                                 onSuccess: ^{
             dispatch_async(dispatch_get_main_queue(), ^{
-                [self.viewModel fetchFavorites];
+                [self.viewModel getFavorites];
                 [self.collectionView reloadData];
             });
         }

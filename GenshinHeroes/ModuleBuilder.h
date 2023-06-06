@@ -21,9 +21,14 @@
 
 // Services
 #import "CharactersService.h"
+#import "FavoritesService.h"
+
+// Providers
 #import "SettingsProvider.h"
 #import "CharactersNetworkProvider.h"
 #import "CharactersDatabaseProvider.h"
+#import "FavoritesDatabaseProvider.h"
+
 
 @class MainRouter;
 

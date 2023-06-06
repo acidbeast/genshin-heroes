@@ -15,7 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol FavoritesDatabaseProviderProtocol
 
-- (NSArray*) fetchFavorites;
+- (void) getFavoritesWithSuccess: (void(^)(NSArray* characters)) successCallback
+                         onError: (BlockWitError) errorCallback;
 - (void) saveCharacter: (Character*) character
      withFavoriteValue: (BOOL) favoriteValue
              onSuccess: (EmptyBlock) onSuccess
@@ -26,7 +27,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface FavoritesDatabaseProvider : DatabaseProvider <FavoritesDatabaseProviderProtocol>
 
 + (instancetype) shared;
-- (NSArray*) fetchFavorites;
+- (void) getFavoritesWithSuccess: (void(^)(NSArray* characters)) successCallback
+                         onError: (BlockWitError) errorCallback;
 - (void) saveCharacter: (Character*) character
      withFavoriteValue: (BOOL) favoriteValue
              onSuccess: (EmptyBlock) onSuccess

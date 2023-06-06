@@ -27,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) id <FavoritesVMDelegateProtocol> delegate;
 
 - (instancetype) initWithFavoritesService: (id <FavoritesServiceProtocol>) favoritesService;
-- (void) fetchFavorites;
+- (void) getFavorites;
 - (void) saveCharacter: (Character*) character
      withFavoriteValue: (BOOL) favoriteValue
              onSuccess:(EmptyBlock) onSuccess

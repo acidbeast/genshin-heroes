@@ -29,14 +29,15 @@ typedef void (^FetchFavoritesErrorBlock)(NSError* error);
     return self;
 }
 
-- (void) fetchFavorites {
+- (void) getFavorites {
+    NSLog(@"FavoritesVM getFavorites");
     __weak FavoritesVM* weakSelf = self;
-    [self.service fetchFavorites: ^(NSArray * _Nonnull characters) {
+    [self.service getFavorites: ^(NSArray * _Nonnull characters) {
         self.favorites = characters;
         [weakSelf.delegate onFetchFavoritesSuccess];
-        NSLog(@"");
+        NSLog(@"fetchFavorites success");
     } onError:^(NSError *error) {
-        NSLog(@"");
+        NSLog(@"fetchFavorites error");
     } ];
 //    [self.delegate onFetchFavoritesSuccess];
 }
