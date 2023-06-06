@@ -17,6 +17,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void) getFavoritesWithSuccess: (void(^)(NSArray* characters)) successCallback
                          onError: (BlockWitError) errorCallback;
+- (void) saveFavorite: (Favorite*) favorite
+             withValue: (BOOL) value
+             onSuccess: (EmptyBlock) onSuccess
+               onError: (BlockWitError) onError;
 - (void) saveCharacter: (Character*) character
      withFavoriteValue: (BOOL) favoriteValue
              onSuccess: (EmptyBlock) onSuccess
@@ -29,6 +33,10 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype) shared;
 - (void) getFavoritesWithSuccess: (void(^)(NSArray* characters)) successCallback
                          onError: (BlockWitError) errorCallback;
+- (void) saveFavorite: (Favorite*) favorite
+             withValue: (BOOL) value
+             onSuccess: (EmptyBlock) onSuccess
+               onError: (BlockWitError) onError;
 - (void) saveCharacter: (Character*) character
      withFavoriteValue: (BOOL) favoriteValue
              onSuccess: (EmptyBlock) onSuccess

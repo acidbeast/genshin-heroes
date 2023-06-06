@@ -9,16 +9,19 @@
 
 @interface MainVM ()
 
-@property (strong, nonatomic) id <CharactersServiceProtocol> service;
+@property (strong, nonatomic) id <CharactersServiceProtocol> charactersService;
+@property (strong, nonatomic) id <FavoritesServiceProtocol> favoritesService;
 
 @end
 
 @implementation MainVM
 
-- (instancetype) initWithService: (id <CharactersServiceProtocol>) service {
+- (instancetype) initWithCharactersService: (id <CharactersServiceProtocol>) charactersService
+                          favoritesService: (id <FavoritesServiceProtocol>) favoritesService {
     self = [super init];
     if (self) {
-        self.service = service;
+        self.charactersService = charactersService;
+        self.favoritesService = favoritesService;
     }
     return self;
 }
@@ -26,7 +29,7 @@
 - (void) fetchCharacters {
     [self.delegate onFetchCharactersLoading];
     __weak MainVM* weakSelf = self;
-    [self.service getCharactersWithSuccess: ^(NSArray* characters) {
+    [self.charactersService getCharactersWithSuccess: ^(NSArray* characters) {
         self.characters = characters;
         [weakSelf.delegate onFetchCharactersSuccess];
     } onError: ^(NSError* error) {
@@ -34,15 +37,24 @@
     }];
 }
 
+- (void) saveFavorite: (Favorite*) favorite
+            withValue: (BOOL) value
+            onSuccess: (EmptyBlock) onSuccess
+              onError: (BlockWitError) onError {
+    [self.favoritesService saveFavorite: favorite
+                              withValue: value
+                              onSuccess: onSuccess
+                                onError: onError];
+}
+
 - (void) saveCharacter: (Character*) character
      withFavoriteValue: (BOOL) favoriteValue
-             onSuccess:(EmptyBlock) onSuccess
-               onError:(BlockWitError) onError {
-    NSLog(@"saveCharacter");
-//    [self.coreDataService saveCharacter: character
-//                      withFavoriteValue: favoriteValue
-//                              onSuccess: onSuccess
-//                                onError: onError];
+             onSuccess: (EmptyBlock) onSuccess
+               onError: (BlockWitError) onError {
+    [self.favoritesService saveCharacter: character
+                       withFavoriteValue: favoriteValue
+                               onSuccess: onSuccess
+                                 onError: onError];
 }
 
 @end

@@ -14,6 +14,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void) getFavorites: (void(^)(NSArray* characters)) successCallback
                               onError: (BlockWitError) errorCalback;
+- (void) saveFavorite: (Favorite*) favorite
+            withValue: (BOOL) value
+            onSuccess: (EmptyBlock) onSuccess
+              onError: (BlockWitError) onError;
 - (void) saveCharacter: (Character*) character
      withFavoriteValue: (BOOL) favoriteValue
              onSuccess: (EmptyBlock) onSuccess
@@ -24,11 +28,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FavoritesService : NSObject <FavoritesServiceProtocol>
 
++ (instancetype) shared;
 - (instancetype) initWithDatabaseProvider: (id <FavoritesDatabaseProviderProtocol>) databaseProvider;
-
-
 - (void) getFavorites: (void(^)(NSArray* characters)) successCallback
                               onError: (BlockWitError) errorCalback;
+- (void) saveFavorite: (Favorite*) favorite
+            withValue: (BOOL) value
+            onSuccess: (EmptyBlock) onSuccess
+              onError: (BlockWitError) onError;
 - (void) saveCharacter: (Character*) character
      withFavoriteValue: (BOOL) favoriteValue
              onSuccess: (EmptyBlock) onSuccess

@@ -24,6 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CharactersService : NSObject <CharactersServiceProtocol>
 
++ (instancetype) shared;
 - (instancetype) initWithNetworkProvider: (id <CharactersNetworkProviderProtocol>) networkProvider
                         databaseProvider: (id <CharactersDatabaseProviderProtocol>) databaseProvider
                          settingsPrvider: (id <SettingsProviderProtocol>) settingsProvider;

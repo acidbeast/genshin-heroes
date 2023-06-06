@@ -28,10 +28,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype) initWithFavoritesService: (id <FavoritesServiceProtocol>) favoritesService;
 - (void) getFavorites;
-- (void) saveCharacter: (Character*) character
-     withFavoriteValue: (BOOL) favoriteValue
-             onSuccess:(EmptyBlock) onSuccess
-               onError:(BlockWitError) onError;
+- (void) saveFavorite: (Favorite*) favorite
+            withValue: (BOOL) favoriteValue
+             onSuccess: (EmptyBlock) onSuccess
+               onError: (BlockWitError) onError;
 
 @end
 

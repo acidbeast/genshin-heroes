@@ -32,8 +32,9 @@
 }
 
 - (UIViewController*) createMainModuleWithRouter: (MainRouter*) router {
-    CharactersService* service = [[CharactersService alloc] initWithNetworkProvider: [CharactersNetworkProvider shared] databaseProvider: [CharactersDatabaseProvider shared] settingsPrvider: [SettingsProvider shared]];
-    MainVM* viewModel = [[MainVM alloc] initWithService: service];
+    CharactersService* charactersService = [[CharactersService alloc] initWithNetworkProvider: [CharactersNetworkProvider shared] databaseProvider: [CharactersDatabaseProvider shared] settingsPrvider: [SettingsProvider shared]];
+    FavoritesService* favoritesService = [[FavoritesService alloc] initWithDatabaseProvider: [FavoritesDatabaseProvider shared]];
+    MainVM* viewModel = [[MainVM alloc] initWithCharactersService: charactersService favoritesService: favoritesService];
     MainVC* vc = [[MainVC alloc] initWithViewModel: viewModel];
     vc.router = router;
     return vc;

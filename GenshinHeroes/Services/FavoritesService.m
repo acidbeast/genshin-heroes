@@ -15,6 +15,15 @@
 
 @implementation FavoritesService
 
++ (instancetype) shared {
+    static FavoritesService* service = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        service = [[FavoritesService alloc] init];
+    });
+    return service;
+}
+
 - (instancetype) initWithDatabaseProvider: (id <FavoritesDatabaseProviderProtocol>) databaseProvider {
     self = [super init];
     if (self) {
@@ -31,15 +40,26 @@
     } onError: errorCallback];
 }
 
+- (void) saveFavorite: (Favorite*) favorite
+            withValue: (BOOL) value
+            onSuccess: (EmptyBlock) onSuccess
+              onError: (BlockWitError) onError {
+    [self.databaseProvider saveFavorite: favorite
+                              withValue: value
+                              onSuccess: (EmptyBlock) onSuccess
+                                onError: (BlockWitError) onError];
+}
+
 - (void) saveCharacter: (Character*) character
      withFavoriteValue: (BOOL) favoriteValue
              onSuccess: (EmptyBlock) onSuccess
                onError: (BlockWitError) onError {
-    [self.databaseProvider saveCharacter: (Character*) character
-                       withFavoriteValue: (BOOL) favoriteValue
-                               onSuccess: (EmptyBlock) onSuccess
-                                 onError: (BlockWitError) onError];
+    [self.databaseProvider saveCharacter: character
+                        withFavoriteValue: favoriteValue
+                                onSuccess: (EmptyBlock) onSuccess
+                                  onError: (BlockWitError) onError];
 }
+
 
 - (NSArray*) convertToCharactersWith: (NSArray*) favorites {
     NSMutableArray* result = [[NSMutableArray alloc] init];
