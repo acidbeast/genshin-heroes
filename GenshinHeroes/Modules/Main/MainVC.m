@@ -108,7 +108,7 @@
 
 #pragma mark - UICollectionViewDelegate
 
-- (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
+- (nonnull __kindof UICollectionViewCell*) collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     TwoColumnCollectionViewCell* cell = [self.collectionView dequeueReusableCellWithReuseIdentifier: [TwoColumnCollectionViewCell identifier] forIndexPath: indexPath];
     if (!cell) {
         cell = [[TwoColumnCollectionViewCell alloc] init];
@@ -135,7 +135,7 @@
     return cell;
 }
 
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+- (void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     Character* character = [self.viewModel.characters objectAtIndex: indexPath.row];
     [self.router showHeroDetailsWithName: character.name];
     [self.router hideTabBar];

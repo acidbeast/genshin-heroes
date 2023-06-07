@@ -36,11 +36,12 @@
     return self;
 }
 
-- (instancetype) initWithType: (DetailsSectionType) type imageName: (NSString*) imageName {
+- (instancetype) initWithType: (DetailsSectionType) type imageName: (NSString*) imageName isFavorite: (BOOL) isFavorite {
     self = [super init];
     if (self) {
         self.type = type;
         self.imageName = imageName;
+        self.isFavorite = isFavorite;
     }
     return self;
 }

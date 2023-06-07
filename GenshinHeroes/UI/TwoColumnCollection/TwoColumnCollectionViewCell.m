@@ -232,10 +232,7 @@
 }
 
 - (void) toggleFavoriteButtonImageStateWithValue: (BOOL) value {
-    NSString* iconName = [NSString stringWithFormat: @"%@", value == YES ? @"heart.fill" : @"heart"];
-    NSString* colorName = [NSString stringWithFormat: @"%@", value == YES ? @"selected" : @"primary"];
-    [self.favoriteButton setImage: [UIImage systemImageNamed: iconName] forState: UIControlStateNormal];
-    self.favoriteButton.tintColor = Colors.shared.favorite[colorName];
+    [self.favoriteButton toggleSelected: value];
 }
 
 - (void) setFavoriteWithValue: (BOOL) value {

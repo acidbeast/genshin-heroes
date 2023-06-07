@@ -38,13 +38,13 @@
     return self;
 }
 
-- (void) getCharactersWithSuccess: (void(^)(NSArray* characters)) successCallback
-                              onError: (BlockWithError) errorCallback {
+- (void) getCharactersWithSuccess: (BlockWithCharactersList) successCallback
+                          onError: (BlockWithError) errorCallback {
     BOOL cacheIsExpired = [self cacheIsExpired];
     if (cacheIsExpired == YES) {
         [self.networkProvider getCharactersWithSuccess: ^(NSDictionary* characters) {
             [self.databaseProvider saveCharactersWith: characters
-                                           onSuccess: ^(void) {
+                                            onSuccess: ^(void) {
                 [self setCacheExpirationDateNow];
                 NSArray* characters = [self.databaseProvider getCharacters];
                 successCallback(characters);
@@ -79,6 +79,14 @@
 - (void) setCacheExpirationDateNow {
     NSDate* newDate = [[NSDate alloc] initWithTimeIntervalSinceNow: 0];
     [self.settingsProvider saveCacheExpirationDate: newDate];
+}
+
+- (void) getCharacterWithName: (NSString*) name
+                    onSuccess: (BlockWithCharacter) successCallback
+                      onError: (BlockWithError) errorCallback {
+    [self.databaseProvider getCharacterWithName: name
+                                      onSuccess: successCallback
+                                        onError: errorCallback];
 }
 
 @end

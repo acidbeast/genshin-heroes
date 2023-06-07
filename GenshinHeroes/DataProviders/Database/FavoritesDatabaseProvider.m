@@ -39,7 +39,7 @@
 }
 
 - (void) getFavoritesWithSuccess: (void(^)(NSArray* characters)) successCallback
-                           onError: (BlockWithError) errorCallback {
+                         onError: (BlockWithError) errorCallback {
     NSPredicate* predicate = [NSPredicate predicateWithFormat: @"isFavorite = YES"];
     [self getFavoritesWithPredicate: predicate onSuccess: successCallback onError: errorCallback];
 }

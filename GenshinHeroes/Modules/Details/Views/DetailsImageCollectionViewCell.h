@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void) updateWithSection: (DetailsSection*) section;
 - (void) updateWithBackAction: (EmptyBlock) backAction favoriteAction: (EmptyBlock) favoriteAction;
+- (void) toggleFavorite: (BOOL) value;
 
 @end
 

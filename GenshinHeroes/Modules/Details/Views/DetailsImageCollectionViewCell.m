@@ -126,6 +126,7 @@
 
 - (void) updateWithSection: (DetailsSection*) section {
     [self setupImageWithName: section.imageName];
+    [self.favoriteButton toggleSelected: section.isFavorite];
 }
 
 - (void) setupImageWithName: (NSString*) imageName {
@@ -144,6 +145,10 @@
 - (void) bringButtonsToFront {
     [self bringSubviewToFront: self.backButton];
     [self bringSubviewToFront: self.favoriteButton];
+}
+
+- (void) toggleFavorite: (BOOL) value {
+    [self.favoriteButton toggleSelected: value];
 }
 
 @end

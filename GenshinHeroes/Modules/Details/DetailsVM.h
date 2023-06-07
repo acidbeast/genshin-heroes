@@ -6,9 +6,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "CharactersDatabaseProvider.h"
 #import "Character+CoreDataClass.h"
 #import "DetailsSection.h"
+#import "CharactersService.h"
+#import "FavoritesService.h"
+
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -28,9 +30,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) NSMutableArray* sections;
 
 - (instancetype) initWithHeroName: (NSString*) heroName
-                  coreDataService: (CharactersDatabaseProvider*) coreDataService;
+                  charactersService: (id <CharactersServiceProtocol>) charactersService
+                  favoritesService: (id <FavoritesServiceProtocol>) favoritesService;
 
 - (void) getHeroDetails;
+- (void) saveFavoriteWithSuccess: (void(^)(BOOL newValue)) successCallback
+                         onError: (BlockWithError) errorCallback;
 
 @end
 

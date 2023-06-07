@@ -23,8 +23,6 @@
     return CGRectContainsPoint(extendedFrame, point) == 1 ? self : nil;
 }
 
-#pragma mark - Setup
-
 - (void) setup {
     self.frame = CGRectMake(0, 0, 24, 24);
     self.backgroundColor = [UIColor whiteColor];
@@ -38,6 +36,13 @@
     [self setImage: [UIImage systemImageNamed: @"heart"] forState: UIControlStateNormal];
     self.tintColor = Colors.shared.favorite[@"primary"];
     self.imageEdgeInsets = UIEdgeInsetsMake(5, 3, 4, 3);
+}
+
+- (void) toggleSelected: (BOOL) value {
+    NSString* iconName = [NSString stringWithFormat: @"%@", value == YES ? @"heart.fill" : @"heart"];
+    NSString* colorName = [NSString stringWithFormat: @"%@", value == YES ? @"selected" : @"primary"];
+    [self setImage: [UIImage systemImageNamed: iconName] forState: UIControlStateNormal];
+    self.tintColor = Colors.shared.favorite[colorName];
 }
 
 @end

@@ -9,31 +9,41 @@
 
 @interface DetailsVM ()
 
-@property (weak, nonatomic) CharactersDatabaseProvider* coreDataService;
+@property (weak, nonatomic) id <CharactersServiceProtocol> charactersService;
+@property (weak, nonatomic) id <FavoritesServiceProtocol> favoritesService;
 
 @end
 
 @implementation DetailsVM
 
 - (instancetype) initWithHeroName: (NSString*) heroName
-                  coreDataService: (CharactersDatabaseProvider*) coreDataService {
+                  charactersService: (id <CharactersServiceProtocol>) charactersService
+                  favoritesService: (id <FavoritesServiceProtocol>) favoritesService {
     self = [super init];
     if (self) {
         self.heroName = heroName;
-        self.coreDataService = coreDataService;
+        self.charactersService = charactersService;
+        self.favoritesService = favoritesService;
         self.sections = [[NSMutableArray alloc] init];
     }
     return self;
 }
 
 - (void) getHeroDetails {
-    self.hero = [self.coreDataService getCharacterWithName: self.heroName];
-    [self createSectionsWith: self.hero];
+    __weak DetailsVM* weakSelf = self;
+    [self.charactersService getCharacterWithName: self.heroName
+                                                   onSuccess: ^(Character* character) {
+        weakSelf.hero = character;
+        [self createSectionsWith: weakSelf.hero];
+    }
+                                                     onError:^(NSError *error) {
+        // TODO: show error;
+    }];
 }
 
 
 - (void) createSectionsWith: (Character*) hero {
-    DetailsSection* imageSection = [[DetailsSection alloc] initWithType: DetailsSectionTypeImage imageName: [self heroImageWithName: hero.name suffix: @"big"]];
+    DetailsSection* imageSection = [[DetailsSection alloc] initWithType: DetailsSectionTypeImage imageName: [self heroImageWithName: hero.name suffix: @"big"] isFavorite: hero.favorite.isFavorite];
     DetailsSection* titleSection = [[DetailsSection alloc] initWithType: DetailsSectionTypeTitle title: hero.name];
     DetailsSection* ratingSection = [[DetailsSection alloc] initWithType: DetailsSectionTypeRating rating: hero.rarity];
     DetailsSection* textSection = [[DetailsSection alloc] initWithType: DetailsSectionTypeText text: hero.about];
@@ -53,7 +63,6 @@
     [self.sections addObject: affiliationSection];
     [self.sections addObject: constellationSection];
     [self.sections addObject: birthdaySection];
-    /* Element */
 }
 
 - (NSString*) heroImageWithName: (NSString*) name suffix: (NSString*) suffix {
@@ -69,6 +78,19 @@
     dateFormatterOut.dateFormat = @"MM/dd";
     NSDate* date = [dateFormatterIn dateFromString: dateString];
     return [dateFormatterOut stringFromDate: date];
+}
+
+- (void) saveFavoriteWithSuccess: (void(^)(BOOL newValue)) successCallback
+                         onError: (BlockWithError) errorCallback {
+    BOOL newValue = !self.hero.favorite.isFavorite;
+    [self.favoritesService saveFavoriteFor: self.heroName
+                                 withValue: newValue
+                                 onSuccess:^{
+        if (successCallback != nil) {
+            successCallback(newValue);
+        }
+    }
+                                   onError: errorCallback];
 }
 
 @end

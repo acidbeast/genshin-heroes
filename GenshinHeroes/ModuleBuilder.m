@@ -8,7 +8,31 @@
 #import <UIKit/UIKit.h>
 #import "ModuleBuilder.h"
 
+@interface ModuleBuilder ()
+
+@property (strong, nonatomic) id <CharactersServiceProtocol> charactersService;
+@property (strong, nonatomic) id <FavoritesServiceProtocol> favoritesService;
+
+@end
+
+
 @implementation ModuleBuilder
+
+- (instancetype) init {
+    self = [super init];
+    if (self) {
+        [self initServices];
+    }
+    return self;
+}
+
+- (void) initServices {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        self.charactersService = [[CharactersService alloc] initWithNetworkProvider: [CharactersNetworkProvider shared] databaseProvider:[CharactersDatabaseProvider shared] settingsPrvider:[SettingsProvider shared]];
+        self.favoritesService = [[FavoritesService alloc] initWithDatabaseProvider: [FavoritesDatabaseProvider shared]];
+    });
+}
 
 - (UINavigationController*) createNavControllerWithTabTitle: (NSString*) title
                                                imageName: (NSString*) imageName
@@ -32,9 +56,7 @@
 }
 
 - (UIViewController*) createMainModuleWithRouter: (MainRouter*) router {
-    CharactersService* charactersService = [[CharactersService alloc] initWithNetworkProvider: [CharactersNetworkProvider shared] databaseProvider: [CharactersDatabaseProvider shared] settingsPrvider: [SettingsProvider shared]];
-    FavoritesService* favoritesService = [[FavoritesService alloc] initWithDatabaseProvider: [FavoritesDatabaseProvider shared]];
-    MainVM* viewModel = [[MainVM alloc] initWithCharactersService: charactersService favoritesService: favoritesService];
+    MainVM* viewModel = [[MainVM alloc] initWithCharactersService: self.charactersService favoritesService: self.favoritesService];
     MainVC* vc = [[MainVC alloc] initWithViewModel: viewModel];
     vc.router = router;
     return vc;
@@ -62,8 +84,7 @@
 
 - (UIViewController*) createHeroDetailsModuleWithRouter: (MainRouter*) router
                                                heroName: (NSString*) heroName {
-    DetailsVM* viewModel = [[DetailsVM alloc] initWithHeroName: heroName
-                                                       coreDataService: [CharactersDatabaseProvider shared]];
+    DetailsVM* viewModel = [[DetailsVM alloc] initWithHeroName: heroName charactersService: self.charactersService favoritesService: self.favoritesService];
     DetailsVC* vc = [[DetailsVC alloc] initWithViewModel: viewModel];
     vc.router = router;
     return vc;

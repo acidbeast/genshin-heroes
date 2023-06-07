@@ -70,6 +70,7 @@
 #pragma mark - Characters
 
 - (NSArray*) getCharactersWithPredicate: (NSPredicate*) predicate {
+    // TODO: add callbacks
     NSFetchRequest* request = [[NSFetchRequest alloc] init];
     NSEntityDescription* description = [NSEntityDescription entityForName: @"Character" inManagedObjectContext: self.persistentContainer.viewContext];
     [request setEntity: description];
@@ -89,16 +90,18 @@
     return [self getCharactersWithPredicate: nil];
 }
 
-- (Character*) getCharacterWithName: (NSString*) name {
+- (void) getCharacterWithName: (NSString*) name
+                    onSuccess: (BlockWithCharacter) successCallback
+                      onError: (BlockWithError) errorCallback {
     NSPredicate* predicate = [NSPredicate predicateWithFormat: @"name = %@", name];
-    return [self getCharactersWithPredicate: predicate][0];
+    if (successCallback != nil) {
+        successCallback([self getCharactersWithPredicate: predicate][0]);
+    }
 }
 
 - (void) saveCharactersWith: (NSDictionary*) characters
                   onSuccess: (void(^)(void)) onSuccess
                     onError: (void(^)(NSError* error)) onError {
-    // TODO: Remove!
-//    [self deleteAllObjects];
     NSError* saveError = nil;
     for (id object in characters) {
         [self createCharacterFrom: object];

@@ -23,25 +23,24 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSArray*) getCharacters;
 - (Character*) getCharacterWithName: (NSString*) name;
 - (void) saveCharactersWith: (NSDictionary*) characters
-                  onSuccess: (void(^)(void)) onSuccess
-                    onError: (void(^)(NSError* error)) onError;
-
+                  onSuccess: (EmptyBlock) onSuccess
+                    onError: (BlockWithError) onError;
+- (void) getCharacterWithName: (NSString*) name
+                    onSuccess: (BlockWithCharacter) successCallback
+                      onError: (BlockWithError) errorCallback;
 @end
 
 
 @interface CharactersDatabaseProvider : DatabaseProvider <CharactersDatabaseProviderProtocol>
 
 + (instancetype) shared;
-- (void) saveCharactersWith: (NSDictionary*) characters
-                  onSuccess: (void(^)(void)) onSuccess
-                    onError: (void(^)(NSError* error)) onError;
 - (NSArray*) getCharacters;
-- (void) saveCharacter: (Character*) character
-     withFavoriteValue: (BOOL) favoriteValue
-             onSuccess: (EmptyBlock) onSuccess
-               onError: (BlockWithError) onError;
-- (Character*) getCharacterWithName: (NSString*) name;
-- (void) saveContext;
+- (void) saveCharactersWith: (NSDictionary*) characters
+                  onSuccess: (EmptyBlock) onSuccess
+                    onError: (BlockWithError) onError;
+- (void) getCharacterWithName: (NSString*) name
+                    onSuccess: (BlockWithCharacter) successCallback
+                      onError: (BlockWithError) errorCallback;
 
 @end
 

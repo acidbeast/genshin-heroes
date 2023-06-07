@@ -122,11 +122,18 @@
     DetailsImageCollectionViewCell* cell = [self createCellWith: [DetailsImageCollectionViewCell class] indexPath: indexPath];
     [cell updateWithSection: section];
     __weak DetailsVC* weakSelf = self;
+    __weak DetailsImageCollectionViewCell* weakCell = cell;
     [cell updateWithBackAction: ^{
         [weakSelf.router back];        
     } favoriteAction: ^{
-            NSLog(@"222222");
+        [self.viewModel saveFavoriteWithSuccess: ^(BOOL newValue) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [weakCell toggleFavorite: newValue];
+            });
+        } onError:^(NSError *error) {
+            // TODO: show notification overlay with error;
         }];
+    }];
     return cell;
 }
 

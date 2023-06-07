@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FavoriteButton : UIButton
 
+- (void) toggleSelected: (BOOL) value;
+
 @end
 
 NS_ASSUME_NONNULL_END
