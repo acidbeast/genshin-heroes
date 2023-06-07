@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol CharactersServiceProtocol <NSObject>
 
 - (void) getCharactersWithSuccess: (void(^)(NSArray* characters)) successCallback
-                              onError: (BlockWitError) errorCalback;
+                              onError: (BlockWithError) errorCalback;
 
 @end
 
@@ -29,7 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
                         databaseProvider: (id <CharactersDatabaseProviderProtocol>) databaseProvider
                          settingsPrvider: (id <SettingsProviderProtocol>) settingsProvider;
 - (void) getCharactersWithSuccess: (void(^)(NSArray* characters)) successCallback
-                              onError: (BlockWitError) errorCalback;
+                              onError: (BlockWithError) errorCalback;
 
 @end
 

@@ -17,7 +17,7 @@
         <relationship name="weapon" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Weapon" inverseName="character" inverseEntity="Weapon"/>
     </entity>
     <entity name="Favorite" representedClassName="Favorite" syncable="YES" codeGenerationType="class">
-        <attribute name="isFavorite" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isFavorite" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <relationship name="character" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Character" inverseName="favorite" inverseEntity="Character"/>
     </entity>
     <entity name="GenshinObject" representedClassName="GenshinObject" isAbstract="YES" syncable="YES" codeGenerationType="class"/>

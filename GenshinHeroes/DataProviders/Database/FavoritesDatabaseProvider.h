@@ -16,15 +16,11 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol FavoritesDatabaseProviderProtocol
 
 - (void) getFavoritesWithSuccess: (void(^)(NSArray* characters)) successCallback
-                         onError: (BlockWitError) errorCallback;
-- (void) saveFavorite: (Favorite*) favorite
-             withValue: (BOOL) value
-             onSuccess: (EmptyBlock) onSuccess
-               onError: (BlockWitError) onError;
-- (void) saveCharacter: (Character*) character
-     withFavoriteValue: (BOOL) favoriteValue
-             onSuccess: (EmptyBlock) onSuccess
-               onError: (BlockWitError) onError;
+                         onError: (BlockWithError) errorCallback;
+- (void) saveFavoriteFor: (NSString*) characterName
+               withValue: (BOOL) value
+               onSuccess: (EmptyBlock) onSuccess
+                 onError: (BlockWithError) onError;
 
 @end
 
@@ -32,15 +28,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype) shared;
 - (void) getFavoritesWithSuccess: (void(^)(NSArray* characters)) successCallback
-                         onError: (BlockWitError) errorCallback;
-- (void) saveFavorite: (Favorite*) favorite
-             withValue: (BOOL) value
-             onSuccess: (EmptyBlock) onSuccess
-               onError: (BlockWitError) onError;
-- (void) saveCharacter: (Character*) character
-     withFavoriteValue: (BOOL) favoriteValue
-             onSuccess: (EmptyBlock) onSuccess
-               onError: (BlockWitError) onError;
+                         onError: (BlockWithError) errorCallback;
+- (void) saveFavoriteFor: (NSString*) characterName
+               withValue: (BOOL) value
+               onSuccess: (EmptyBlock) onSuccess
+                 onError: (BlockWithError) onError;
 @end
 
 NS_ASSUME_NONNULL_END

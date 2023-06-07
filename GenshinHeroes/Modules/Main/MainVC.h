@@ -13,6 +13,8 @@
 #import "EmptyView.h"
 #import "UICollectionViewCell+Identifier.h"
 
+#import "CoreDataService.h"
+
 @class MainRouter;
 
 @interface MainVC : TwoColumnCollectionVC <MainVMDelegateProtocol, UICollectionViewDelegate, UICollectionViewDataSource>

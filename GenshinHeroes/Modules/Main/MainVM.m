@@ -37,24 +37,14 @@
     }];
 }
 
-- (void) saveFavorite: (Favorite*) favorite
-            withValue: (BOOL) value
-            onSuccess: (EmptyBlock) onSuccess
-              onError: (BlockWitError) onError {
-    [self.favoritesService saveFavorite: favorite
-                              withValue: value
-                              onSuccess: onSuccess
-                                onError: onError];
-}
-
-- (void) saveCharacter: (Character*) character
-     withFavoriteValue: (BOOL) favoriteValue
-             onSuccess: (EmptyBlock) onSuccess
-               onError: (BlockWitError) onError {
-    [self.favoritesService saveCharacter: character
-                       withFavoriteValue: favoriteValue
-                               onSuccess: onSuccess
-                                 onError: onError];
+- (void) saveFavoriteFor: (NSString*) characterName
+               withValue: (BOOL) value
+               onSuccess: (EmptyBlock) onSuccess
+                 onError: (BlockWithError) onError {
+    [self.favoritesService saveFavoriteFor: characterName
+                                 withValue: value
+                                 onSuccess: onSuccess
+                                   onError: onError];
 }
 
 @end

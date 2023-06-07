@@ -14,6 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (readonly, strong) NSPersistentContainer *persistentContainer;
 
+- (void) saveContext;
+- (NSPersistentContainer*) persistentContainer;
+
 @end
 
 NS_ASSUME_NONNULL_END

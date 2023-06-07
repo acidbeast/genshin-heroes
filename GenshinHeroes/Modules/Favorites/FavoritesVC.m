@@ -116,7 +116,7 @@
     Character* character = [self.viewModel.favorites objectAtIndex: indexPath.row];
     __weak FavoritesVC* weakSelf = self;
     cell.favoriteActionBlock = ^(BOOL value) {
-        [weakSelf.viewModel saveFavorite: character.favorite
+        [weakSelf.viewModel saveFavoriteFor: character.name
                                withValue: false
                                 onSuccess: ^{
             dispatch_async(dispatch_get_main_queue(), ^{

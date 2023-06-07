@@ -118,26 +118,17 @@
     __weak TwoColumnCollectionViewCell* weakCell = cell;
     cell.favoriteActionBlock = ^(BOOL value) {
         BOOL newValue = !value;
-//        [weakSelf.viewModel saveFavorite: character.favorite
-//                               withValue: newValue
-//                               onSuccess: ^{
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                [weakCell setFavoriteWithValue: newValue];
-//            });
-//        }                                onError: ^(NSError *error) {
-//        // TODO: Show error notification with error over content
-//        }
-//        ];
-        [weakSelf.viewModel saveCharacter: character
-                       withFavoriteValue: newValue
-                               onSuccess: ^{
+        [weakSelf.viewModel saveFavoriteFor: character.name
+                                  withValue: newValue
+                                  onSuccess: ^{
             dispatch_async(dispatch_get_main_queue(), ^{
                 [weakCell setFavoriteWithValue: newValue];
             });
+            
         }
-                                 onError: ^(NSError *error) {
+                                    onError: ^(NSError *error) {
             // TODO: Show error notification with error over content
-        }
+            }
         ];
     };
     [cell updateWithCharacter: character];

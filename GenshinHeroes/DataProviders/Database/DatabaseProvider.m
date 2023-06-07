@@ -11,14 +11,14 @@
 
 @synthesize persistentContainer = _persistentContainer;
 
-
 - (NSPersistentContainer*) persistentContainer {
     // The persistent container for the application. This implementation creates and returns a container, having loaded the store for the application to it.
     @synchronized (self) {
         if (_persistentContainer == nil) {
-            _persistentContainer = [[NSPersistentContainer alloc] initWithName:@"GenshinHeroes"];
+            _persistentContainer = [[NSPersistentContainer alloc] initWithName: @"GenshinHeroes"];
             [_persistentContainer loadPersistentStoresWithCompletionHandler:^(NSPersistentStoreDescription *storeDescription, NSError *error) {
                 self->_persistentContainer.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy;
+//                self->_persistentContainer.viewContext.automaticallyMergesChangesFromParent = YES;
                 if (error != nil) {
                     // Replace this implementation with code to handle the error appropriately.
                     // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
@@ -51,33 +51,33 @@
         // Replace this implementation with code to handle the error appropriately.
         // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
         NSLog(@"Unresolved error %@, %@", error, error.userInfo);
-        abort();
+//        abort();
     }
 }
 
 // TODO: Remove later
 
-- (NSArray*) getAllObjects {
-    NSFetchRequest* request = [[NSFetchRequest alloc] init];
-    NSEntityDescription* description = [NSEntityDescription entityForName: @"GenshinObject" inManagedObjectContext: self.persistentContainer.viewContext];
-    [request setEntity: description];
-    NSError* requestError = nil;
-    NSPersistentStoreResult* result = [self.persistentContainer.viewContext executeRequest: request error: &requestError];
-    if (requestError) {
-        NSLog(@"%@", requestError.localizedDescription);
-    }
-    NSArray* objects = [result valueForKey: @"finalResult"];
-    return objects;
-}
-
-
-- (void) deleteAllObjects {
-    NSArray* objects = [self getAllObjects];
-    for (id object in objects) {
-        [self.persistentContainer.viewContext deleteObject: object];
-    }
-    [self.persistentContainer.viewContext save: nil];
-}
+//- (NSArray*) getAllObjects {
+//    NSFetchRequest* request = [[NSFetchRequest alloc] init];
+//    NSEntityDescription* description = [NSEntityDescription entityForName: @"GenshinObject" inManagedObjectContext: self.persistentContainer.viewContext];
+//    [request setEntity: description];
+//    NSError* requestError = nil;
+//    NSPersistentStoreResult* result = [self.persistentContainer.viewContext executeRequest: request error: &requestError];
+//    if (requestError) {
+//        NSLog(@"%@", requestError.localizedDescription);
+//    }
+//    NSArray* objects = [result valueForKey: @"finalResult"];
+//    return objects;
+//}
+//
+//
+//- (void) deleteAllObjects {
+//    NSArray* objects = [self getAllObjects];
+//    for (id object in objects) {
+//        [self.persistentContainer.viewContext deleteObject: object];
+//    }
+//    [self.persistentContainer.viewContext save: nil];
+//}
 
 
 @end

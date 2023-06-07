@@ -39,7 +39,7 @@
 }
 
 - (void) getCharactersWithSuccess: (void(^)(NSArray* characters)) successCallback
-                              onError: (BlockWitError) errorCallback {
+                              onError: (BlockWithError) errorCallback {
     BOOL cacheIsExpired = [self cacheIsExpired];
     if (cacheIsExpired == YES) {
         [self.networkProvider getCharactersWithSuccess: ^(NSDictionary* characters) {

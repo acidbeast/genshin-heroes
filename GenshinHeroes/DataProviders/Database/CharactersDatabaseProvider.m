@@ -102,7 +102,7 @@
     NSError* saveError = nil;
     for (id object in characters) {
         [self createCharacterFrom: object];
-        
+
     }
     [self.persistentContainer.viewContext save: &saveError];
     if (saveError != nil) {

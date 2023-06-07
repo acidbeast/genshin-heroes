@@ -33,14 +33,10 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype) initWithCharactersService: (id <CharactersServiceProtocol>) charactersService
                           favoritesService: (id <FavoritesServiceProtocol>) favoritesService;
 - (void) fetchCharacters;
-- (void) saveCharacter: (Character*) character
-     withFavoriteValue: (BOOL) favoriteValue
-             onSuccess: (EmptyBlock) onSuccess
-               onError: (BlockWitError) onError;
-- (void) saveFavorite: (Favorite*) favorite
-            withValue: (BOOL) favoriteValue
-            onSuccess: (EmptyBlock) onSuccess
-              onError: (BlockWitError) onError;
+- (void) saveFavoriteFor: (NSString*) characterName
+               withValue: (BOOL) value
+               onSuccess: (EmptyBlock) onSuccess
+                 onError: (BlockWithError) onError;
 
 @end
 

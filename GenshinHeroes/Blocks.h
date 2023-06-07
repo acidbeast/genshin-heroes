@@ -9,6 +9,6 @@
 #define Blocks_h
 
 typedef void (^EmptyBlock)(void);
-typedef void (^BlockWitError)(NSError* error);
+typedef void (^BlockWithError)(NSError* error);
 
 #endif /* Blocks_h */
