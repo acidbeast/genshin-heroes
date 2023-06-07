@@ -51,7 +51,6 @@
 		7ADC193C2A2ECC45007A37F8 /* FavoritesService.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC193B2A2ECC45007A37F8 /* FavoritesService.m */; };
 		7ADC193F2A2ECCAF007A37F8 /* FavoritesDatabaseProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC193E2A2ECCAF007A37F8 /* FavoritesDatabaseProvider.m */; };
 		7ADC19422A2ECE4D007A37F8 /* DatabaseProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC19412A2ECE4D007A37F8 /* DatabaseProvider.m */; };
-		7ADC19452A30C5C6007A37F8 /* CoreDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC19442A30C5C6007A37F8 /* CoreDataService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -159,8 +158,6 @@
 		7ADC193E2A2ECCAF007A37F8 /* FavoritesDatabaseProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FavoritesDatabaseProvider.m; sourceTree = "<group>"; };
 		7ADC19402A2ECE4D007A37F8 /* DatabaseProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DatabaseProvider.h; sourceTree = "<group>"; };
 		7ADC19412A2ECE4D007A37F8 /* DatabaseProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DatabaseProvider.m; sourceTree = "<group>"; };
-		7ADC19432A30C5C6007A37F8 /* CoreDataService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataService.h; sourceTree = "<group>"; };
-		7ADC19442A30C5C6007A37F8 /* CoreDataService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreDataService.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,8 +251,6 @@
 				7ADC19382A2A5FCD007A37F8 /* CharactersService.m */,
 				7ADC193A2A2ECC45007A37F8 /* FavoritesService.h */,
 				7ADC193B2A2ECC45007A37F8 /* FavoritesService.m */,
-				7ADC19432A30C5C6007A37F8 /* CoreDataService.h */,
-				7ADC19442A30C5C6007A37F8 /* CoreDataService.m */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -652,7 +647,6 @@
 				7A82B65429F062A100A5EF93 /* CharactersNetworkProvider.m in Sources */,
 				7ADC193F2A2ECCAF007A37F8 /* FavoritesDatabaseProvider.m in Sources */,
 				7A28557F29E9D07200EA680F /* MainRouter.m in Sources */,
-				7ADC19452A30C5C6007A37F8 /* CoreDataService.m in Sources */,
 				7AB0FF6A29F7079400F522BD /* LoadingView.m in Sources */,
 				7A4D8D8929FB71DB00C05090 /* TwoColumnCollectionViewCell.m in Sources */,
 				7A82B65729F2280200A5EF93 /* CharactersDatabaseProvider.m in Sources */,
