@@ -139,4 +139,6 @@
     [self.router hideTabBar];
 }
 
+- (void) dismissAction {};
+
 @end

@@ -67,4 +67,13 @@
     [navigationController popViewControllerAnimated: YES];
 }
 
+- (void) backWithAction {
+    UINavigationController* navigationController = [self.tabBarController selectedViewController];
+    NSInteger viewControllersCount = [navigationController.viewControllers count];
+    if (viewControllersCount >= 2) {
+        [navigationController.viewControllers[viewControllersCount-2] dismissAction];
+    }
+    [navigationController popViewControllerAnimated: YES];
+}
+
 @end

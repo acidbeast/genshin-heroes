@@ -21,7 +21,6 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol CharactersDatabaseProviderProtocol
 
 - (NSArray*) getCharacters;
-- (Character*) getCharacterWithName: (NSString*) name;
 - (void) saveCharactersWith: (NSDictionary*) characters
                   onSuccess: (EmptyBlock) onSuccess
                     onError: (BlockWithError) onError;
@@ -31,9 +30,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 
-@interface CharactersDatabaseProvider : DatabaseProvider <CharactersDatabaseProviderProtocol>
+@interface CharactersDatabaseProvider : NSObject <CharactersDatabaseProviderProtocol>
 
-+ (instancetype) shared;
+- (instancetype) initWithPersistentContainer: (NSPersistentContainer*) persistentContainer;
 - (NSArray*) getCharacters;
 - (void) saveCharactersWith: (NSDictionary*) characters
                   onSuccess: (EmptyBlock) onSuccess

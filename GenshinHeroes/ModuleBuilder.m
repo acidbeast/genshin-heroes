@@ -13,6 +13,11 @@
 @property (strong, nonatomic) id <CharactersServiceProtocol> charactersService;
 @property (strong, nonatomic) id <FavoritesServiceProtocol> favoritesService;
 
+@property (strong, nonatomic) id <CharactersNetworkProviderProtocol> charactersNetworkProvider;
+@property (strong, nonatomic) id <DatabaseProviderProtocol> databaseProvider;
+@property (strong, nonatomic) id <CharactersDatabaseProviderProtocol> charactersDatabaseProvider;
+@property (strong, nonatomic) id <FavoritesDatabaseProviderProtocol> favoritesDatabaseProvider;
+
 @end
 
 
@@ -29,8 +34,11 @@
 - (void) initServices {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        self.charactersService = [[CharactersService alloc] initWithNetworkProvider: [CharactersNetworkProvider shared] databaseProvider:[CharactersDatabaseProvider shared] settingsPrvider:[SettingsProvider shared]];
-        self.favoritesService = [[FavoritesService alloc] initWithDatabaseProvider: [FavoritesDatabaseProvider shared]];
+        self.charactersNetworkProvider = [[CharactersNetworkProvider alloc] init];
+        self.charactersDatabaseProvider = [[CharactersDatabaseProvider alloc] initWithPersistentContainer: [[DatabaseProvider shared] persistentContainer]];
+        self.favoritesDatabaseProvider = [[FavoritesDatabaseProvider alloc] initWithPersistentContainer: [[DatabaseProvider shared] persistentContainer]];
+        self.charactersService = [[CharactersService alloc] initWithNetworkProvider: self.charactersNetworkProvider databaseProvider: self.charactersDatabaseProvider settingsPrvider: [SettingsProvider shared]];
+        self.favoritesService = [[FavoritesService alloc] initWithDatabaseProvider: self.favoritesDatabaseProvider];
     });
 }
 
@@ -63,8 +71,7 @@
 }
 
 - (UIViewController*) createFavoritesModuleWithRouter: (MainRouter*) router {
-    FavoritesService* service = [[FavoritesService alloc] initWithDatabaseProvider: [FavoritesDatabaseProvider shared]];
-    FavoritesVM* viewModel = [[FavoritesVM alloc] initWithFavoritesService: service];
+    FavoritesVM* viewModel = [[FavoritesVM alloc] initWithFavoritesService: self.favoritesService];
     FavoritesVC* vc = [[FavoritesVC alloc] initWithViewModel: viewModel];
     vc.router = router;
     return vc;

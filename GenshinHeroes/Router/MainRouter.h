@@ -5,11 +5,17 @@
 //  Created by Dmitry Shlepkin on 4/14/23.
 //
 
+@protocol DismissActionProtocol
+- (void) dismissAction;
+@end
+
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "ModuleBuilder.h"
 #import "MainTabBarController.h"
 #import "ErrorVM.h"
+#import "Blocks.h"
+
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -31,6 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
                      tabBarController: (UITabBarController*) tabBarController;
 - (void) start;
 - (void) back;
+- (void) backWithAction;
 - (void) showTabBar;
 - (void) hideTabBar;
 - (void) showErrorWithText: (NSString*) errorText

@@ -11,6 +11,15 @@
 
 @synthesize persistentContainer = _persistentContainer;
 
++ (instancetype) shared {
+    static DatabaseProvider* provider = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        provider = [[DatabaseProvider alloc] init];
+    });
+    return provider;
+}
+
 - (NSPersistentContainer*) persistentContainer {
     // The persistent container for the application. This implementation creates and returns a container, having loaded the store for the application to it.
     @synchronized (self) {

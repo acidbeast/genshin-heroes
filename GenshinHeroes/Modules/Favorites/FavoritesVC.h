@@ -14,6 +14,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class MainRouter;
+
 @interface FavoritesVC : TwoColumnCollectionVC <FavoritesVMDelegateProtocol, UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (strong, nonatomic) MainRouter* router;

@@ -39,7 +39,7 @@
 
 
 - (void)sceneDidEnterBackground:(UIScene *)scene {
-    [[CharactersDatabaseProvider shared] saveContext];
+    [[DatabaseProvider shared] saveContext];
 }
 
 

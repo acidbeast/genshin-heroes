@@ -7,16 +7,20 @@
 
 #import "CharactersDatabaseProvider.h"
 
+@interface CharactersDatabaseProvider ()
+
+@property (strong, nonatomic) NSPersistentContainer* persistentContainer;
+
+@end
+
 @implementation CharactersDatabaseProvider
 
-
-+ (instancetype) shared {
-    static CharactersDatabaseProvider* service = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        service = [[CharactersDatabaseProvider alloc] init];
-    });
-    return service;
+- (instancetype) initWithPersistentContainer: (NSPersistentContainer*) persistentContainer {
+    self = [super init];
+    if (self) {
+        self.persistentContainer = persistentContainer;
+    }
+    return self;
 }
 
 - (Character*) createCharacterFrom: (NSDictionary*) characterData {
@@ -80,6 +84,7 @@
     NSError* requestError = nil;
     NSPersistentStoreResult* result = [self.persistentContainer.viewContext executeRequest: request error: &requestError];
     if (requestError) {
+        // TODO: handle error;
         NSLog(@"%@", requestError.localizedDescription);
     }
     NSArray* characters = [result valueForKey: @"finalResult"];
@@ -87,6 +92,7 @@
 }
 
 - (NSArray*) getCharacters {
+    // TODO: callbacks
     return [self getCharactersWithPredicate: nil];
 }
 

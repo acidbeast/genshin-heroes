@@ -16,14 +16,14 @@
 
 static NSString* charactersURL = @"https://api.genshin.dev/characters/all";
 
-+ (instancetype) shared {
-    static CharactersNetworkProvider* service = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        service = [[CharactersNetworkProvider alloc] init];
-    });
-    return service;
-}
+//+ (instancetype) shared {
+//    static CharactersNetworkProvider* service = nil;
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        service = [[CharactersNetworkProvider alloc] init];
+//    });
+//    return service;
+//}
 
 - (void) getCharactersWithSuccess: (void(^)(NSDictionary* characters)) successCallback
                           onError: (void(^)(NSError* error)) errorCallback {

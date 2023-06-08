@@ -31,14 +31,14 @@
     return self;
 }
 
-- (void)viewDidLoad {
+- (void) viewDidLoad {
     [super viewDidLoad];
     [self setup];
-    [self.viewModel fetchCharacters];
 }
 
 - (void) viewWillAppear: (BOOL) animated {
     [super viewWillAppear: animated];
+    [self.viewModel fetchCharacters];
     [self.router showTabBar];
 }
 
@@ -90,6 +90,7 @@
             [self setupEmptyView];
         } else {
             [self setupCollectionView];
+            [self.collectionView reloadData];
         }
     });
 }
@@ -124,7 +125,6 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 [weakCell setFavoriteWithValue: newValue];
             });
-            
         }
                                     onError: ^(NSError *error) {
             // TODO: Show error notification with error over content

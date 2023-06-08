@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CharactersNetworkProvider : NSObject <CharactersNetworkProviderProtocol>
 
-+ (instancetype) shared;
+//+ (instancetype) shared;
 - (void) getCharactersWithSuccess: (void(^)(NSDictionary* characters)) successCallback
                           onError: (void(^)(NSError* error)) errorCallback;
 

@@ -124,7 +124,7 @@
     __weak DetailsVC* weakSelf = self;
     __weak DetailsImageCollectionViewCell* weakCell = cell;
     [cell updateWithBackAction: ^{
-        [weakSelf.router back];        
+        [weakSelf.router back];
     } favoriteAction: ^{
         [self.viewModel saveFavoriteWithSuccess: ^(BOOL newValue) {
             dispatch_async(dispatch_get_main_queue(), ^{

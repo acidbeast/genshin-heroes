@@ -24,9 +24,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface FavoritesDatabaseProvider : DatabaseProvider <FavoritesDatabaseProviderProtocol>
+@interface FavoritesDatabaseProvider : NSObject <FavoritesDatabaseProviderProtocol>
 
-+ (instancetype) shared;
+- (instancetype) initWithPersistentContainer: (NSPersistentContainer*) persistentContainer;
 - (void) getFavoritesWithSuccess: (void(^)(NSArray* characters)) successCallback
                          onError: (BlockWithError) errorCallback;
 - (void) saveFavoriteFor: (NSString*) characterName

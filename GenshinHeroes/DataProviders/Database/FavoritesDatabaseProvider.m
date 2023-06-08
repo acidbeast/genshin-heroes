@@ -7,17 +7,21 @@
 
 #import "FavoritesDatabaseProvider.h"
 
+@interface FavoritesDatabaseProvider ()
+
+@property (strong, nonatomic) NSPersistentContainer* persistentContainer;
+
+@end
+
 @implementation FavoritesDatabaseProvider
 
-+ (instancetype) shared {
-    static FavoritesDatabaseProvider* service = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        service = [[FavoritesDatabaseProvider alloc] init];
-    });
-    return service;
+- (instancetype) initWithPersistentContainer: (NSPersistentContainer*) persistentContainer {
+    self = [super init];
+    if (self) {
+        self.persistentContainer = persistentContainer;
+    }
+    return self;
 }
-
 
 - (void) getFavoritesWithPredicate: (NSPredicate*) predicate
                               onSuccess: (void(^)(NSArray* favorites)) successCallback
