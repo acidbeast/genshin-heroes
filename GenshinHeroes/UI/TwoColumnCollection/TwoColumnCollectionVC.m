@@ -37,7 +37,7 @@
     self.collectionView.backgroundColor = [UIColor colorWithHex: @"#ebeaef"];
     [NSLayoutConstraint activateConstraints: @[
         [self.collectionView.topAnchor constraintEqualToAnchor: self.view.safeAreaLayoutGuide.topAnchor],
-        [self.collectionView.bottomAnchor constraintEqualToAnchor: self.view.safeAreaLayoutGuide.bottomAnchor],
+        [self.collectionView.bottomAnchor constraintEqualToAnchor: self.view.bottomAnchor],
         [self.collectionView.leadingAnchor constraintEqualToAnchor: self.view.safeAreaLayoutGuide.leadingAnchor],
         [self.collectionView.trailingAnchor constraintEqualToAnchor: self.view.safeAreaLayoutGuide.trailingAnchor]
     ]];

@@ -33,10 +33,9 @@
 }
 
 - (void) setupStyle {
-    self.view.backgroundColor = [UIColor colorWithHex: @"#ebeaef"];
-    self.tabBar.translucent = NO;
     self.tabBar.tintColor = [UIColor blackColor];
-//    self.tabBar.layer.cornerRadius = 16;
+    self.tabBar.layer.cornerRadius = 16;
+    self.tabBar.layer.masksToBounds = YES;
 }
 
 - (void) setupAppearance {
@@ -61,7 +60,8 @@
     [self moveFrameToY: CGRectGetMaxY([[UIWindow keyWindow] frame]) - CGRectGetHeight(self.tabBar.frame)];
 }
 
-- (void) animateTabBar: (void(^)(void)) animationBlock {
+- (void) animateTabBar: (EmptyBlock) animationBlock
+            completion: (void(^)(BOOL completed)) completionBlock {
     [UIView animateWithDuration: 1
                           delay: 0.2
          usingSpringWithDamping: 0.8
@@ -71,18 +71,22 @@
         animationBlock();
         [self.navigationController.view layoutIfNeeded];
     }
-                     completion: nil];
+                     completion: completionBlock];
 }
 
 - (void) showTabBarWithAnimation {
+    [self.tabBar setHidden: NO];
     [self animateTabBar: ^{
         [self moveFrameUp];
-    }];
+    } completion: nil];
 }
 
 - (void) hideTabBarWithAnimation {
+    __weak MainTabBarController* weakSelf = self;
     [self animateTabBar: ^{
         [self moveFrameDown];
+    } completion:^(BOOL completed) {
+        [weakSelf.tabBar setHidden: YES];
     }];
 }
 

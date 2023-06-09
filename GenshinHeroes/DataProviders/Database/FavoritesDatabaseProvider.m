@@ -24,7 +24,7 @@
 }
 
 - (void) getFavoritesWithPredicate: (NSPredicate*) predicate
-                         onSuccess: (void(^)(NSArray* favorites)) successCallback
+                         onSuccess: (BlockWithCharactersList) successCallback
                            onError: (BlockWithError) errorCallback {
     NSFetchRequest* request = [[NSFetchRequest alloc] init];
     NSEntityDescription* description = [NSEntityDescription entityForName: @"Favorite" inManagedObjectContext: self.persistentContainer.viewContext];

@@ -40,6 +40,7 @@
     [self addSubview: self.textLabel];
     self.textLabel.translatesAutoresizingMaskIntoConstraints = NO;
     self.textLabel.numberOfLines = 0;
+    self.textLabel.textColor = Colors.shared.text[@"primary"];
     [NSLayoutConstraint activateConstraints: @[
         [self.textLabel.topAnchor constraintEqualToAnchor: self.topAnchor],
         [self.textLabel.bottomAnchor constraintEqualToAnchor: self.bottomAnchor constant: -16],

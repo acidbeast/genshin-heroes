@@ -44,6 +44,7 @@
     [self addSubview: self.titleLabel];
     self.titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
     self.titleLabel.font = [UIFont fontWithName: @"Avenir Next Regular" size: 15.0];
+    self.titleLabel.textColor = Colors.shared.text[@"primary"];
     [NSLayoutConstraint activateConstraints: @[
         [self.titleLabel.widthAnchor constraintEqualToConstant: self.columnWidth],
         [self.titleLabel.topAnchor constraintEqualToAnchor: self.topAnchor constant: 4],
@@ -56,6 +57,7 @@
     [self addSubview: self.valueLabel];
     self.valueLabel.translatesAutoresizingMaskIntoConstraints = NO;
     self.valueLabel.font = [UIFont fontWithName: @"Avenir Next Regular" size: 15.0];
+    self.valueLabel.textColor = Colors.shared.text[@"primary"];
     [NSLayoutConstraint activateConstraints: @[
         [self.titleLabel.widthAnchor constraintEqualToConstant: self.columnWidth],
         [self.valueLabel.topAnchor constraintEqualToAnchor: self.topAnchor constant: 4],

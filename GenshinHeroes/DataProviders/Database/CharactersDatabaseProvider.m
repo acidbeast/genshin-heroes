@@ -114,8 +114,8 @@
 }
 
 - (void) saveCharactersWith: (NSDictionary*) characters
-                  onSuccess: (void(^)(void)) onSuccess
-                    onError: (void(^)(NSError* error)) onError {
+                  onSuccess: (EmptyBlock) onSuccess
+                    onError: (BlockWithError) onError {
     NSError* saveError = nil;
     for (id object in characters) {
         [self createCharacterFrom: object];

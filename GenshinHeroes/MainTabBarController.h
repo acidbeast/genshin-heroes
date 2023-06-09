@@ -7,6 +7,7 @@
 
 #import <UIKit/UIKit.h>
 #import "UIColor+Hex.h"
+#import "Blocks.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

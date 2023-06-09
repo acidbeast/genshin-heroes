@@ -73,6 +73,7 @@
     configuration.scrollDirection = UICollectionViewScrollDirectionVertical;
     UICollectionLayoutListConfiguration* config = [[UICollectionLayoutListConfiguration alloc] initWithAppearance: UICollectionLayoutListAppearancePlain];
     config.showsSeparators = NO;
+    config.backgroundColor = Colors.shared.background[@"white"];
     UICollectionViewCompositionalLayout* layout = [UICollectionViewCompositionalLayout layoutWithListConfiguration: config];
     [layout setConfiguration: configuration];
     return layout;
@@ -80,6 +81,7 @@
 
 - (void) setupCollectionView {
     [self.view addSubview: self.collectionView];
+    self.collectionView.backgroundColor = Colors.shared.background[@"white"];
     self.collectionView.translatesAutoresizingMaskIntoConstraints = NO;
     [NSLayoutConstraint activateConstraints: @[
         [self.collectionView.topAnchor constraintEqualToAnchor: self.view.topAnchor],
