@@ -73,8 +73,9 @@
 
 #pragma mark - Characters
 
-- (NSArray*) getCharactersWithPredicate: (NSPredicate*) predicate {
-    // TODO: add callbacks
+- (void) getCharactersWithPredicate: (NSPredicate*) predicate
+                          onSuccess: (BlockWithCharactersList) successCallback
+                            onError: (BlockWithError) errorCallback {
     NSFetchRequest* request = [[NSFetchRequest alloc] init];
     NSEntityDescription* description = [NSEntityDescription entityForName: @"Character" inManagedObjectContext: self.persistentContainer.viewContext];
     [request setEntity: description];
@@ -83,26 +84,33 @@
     }
     NSError* requestError = nil;
     NSPersistentStoreResult* result = [self.persistentContainer.viewContext executeRequest: request error: &requestError];
-    if (requestError) {
-        // TODO: handle error;
-        NSLog(@"%@", requestError.localizedDescription);
+    if (requestError && errorCallback != nil) {
+        errorCallback(requestError);
+        return;
     }
     NSArray* characters = [result valueForKey: @"finalResult"];
-    return characters;
+    if (successCallback != nil) {
+        successCallback(characters);
+    }
 }
 
-- (NSArray*) getCharacters {
-    // TODO: callbacks
-    return [self getCharactersWithPredicate: nil];
+- (void) getCharactersWithSuccess: (BlockWithCharactersList) successCallback
+                          onError: (BlockWithError) errorCallback {
+    [self getCharactersWithPredicate: nil
+                           onSuccess: successCallback
+                             onError: errorCallback];
 }
 
 - (void) getCharacterWithName: (NSString*) name
                     onSuccess: (BlockWithCharacter) successCallback
                       onError: (BlockWithError) errorCallback {
     NSPredicate* predicate = [NSPredicate predicateWithFormat: @"name = %@", name];
-    if (successCallback != nil) {
-        successCallback([self getCharactersWithPredicate: predicate][0]);
-    }
+    // TODO: set limit to 1;
+    [self getCharactersWithPredicate: predicate onSuccess:^(NSArray *characters) {
+        if (successCallback != nil) {
+            successCallback(characters[0]);
+        }
+    } onError: errorCallback];
 }
 
 - (void) saveCharactersWith: (NSDictionary*) characters

@@ -17,15 +17,6 @@
 
 @implementation CharactersService
 
-+ (instancetype) shared {
-    static CharactersService* service = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        service = [[CharactersService alloc] init];
-    });
-    return service;
-}
-
 - (instancetype) initWithNetworkProvider: (id <CharactersNetworkProviderProtocol>) networkProvider
                         databaseProvider: (id <CharactersDatabaseProviderProtocol>) databaseProvider
                          settingsPrvider: (id <SettingsProviderProtocol>) settingsProvider {
@@ -46,14 +37,12 @@
             [self.databaseProvider saveCharactersWith: characters
                                             onSuccess: ^(void) {
                 [self setCacheExpirationDateNow];
-                NSArray* characters = [self.databaseProvider getCharacters];
-                successCallback(characters);
+                [self.databaseProvider getCharactersWithSuccess: successCallback onError: errorCallback];
             }
                                              onError: errorCallback];
         } onError: errorCallback];
     } else {
-        NSArray* characters = [self.databaseProvider getCharacters];
-        successCallback(characters);
+        [self.databaseProvider getCharactersWithSuccess: successCallback onError: errorCallback];
     }
 }
 
