@@ -28,11 +28,23 @@
 #pragma mark - Setup
 
 - (void) setup {
+    [self setupStyle];
+    [self setupAppearance];
+}
+
+- (void) setupStyle {
     self.view.backgroundColor = [UIColor colorWithHex: @"#ebeaef"];
     self.tabBar.translucent = NO;
     self.tabBar.tintColor = [UIColor blackColor];
-    self.tabBar.backgroundColor = [UIColor whiteColor];
-    self.tabBar.layer.cornerRadius = 16;
+//    self.tabBar.layer.cornerRadius = 16;
+}
+
+- (void) setupAppearance {
+    UITabBarAppearance* appearance = [[UITabBarAppearance alloc] init];
+    [appearance configureWithTransparentBackground];
+    appearance.backgroundColor = [UIColor whiteColor];
+    [self.tabBar setStandardAppearance: appearance];
+    [self.tabBar setScrollEdgeAppearance: appearance];
 }
 
 #pragma mark - Methods
