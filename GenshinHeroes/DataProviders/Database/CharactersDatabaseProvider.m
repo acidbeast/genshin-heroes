@@ -88,8 +88,8 @@
         errorCallback(requestError);
         return;
     }
-    NSArray* characters = [result valueForKey: @"finalResult"];
     if (successCallback != nil) {
+        NSArray* characters = [result valueForKey: @"finalResult"];
         successCallback(characters);
     }
 }

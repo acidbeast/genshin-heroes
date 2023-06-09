@@ -24,8 +24,8 @@
 }
 
 - (void) getFavoritesWithPredicate: (NSPredicate*) predicate
-                              onSuccess: (void(^)(NSArray* favorites)) successCallback
-                                onError: (BlockWithError) errorCallback {
+                         onSuccess: (void(^)(NSArray* favorites)) successCallback
+                           onError: (BlockWithError) errorCallback {
     NSFetchRequest* request = [[NSFetchRequest alloc] init];
     NSEntityDescription* description = [NSEntityDescription entityForName: @"Favorite" inManagedObjectContext: self.persistentContainer.viewContext];
     [request setEntity: description];
@@ -36,13 +36,15 @@
     NSPersistentStoreResult* result = [self.persistentContainer.viewContext executeRequest: request error: &requestError];
     if (requestError) {
         errorCallback(requestError);
-    } else {
+        return;
+    }
+    if (successCallback != nil) {
         NSArray* favorites = [result valueForKey: @"finalResult"];
         successCallback(favorites);
     }
 }
 
-- (void) getFavoritesWithSuccess: (void(^)(NSArray* characters)) successCallback
+- (void) getFavoritesWithSuccess: (BlockWithCharactersList) successCallback
                          onError: (BlockWithError) errorCallback {
     NSPredicate* predicate = [NSPredicate predicateWithFormat: @"isFavorite = YES"];
     [self getFavoritesWithPredicate: predicate onSuccess: successCallback onError: errorCallback];

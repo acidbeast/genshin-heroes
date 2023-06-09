@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol FavoritesDatabaseProviderProtocol
 
-- (void) getFavoritesWithSuccess: (void(^)(NSArray* characters)) successCallback
+- (void) getFavoritesWithSuccess: (BlockWithCharactersList) successCallback
                          onError: (BlockWithError) errorCallback;
 - (void) saveFavoriteFor: (Favorite*) favorite
                withValue: (BOOL) value
@@ -27,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface FavoritesDatabaseProvider : NSObject <FavoritesDatabaseProviderProtocol>
 
 - (instancetype) initWithPersistentContainer: (NSPersistentContainer*) persistentContainer;
-- (void) getFavoritesWithSuccess: (void(^)(NSArray* characters)) successCallback
+- (void) getFavoritesWithSuccess: (BlockWithCharactersList) successCallback
                          onError: (BlockWithError) errorCallback;
 - (void) saveFavoriteFor: (Favorite*) favorite
                withValue: (BOOL) value
