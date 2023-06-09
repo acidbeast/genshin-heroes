@@ -37,11 +37,11 @@
     }];
 }
 
-- (void) saveFavoriteFor: (NSString*) characterName
+- (void) saveFavoriteFor: (Favorite*) favorite
                withValue: (BOOL) value
                onSuccess: (EmptyBlock) onSuccess
                  onError: (BlockWithError) onError {
-    [self.favoritesService saveFavoriteFor: characterName
+    [self.favoritesService saveFavoriteFor: favorite
                                  withValue: value
                                  onSuccess: onSuccess
                                    onError: onError];

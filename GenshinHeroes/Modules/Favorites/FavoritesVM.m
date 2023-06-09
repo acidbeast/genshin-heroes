@@ -36,11 +36,11 @@ typedef void (^FetchFavoritesErrorBlock)(NSError* error);
     }];
 }
 
-- (void) saveFavoriteFor: (NSString*) characterName
+- (void) saveFavoriteFor: (Favorite*) favorite
             withValue: (BOOL) value
              onSuccess: (EmptyBlock) onSuccess
                onError: (BlockWithError) onError {
-    [self.service saveFavoriteFor: characterName
+    [self.service saveFavoriteFor: favorite
                      withValue: value
                      onSuccess: onSuccess
                        onError: onError];

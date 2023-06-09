@@ -48,25 +48,20 @@
     [self getFavoritesWithPredicate: predicate onSuccess: successCallback onError: errorCallback];
 }
 
-- (void) saveFavoriteFor: (NSString*) characterName
+- (void) saveFavoriteFor: (Favorite*) favorite
                withValue: (BOOL) value
                onSuccess: (EmptyBlock) onSuccess
                  onError: (BlockWithError) onError {
-    NSPredicate* predicate = [NSPredicate predicateWithFormat: @"character.name = %@", characterName];
-    [self getFavoritesWithPredicate: predicate onSuccess: ^(NSArray *favorites) {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            if (favorites.count > 0) {
-                [favorites[0] setIsFavorite: value];
-                NSError* error = nil;
-                [self.persistentContainer.viewContext save: nil];
-                if (error != nil && onError != nil) {
-                    onError(error);
-                } else if (onSuccess != nil) {
-                    onSuccess();
-                }
-            }
-        });
-    } onError: onError];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [favorite setIsFavorite: value];
+        NSError* error = nil;
+        [self.persistentContainer.viewContext save: nil];
+        if (error != nil && onError != nil) {
+            onError(error);
+        } else if (onSuccess != nil) {
+            onSuccess();
+        }
+    });
 }
 
 @end

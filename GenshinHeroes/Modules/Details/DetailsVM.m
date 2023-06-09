@@ -83,7 +83,7 @@
 - (void) saveFavoriteWithSuccess: (void(^)(BOOL newValue)) successCallback
                          onError: (BlockWithError) errorCallback {
     BOOL newValue = !self.hero.favorite.isFavorite;
-    [self.favoritesService saveFavoriteFor: self.heroName
+    [self.favoritesService saveFavoriteFor: self.hero.favorite
                                  withValue: newValue
                                  onSuccess:^{
         if (successCallback != nil) {

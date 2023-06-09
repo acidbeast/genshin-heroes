@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void) getFavoritesWithSuccess: (void(^)(NSArray* characters)) successCallback
                          onError: (BlockWithError) errorCallback;
-- (void) saveFavoriteFor: (NSString*) characterName
+- (void) saveFavoriteFor: (Favorite*) favorite
                withValue: (BOOL) value
                onSuccess: (EmptyBlock) onSuccess
                  onError: (BlockWithError) onError;
@@ -29,7 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype) initWithPersistentContainer: (NSPersistentContainer*) persistentContainer;
 - (void) getFavoritesWithSuccess: (void(^)(NSArray* characters)) successCallback
                          onError: (BlockWithError) errorCallback;
-- (void) saveFavoriteFor: (NSString*) characterName
+- (void) saveFavoriteFor: (Favorite*) favorite
                withValue: (BOOL) value
                onSuccess: (EmptyBlock) onSuccess
                  onError: (BlockWithError) onError;

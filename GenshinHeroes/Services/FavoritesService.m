@@ -30,11 +30,11 @@
     } onError: errorCallback];
 }
 
-- (void) saveFavoriteFor: (NSString*) characterName
+- (void) saveFavoriteFor: (Favorite*) favorite
                withValue: (BOOL) value
                onSuccess: (EmptyBlock) onSuccess
                  onError: (BlockWithError) onError {
-    [self.databaseProvider saveFavoriteFor: characterName
+    [self.databaseProvider saveFavoriteFor: favorite
                                  withValue: value
                                  onSuccess: (EmptyBlock) onSuccess
                                    onError: (BlockWithError) onError];

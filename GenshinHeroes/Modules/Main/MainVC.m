@@ -119,7 +119,7 @@
     __weak TwoColumnCollectionViewCell* weakCell = cell;
     cell.favoriteActionBlock = ^(BOOL value) {
         BOOL newValue = !value;
-        [weakSelf.viewModel saveFavoriteFor: character.name
+        [weakSelf.viewModel saveFavoriteFor: character.favorite
                                   withValue: newValue
                                   onSuccess: ^{
             dispatch_async(dispatch_get_main_queue(), ^{
