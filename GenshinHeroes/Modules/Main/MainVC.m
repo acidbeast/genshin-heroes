@@ -45,9 +45,14 @@
 #pragma mark - Setup
 
 - (void) setup {
+    [self setupStyle];
     [self setupNavigation];
     [self setupLoadingView];
     [self registerCells];
+}
+
+- (void) setupStyle {
+    self.view.backgroundColor = Colors.shared.background[@"primary"];
 }
 
 - (void) setupNavigation {
