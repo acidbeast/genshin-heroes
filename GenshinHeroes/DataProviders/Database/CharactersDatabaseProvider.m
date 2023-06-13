@@ -74,11 +74,15 @@
 #pragma mark - Characters
 
 - (void) getCharactersWithPredicate: (NSPredicate*) predicate
+                          batchSize: (NSInteger) batchSize
                           onSuccess: (BlockWithCharactersList) successCallback
                             onError: (BlockWithError) errorCallback {
     NSFetchRequest* request = [[NSFetchRequest alloc] init];
     NSEntityDescription* description = [NSEntityDescription entityForName: @"Character" inManagedObjectContext: self.persistentContainer.viewContext];
     [request setEntity: description];
+    if (batchSize > 0) {
+        [request setFetchBatchSize: batchSize];
+    }
     if (predicate != nil) {
         [request setPredicate: predicate];
     }
@@ -97,6 +101,7 @@
 - (void) getCharactersWithSuccess: (BlockWithCharactersList) successCallback
                           onError: (BlockWithError) errorCallback {
     [self getCharactersWithPredicate: nil
+                           batchSize: 0
                            onSuccess: successCallback
                              onError: errorCallback];
 }
@@ -105,8 +110,7 @@
                     onSuccess: (BlockWithCharacter) successCallback
                       onError: (BlockWithError) errorCallback {
     NSPredicate* predicate = [NSPredicate predicateWithFormat: @"name = %@", name];
-    // TODO: set limit to 1;
-    [self getCharactersWithPredicate: predicate onSuccess:^(NSArray *characters) {
+    [self getCharactersWithPredicate: predicate batchSize: 1 onSuccess: ^(NSArray *characters) {
         if (successCallback != nil) {
             successCallback(characters[0]);
         }
