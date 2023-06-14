@@ -28,6 +28,9 @@
 		7A82B64729EF223300A5EF93 /* MainVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A82B64629EF223300A5EF93 /* MainVM.m */; };
 		7A82B65429F062A100A5EF93 /* CharactersNetworkProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A82B65329F062A100A5EF93 /* CharactersNetworkProvider.m */; };
 		7A82B65729F2280200A5EF93 /* CharactersDatabaseProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A82B65629F2280200A5EF93 /* CharactersDatabaseProvider.m */; };
+		7AAE4A182A395C4C0097805A /* NotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AAE4A172A395C4C0097805A /* NotificationView.m */; };
+		7AAE4A1C2A395D970097805A /* NotificationVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AAE4A1B2A395D970097805A /* NotificationVM.m */; };
+		7AAE4A212A3967630097805A /* NotificationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AAE4A202A3967630097805A /* NotificationModel.m */; };
 		7AB0FF6A29F7079400F522BD /* LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB0FF6929F7079400F522BD /* LoadingView.m */; };
 		7AB0FF6E29F76E9E00F522BD /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB0FF6D29F76E9E00F522BD /* UIColor+Hex.m */; };
 		7AB0FF7429F84C3700F522BD /* IndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB0FF7329F84C3700F522BD /* IndicatorView.m */; };
@@ -110,6 +113,13 @@
 		7A82B65329F062A100A5EF93 /* CharactersNetworkProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CharactersNetworkProvider.m; sourceTree = "<group>"; };
 		7A82B65529F2280200A5EF93 /* CharactersDatabaseProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CharactersDatabaseProvider.h; sourceTree = "<group>"; };
 		7A82B65629F2280200A5EF93 /* CharactersDatabaseProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CharactersDatabaseProvider.m; sourceTree = "<group>"; };
+		7AAE4A162A395C4C0097805A /* NotificationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationView.h; sourceTree = "<group>"; };
+		7AAE4A172A395C4C0097805A /* NotificationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationView.m; sourceTree = "<group>"; };
+		7AAE4A1A2A395D970097805A /* NotificationVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationVM.h; sourceTree = "<group>"; };
+		7AAE4A1B2A395D970097805A /* NotificationVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationVM.m; sourceTree = "<group>"; };
+		7AAE4A1E2A395DCC0097805A /* NotificationType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationType.h; sourceTree = "<group>"; };
+		7AAE4A1F2A3967630097805A /* NotificationModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationModel.h; sourceTree = "<group>"; };
+		7AAE4A202A3967630097805A /* NotificationModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationModel.m; sourceTree = "<group>"; };
 		7AB0FF6829F7079400F522BD /* LoadingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoadingView.h; sourceTree = "<group>"; };
 		7AB0FF6929F7079400F522BD /* LoadingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoadingView.m; sourceTree = "<group>"; };
 		7AB0FF6C29F76E9E00F522BD /* UIColor+Hex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
@@ -188,6 +198,7 @@
 		7A28557429E9CD4E00EA680F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				7AAE4A192A395D790097805A /* Notification */,
 				7AB0FF7529F8BF9400F522BD /* Error */,
 				7A28557629E9CD7C00EA680F /* Favorites */,
 				7A28557729E9CD8400EA680F /* Details */,
@@ -356,6 +367,36 @@
 				7A75990829BC403500DDC42A /* GenshinHeroesUITestsLaunchTests.m */,
 			);
 			path = GenshinHeroesUITests;
+			sourceTree = "<group>";
+		};
+		7AAE4A152A395C290097805A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7AAE4A162A395C4C0097805A /* NotificationView.h */,
+				7AAE4A172A395C4C0097805A /* NotificationView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7AAE4A192A395D790097805A /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				7AAE4A1D2A395DB40097805A /* Model */,
+				7AAE4A152A395C290097805A /* Views */,
+				7AAE4A1A2A395D970097805A /* NotificationVM.h */,
+				7AAE4A1B2A395D970097805A /* NotificationVM.m */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
+		7AAE4A1D2A395DB40097805A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7AAE4A1E2A395DCC0097805A /* NotificationType.h */,
+				7AAE4A1F2A3967630097805A /* NotificationModel.h */,
+				7AAE4A202A3967630097805A /* NotificationModel.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		7AB0FF6B29F76E7000F522BD /* Extensions */ = {
@@ -627,6 +668,7 @@
 				7A7598E529BC403100DDC42A /* MainVC.m in Sources */,
 				7AB0FF7829F8BFC400F522BD /* ErrorVC.m in Sources */,
 				7ADC191D2A1C6621007A37F8 /* DetailsSection.m in Sources */,
+				7AAE4A212A3967630097805A /* NotificationModel.m in Sources */,
 				7ADC19392A2A5FCD007A37F8 /* CharactersService.m in Sources */,
 				7AD3C3212A01822800D937CB /* Colors.m in Sources */,
 				7ADC19422A2ECE4D007A37F8 /* DatabaseProvider.m in Sources */,
@@ -638,6 +680,7 @@
 				7ADC19272A1E14B8007A37F8 /* UICollectionViewCell+Identifier.m in Sources */,
 				7A4D8D7C29FAFC9800C05090 /* UIWindow+keyWindow.m in Sources */,
 				7A82B64729EF223300A5EF93 /* MainVM.m in Sources */,
+				7AAE4A1C2A395D970097805A /* NotificationVM.m in Sources */,
 				7ADC192A2A21339D007A37F8 /* DetailsRatingCollectionViewCell.m in Sources */,
 				7AB0FF6E29F76E9E00F522BD /* UIColor+Hex.m in Sources */,
 				7A28558229E9EB2600EA680F /* ModuleBuilder.m in Sources */,
@@ -646,6 +689,7 @@
 				7AD3C3282A04A3F200D937CB /* FavoritesVM.m in Sources */,
 				7A82B65429F062A100A5EF93 /* CharactersNetworkProvider.m in Sources */,
 				7ADC193F2A2ECCAF007A37F8 /* FavoritesDatabaseProvider.m in Sources */,
+				7AAE4A182A395C4C0097805A /* NotificationView.m in Sources */,
 				7A28557F29E9D07200EA680F /* MainRouter.m in Sources */,
 				7AB0FF6A29F7079400F522BD /* LoadingView.m in Sources */,
 				7A4D8D8929FB71DB00C05090 /* TwoColumnCollectionViewCell.m in Sources */,

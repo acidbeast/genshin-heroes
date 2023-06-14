@@ -34,13 +34,16 @@
     self.background = @{
         @"primary": [UIColor colorWithHex: @"#ebeaef"],
         @"white": [UIColor colorWithHex: @"#ffffff"],
+        @"error": [UIColor colorWithHex: @"#c40000"],
+        @"success": [UIColor colorWithHex: @"#00c400"]
     };
 }
 
 - (void) initTextColors {
     self.text = @{
         @"primary": [UIColor colorWithHex: @"#000000"],
-        @"error": [UIColor colorWithHex: @"#c40000"]
+        @"error": [UIColor colorWithHex: @"#c40000"],
+        @"white": [UIColor colorWithHex: @"#ffffff"]
     };
 }
 
