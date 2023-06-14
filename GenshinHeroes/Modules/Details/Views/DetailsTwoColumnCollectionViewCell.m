@@ -32,7 +32,7 @@
 - (void) initValues {
     self.titleLabel = [[UILabel alloc] init];
     self.valueLabel = [[UILabel alloc] init];
-    self.columnWidth = (self.frame.size.width / 2) - 8;
+    self.columnWidth = (self.frame.size.width / 2) - 16;
 }
 
 - (void) setup {
@@ -47,9 +47,9 @@
     self.titleLabel.textColor = Colors.shared.text[@"primary"];
     [NSLayoutConstraint activateConstraints: @[
         [self.titleLabel.widthAnchor constraintEqualToConstant: self.columnWidth],
-        [self.titleLabel.topAnchor constraintEqualToAnchor: self.topAnchor constant: 4],
-        [self.titleLabel.bottomAnchor constraintEqualToAnchor: self.bottomAnchor constant: -4],
-        [self.titleLabel.leadingAnchor constraintEqualToAnchor: self.leadingAnchor constant: 4]
+        [self.titleLabel.topAnchor constraintEqualToAnchor: self.topAnchor constant: 8],
+        [self.titleLabel.bottomAnchor constraintEqualToAnchor: self.bottomAnchor constant: -8],
+        [self.titleLabel.leadingAnchor constraintEqualToAnchor: self.leadingAnchor constant: 8]
     ]];
 }
 
@@ -60,9 +60,9 @@
     self.valueLabel.textColor = Colors.shared.text[@"primary"];
     [NSLayoutConstraint activateConstraints: @[
         [self.titleLabel.widthAnchor constraintEqualToConstant: self.columnWidth],
-        [self.valueLabel.topAnchor constraintEqualToAnchor: self.topAnchor constant: 4],
-        [self.valueLabel.bottomAnchor constraintEqualToAnchor: self.bottomAnchor constant: -4],
-        [self.valueLabel.trailingAnchor constraintEqualToAnchor: self.trailingAnchor constant: -4]
+        [self.valueLabel.topAnchor constraintEqualToAnchor: self.topAnchor constant: 8],
+        [self.valueLabel.bottomAnchor constraintEqualToAnchor: self.bottomAnchor constant: -8],
+        [self.valueLabel.trailingAnchor constraintEqualToAnchor: self.trailingAnchor constant: -8]
     ]];
 }
 
@@ -73,6 +73,8 @@
     self.valueLabel.text = section.value;
     if (section.background) {
         self.backgroundColor = Colors.shared.background[@"primary"];
+        self.layer.masksToBounds = YES;
+        self.layer.cornerRadius = 4;
     }
 }
 
