@@ -54,7 +54,7 @@
         [self.imageView.widthAnchor constraintEqualToConstant: 200],
         [self.imageView.heightAnchor constraintEqualToConstant: 200],
         [self.imageView.centerXAnchor constraintEqualToAnchor: self.centerXAnchor],
-        [self.imageView.centerYAnchor constraintEqualToAnchor: self.centerYAnchor constant: 40]
+        [self.imageView.centerYAnchor constraintEqualToAnchor: self.centerYAnchor constant: -40]
     ]];
 }
 
