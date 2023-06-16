@@ -11,6 +11,7 @@
 #import "TwoColumnCollectionVC.h"
 #import "LoadingView.h"
 #import "UICollectionViewCell+Identifier.h"
+#import "UIViewController+Notification.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
