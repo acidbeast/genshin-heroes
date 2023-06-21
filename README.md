@@ -3,6 +3,7 @@
 Still in progress...
 
 This app consumes public Genshin Impact API at https://api.genshin.dev and displays: 
+
 - List of heroes.
 - List of heroes added to favorites.
 - Hero details.
@@ -20,4 +21,4 @@ This app consumes public Genshin Impact API at https://api.genshin.dev and displ
 - MVVM+Router
 - Dependency Injection
 
-
+App icon borrowed from wonderful Yoolk ninja at https://yoolk.ninja/iconset/flat-osx/.
