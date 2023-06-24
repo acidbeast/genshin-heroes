@@ -9,6 +9,7 @@
 #import "Character+CoreDataClass.h"
 #import "Favorite+CoreDataClass.h"
 #import "FavoritesService.h"
+#import "NotificationsService.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -26,12 +27,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) NSArray* favorites;
 @property (weak, nonatomic) id <FavoritesVMDelegateProtocol> delegate;
 
-- (instancetype) initWithFavoritesService: (id <FavoritesServiceProtocol>) favoritesService;
+- (instancetype) initWithFavoritesService: (id <FavoritesServiceProtocol>) favoritesService
+                     notificationsService: (id <NotificationsServiceProtocol>) notificationService;
 - (void) getFavorites;
 - (void) saveFavoriteFor: (Favorite*) favorite
                withValue: (BOOL) value
                onSuccess: (EmptyBlock) onSuccess
-                 onError: (BlockWithError) onError;
+                 onError: (BlockWithError _Nullable) onError;
 
 @end
 

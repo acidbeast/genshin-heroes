@@ -20,7 +20,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) UIColor* textColor;
 @property (strong, nonatomic) NSString* title;
 @property (strong, nonatomic) NSString* text;
+@property (strong, nonatomic) NSString* iconName;
+@property (assign, nonatomic) NotificationType type;
 @property (copy, nonatomic) EmptyBlock action;
+
+- (instancetype) initWithType: (NotificationType) type
+                        model: (NotificationModel*) model;
 
 @end
 

@@ -11,19 +11,22 @@
 
 @property (weak, nonatomic) id <CharactersServiceProtocol> charactersService;
 @property (weak, nonatomic) id <FavoritesServiceProtocol> favoritesService;
+@property (weak, nonatomic) id <NotificationsServiceProtocol> notificationsService;
 
 @end
 
 @implementation DetailsVM
 
 - (instancetype) initWithHeroName: (NSString*) heroName
-                  charactersService: (id <CharactersServiceProtocol>) charactersService
-                  favoritesService: (id <FavoritesServiceProtocol>) favoritesService {
+                charactersService: (id <CharactersServiceProtocol>) charactersService
+                 favoritesService: (id <FavoritesServiceProtocol>) favoritesService
+             notificationsService: (id <NotificationsServiceProtocol>) notificationsService {
     self = [super init];
     if (self) {
         self.heroName = heroName;
         self.charactersService = charactersService;
         self.favoritesService = favoritesService;
+        self.notificationsService = notificationsService;
         self.sections = [[NSMutableArray alloc] init];
     }
     return self;
@@ -32,12 +35,12 @@
 - (void) getHeroDetails {
     __weak DetailsVM* weakSelf = self;
     [self.charactersService getCharacterWithName: self.heroName
-                                                   onSuccess: ^(Character* character) {
+                                       onSuccess: ^(Character* character) {
         weakSelf.hero = character;
         [self createSectionsWith: weakSelf.hero];
     }
-                                                     onError:^(NSError *error) {
-        // TODO: show error;
+                                         onError:^(NSError *error) {
+        // TODO: run delegate method;
     }];
 }
 
@@ -81,8 +84,9 @@
 }
 
 - (void) saveFavoriteWithSuccess: (void(^)(BOOL newValue)) successCallback
-                         onError: (BlockWithError) errorCallback {
+                         onError: (BlockWithError _Nullable) errorCallback {
     BOOL newValue = !self.hero.favorite.isFavorite;
+    __weak DetailsVM* weakSelf = self;
     [self.favoritesService saveFavoriteFor: self.hero.favorite
                                  withValue: newValue
                                  onSuccess:^{
@@ -90,7 +94,12 @@
             successCallback(newValue);
         }
     }
-                                   onError: errorCallback];
+                                   onError: ^(NSError* error) {
+        [weakSelf.notificationsService showNotificationWithTitle: @"Network error" text: error.localizedDescription type: NotificationTypeError action: nil];
+        if (errorCallback != nil) {
+            errorCallback(error);
+        }
+    }];
 }
 
 @end

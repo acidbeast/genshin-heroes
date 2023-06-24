@@ -132,9 +132,7 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 [weakCell toggleFavorite: newValue];
             });
-        } onError:^(NSError *error) {
-            // TODO: show notification overlay with error;
-        }];
+        } onError: nil];
     }];
     return cell;
 }

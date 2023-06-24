@@ -12,6 +12,7 @@
 
 @property (strong, nonatomic) id <CharactersServiceProtocol> charactersService;
 @property (strong, nonatomic) id <FavoritesServiceProtocol> favoritesService;
+@property (strong, nonatomic) id <NotificationsServiceProtocol> notifiactionsService;
 
 @property (strong, nonatomic) id <CharactersNetworkProviderProtocol> charactersNetworkProvider;
 @property (strong, nonatomic) id <DatabaseProviderProtocol> databaseProvider;
@@ -39,6 +40,7 @@
         self.favoritesDatabaseProvider = [[FavoritesDatabaseProvider alloc] initWithPersistentContainer: [[DatabaseProvider shared] persistentContainer]];
         self.charactersService = [[CharactersService alloc] initWithNetworkProvider: self.charactersNetworkProvider databaseProvider: self.charactersDatabaseProvider settingsPrvider: [SettingsProvider shared]];
         self.favoritesService = [[FavoritesService alloc] initWithDatabaseProvider: self.favoritesDatabaseProvider];
+        self.notifiactionsService = [[NotificationsService alloc] init];
     });
 }
 
@@ -64,14 +66,17 @@
 }
 
 - (UIViewController*) createMainModuleWithRouter: (MainRouter*) router {
-    MainVM* viewModel = [[MainVM alloc] initWithCharactersService: self.charactersService favoritesService: self.favoritesService];
+    MainVM* viewModel = [[MainVM alloc] initWithCharactersService: self.charactersService
+                                                 favoritesService: self.favoritesService
+                                             notificationsService: self.notifiactionsService
+    ];
     MainVC* vc = [[MainVC alloc] initWithViewModel: viewModel];
     vc.router = router;
     return vc;
 }
 
 - (UIViewController*) createFavoritesModuleWithRouter: (MainRouter*) router {
-    FavoritesVM* viewModel = [[FavoritesVM alloc] initWithFavoritesService: self.favoritesService];
+    FavoritesVM* viewModel = [[FavoritesVM alloc] initWithFavoritesService: self.favoritesService notificationsService: self.notifiactionsService];
     FavoritesVC* vc = [[FavoritesVC alloc] initWithViewModel: viewModel];
     vc.router = router;
     return vc;
@@ -91,7 +96,11 @@
 
 - (UIViewController*) createHeroDetailsModuleWithRouter: (MainRouter*) router
                                                heroName: (NSString*) heroName {
-    DetailsVM* viewModel = [[DetailsVM alloc] initWithHeroName: heroName charactersService: self.charactersService favoritesService: self.favoritesService];
+    DetailsVM* viewModel = [[DetailsVM alloc] initWithHeroName: heroName
+                                             charactersService: self.charactersService
+                                              favoritesService: self.favoritesService
+                                          notificationsService: self.notifiactionsService
+    ];
     DetailsVC* vc = [[DetailsVC alloc] initWithViewModel: viewModel];
     vc.router = router;
     return vc;

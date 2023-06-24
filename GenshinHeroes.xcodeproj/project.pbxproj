@@ -31,8 +31,7 @@
 		7AAE4A182A395C4C0097805A /* NotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AAE4A172A395C4C0097805A /* NotificationView.m */; };
 		7AAE4A1C2A395D970097805A /* NotificationVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AAE4A1B2A395D970097805A /* NotificationVM.m */; };
 		7AAE4A212A3967630097805A /* NotificationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AAE4A202A3967630097805A /* NotificationModel.m */; };
-		7AAE4A262A3BF7C60097805A /* UIViewController+Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AAE4A252A3BF7C60097805A /* UIViewController+Notification.m */; };
-		7AAE4A292A3BF9640097805A /* NotificationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AAE4A282A3BF9640097805A /* NotificationService.m */; };
+		7AAE4A292A3BF9640097805A /* NotificationsService.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AAE4A282A3BF9640097805A /* NotificationsService.m */; };
 		7AB0FF6A29F7079400F522BD /* LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB0FF6929F7079400F522BD /* LoadingView.m */; };
 		7AB0FF6E29F76E9E00F522BD /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB0FF6D29F76E9E00F522BD /* UIColor+Hex.m */; };
 		7AB0FF7429F84C3700F522BD /* IndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB0FF7329F84C3700F522BD /* IndicatorView.m */; };
@@ -122,10 +121,8 @@
 		7AAE4A1E2A395DCC0097805A /* NotificationType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationType.h; sourceTree = "<group>"; };
 		7AAE4A1F2A3967630097805A /* NotificationModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationModel.h; sourceTree = "<group>"; };
 		7AAE4A202A3967630097805A /* NotificationModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationModel.m; sourceTree = "<group>"; };
-		7AAE4A242A3BF7C60097805A /* UIViewController+Notification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Notification.h"; sourceTree = "<group>"; };
-		7AAE4A252A3BF7C60097805A /* UIViewController+Notification.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Notification.m"; sourceTree = "<group>"; };
-		7AAE4A272A3BF9640097805A /* NotificationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationService.h; sourceTree = "<group>"; };
-		7AAE4A282A3BF9640097805A /* NotificationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationService.m; sourceTree = "<group>"; };
+		7AAE4A272A3BF9640097805A /* NotificationsService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationsService.h; sourceTree = "<group>"; };
+		7AAE4A282A3BF9640097805A /* NotificationsService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationsService.m; sourceTree = "<group>"; };
 		7AB0FF6829F7079400F522BD /* LoadingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoadingView.h; sourceTree = "<group>"; };
 		7AB0FF6929F7079400F522BD /* LoadingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoadingView.m; sourceTree = "<group>"; };
 		7AB0FF6C29F76E9E00F522BD /* UIColor+Hex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
@@ -268,8 +265,8 @@
 				7ADC19382A2A5FCD007A37F8 /* CharactersService.m */,
 				7ADC193A2A2ECC45007A37F8 /* FavoritesService.h */,
 				7ADC193B2A2ECC45007A37F8 /* FavoritesService.m */,
-				7AAE4A272A3BF9640097805A /* NotificationService.h */,
-				7AAE4A282A3BF9640097805A /* NotificationService.m */,
+				7AAE4A272A3BF9640097805A /* NotificationsService.h */,
+				7AAE4A282A3BF9640097805A /* NotificationsService.m */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -416,8 +413,6 @@
 				7A4D8D7B29FAFC9800C05090 /* UIWindow+keyWindow.m */,
 				7ADC19252A1E14B8007A37F8 /* UICollectionViewCell+Identifier.h */,
 				7ADC19262A1E14B8007A37F8 /* UICollectionViewCell+Identifier.m */,
-				7AAE4A242A3BF7C60097805A /* UIViewController+Notification.h */,
-				7AAE4A252A3BF7C60097805A /* UIViewController+Notification.m */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -677,7 +672,6 @@
 				7A82B64429EE3E4600A5EF93 /* SettingsProvider.m in Sources */,
 				7A7598E529BC403100DDC42A /* MainVC.m in Sources */,
 				7AB0FF7829F8BFC400F522BD /* ErrorVC.m in Sources */,
-				7AAE4A262A3BF7C60097805A /* UIViewController+Notification.m in Sources */,
 				7ADC191D2A1C6621007A37F8 /* DetailsSection.m in Sources */,
 				7AAE4A212A3967630097805A /* NotificationModel.m in Sources */,
 				7ADC19392A2A5FCD007A37F8 /* CharactersService.m in Sources */,
@@ -702,7 +696,7 @@
 				7ADC193F2A2ECCAF007A37F8 /* FavoritesDatabaseProvider.m in Sources */,
 				7AAE4A182A395C4C0097805A /* NotificationView.m in Sources */,
 				7A28557F29E9D07200EA680F /* MainRouter.m in Sources */,
-				7AAE4A292A3BF9640097805A /* NotificationService.m in Sources */,
+				7AAE4A292A3BF9640097805A /* NotificationsService.m in Sources */,
 				7AB0FF6A29F7079400F522BD /* LoadingView.m in Sources */,
 				7A4D8D8929FB71DB00C05090 /* TwoColumnCollectionViewCell.m in Sources */,
 				7A82B65729F2280200A5EF93 /* CharactersDatabaseProvider.m in Sources */,

@@ -8,6 +8,7 @@
 #import <Foundation/Foundation.h>
 #import "CharactersService.h"
 #import "FavoritesService.h"
+#import "NotificationsService.h"
 #import "Character+CoreDataClass.h"
 #import "Favorite+CoreDataClass.h"
 #import "Blocks.h"
@@ -31,12 +32,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) id <MainVMDelegateProtocol> delegate;
 
 - (instancetype) initWithCharactersService: (id <CharactersServiceProtocol>) charactersService
-                          favoritesService: (id <FavoritesServiceProtocol>) favoritesService;
+                          favoritesService: (id <FavoritesServiceProtocol>) favoritesService
+                      notificationsService: (id <NotificationsServiceProtocol>) notificationsService;
 - (void) fetchCharacters;
 - (void) saveFavoriteFor: (Favorite*) favorite
                withValue: (BOOL) value
                onSuccess: (EmptyBlock) onSuccess
-                 onError: (BlockWithError) onError;
+                 onError: (BlockWithError _Nullable) onError;
 
 @end
 

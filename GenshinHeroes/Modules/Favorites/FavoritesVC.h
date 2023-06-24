@@ -11,7 +11,6 @@
 #import "TwoColumnCollectionVC.h"
 #import "LoadingView.h"
 #import "UICollectionViewCell+Identifier.h"
-#import "UIViewController+Notification.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -19,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FavoritesVC : TwoColumnCollectionVC <FavoritesVMDelegateProtocol, UICollectionViewDelegate, UICollectionViewDataSource>
 
-@property (strong, nonatomic) MainRouter* router;
+@property (strong, nonatomic) MainRouter* _Nullable router;
 @property (strong, nonatomic) FavoritesVM* viewModel;
 
 - (instancetype) initWithViewModel: (FavoritesVM*) viewModel;

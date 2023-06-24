@@ -131,9 +131,7 @@
                 [weakCell setFavoriteWithValue: newValue];
             });
         }
-                                    onError: ^(NSError *error) {
-            // TODO: Show error notification with error over content
-            }
+                                    onError: nil
         ];
     };
     [cell updateWithCharacter: character];

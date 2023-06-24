@@ -89,9 +89,6 @@
 }
 
 - (void) onFetchFavoritesSuccess {
-    [[NotificationService shared] showNotificationWithTitle: @"Test 1" text: @"Test 1" action: ^{
-        NSLog(@"Test 111");
-    }];
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.loadingView removeFromSuperview];
         if ([self.viewModel.favorites count] == 0) {
@@ -132,9 +129,7 @@
                 [self.collectionView reloadData];
             });
         }
-                                  onError:^(NSError *error) {
-        // TODO: Show error notification with error over content
-        }
+                                  onError: nil
         ];
     };
     [cell updateWithCharacter: character];

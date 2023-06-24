@@ -11,6 +11,7 @@
 typedef enum {
     NotificationTypeSuccess,
     NotificationTypeError,
+    NotificationTypeWarning,
     NotificationTypeInfo
 } NotificationType;
 

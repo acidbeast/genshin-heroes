@@ -11,16 +11,19 @@ typedef void (^FetchFavoritesErrorBlock)(NSError* error);
 
 @interface FavoritesVM ()
 
-@property (strong, nonatomic) id <FavoritesServiceProtocol> service;
+@property (strong, nonatomic) id <FavoritesServiceProtocol> favoritesService;
+@property (strong, nonatomic) id <NotificationsServiceProtocol> notificationsService;
 
 @end
 
 @implementation FavoritesVM
 
-- (instancetype) initWithFavoritesService: (id <FavoritesServiceProtocol>) favoritesService {
+- (instancetype) initWithFavoritesService: (id <FavoritesServiceProtocol>) favoritesService
+                     notificationsService: (id <NotificationsServiceProtocol>) notificationService {
     self = [super init];
     if (self) {
-        self.service = favoritesService;
+        self.favoritesService = favoritesService;
+        self.notificationsService = notificationService;
     }
     return self;
 }
@@ -28,22 +31,29 @@ typedef void (^FetchFavoritesErrorBlock)(NSError* error);
 - (void) getFavorites {
     __weak FavoritesVM* weakSelf = self;
     [self.delegate onFetchFavoritesLoading];
-    [self.service getFavorites: ^(NSArray * _Nonnull characters) {
+    [self.favoritesService getFavorites: ^(NSArray * _Nonnull characters) {
         self.favorites = characters;
         [weakSelf.delegate onFetchFavoritesSuccess];
     } onError: ^(NSError *error) {
         [weakSelf.delegate onFetchFavoritesError: error];
+        [weakSelf.notificationsService showNotificationWithTitle: @"Network error" text: error.localizedDescription type: NotificationTypeError action: nil];
     }];
 }
 
 - (void) saveFavoriteFor: (Favorite*) favorite
             withValue: (BOOL) value
              onSuccess: (EmptyBlock) onSuccess
-               onError: (BlockWithError) onError {
-    [self.service saveFavoriteFor: favorite
+               onError: (BlockWithError _Nullable) onError {
+    __weak FavoritesVM* weakSelf = self;
+    [self.favoritesService saveFavoriteFor: favorite
                      withValue: value
                      onSuccess: onSuccess
-                       onError: onError];
+                       onError: ^(NSError* error) {
+        [weakSelf.notificationsService showNotificationWithTitle: @"Network error" text: error.localizedDescription type: NotificationTypeError action: nil];
+        if (onError != nil) {
+            onError(error);
+        }
+    }];
 }
 
 @end

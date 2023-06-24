@@ -11,17 +11,20 @@
 
 @property (strong, nonatomic) id <CharactersServiceProtocol> charactersService;
 @property (strong, nonatomic) id <FavoritesServiceProtocol> favoritesService;
+@property (strong, nonatomic) id <NotificationsServiceProtocol> notificationsService;
 
 @end
 
 @implementation MainVM
 
 - (instancetype) initWithCharactersService: (id <CharactersServiceProtocol>) charactersService
-                          favoritesService: (id <FavoritesServiceProtocol>) favoritesService {
+                          favoritesService: (id <FavoritesServiceProtocol>) favoritesService
+                      notificationsService: (id <NotificationsServiceProtocol>) notificationsService {
     self = [super init];
     if (self) {
         self.charactersService = charactersService;
         self.favoritesService = favoritesService;
+        self.notificationsService = notificationsService;
     }
     return self;
 }
@@ -40,11 +43,17 @@
 - (void) saveFavoriteFor: (Favorite*) favorite
                withValue: (BOOL) value
                onSuccess: (EmptyBlock) onSuccess
-                 onError: (BlockWithError) onError {
+                 onError: (BlockWithError _Nullable) onError {
+    __weak MainVM* weakSelf = self;
     [self.favoritesService saveFavoriteFor: favorite
                                  withValue: value
                                  onSuccess: onSuccess
-                                   onError: onError];
+                                   onError: ^(NSError* error) {
+        [weakSelf.notificationsService showNotificationWithTitle: @"Network error" text: error.localizedDescription type: NotificationTypeError action: nil];
+        if (onError != nil) {
+            onError(error);
+        }
+    }];
 }
 
 @end
